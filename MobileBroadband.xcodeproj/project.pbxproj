@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA008DA6151CC69A001FD906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA5151CC69A001FD906 /* UIKit.framework */; };
+		AA008DA8151CC69A001FD906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA7151CC69A001FD906 /* Foundation.framework */; };
+		AA008DAA151CC69A001FD906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA9151CC69A001FD906 /* CoreGraphics.framework */; };
+		AA008DB0151CC69B001FD906 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA008DAE151CC69B001FD906 /* InfoPlist.strings */; };
+		AA008DB2151CC69B001FD906 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB1151CC69B001FD906 /* main.m */; };
+		AA008DB6151CC69B001FD906 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB5151CC69B001FD906 /* PSAppDelegate.m */; };
+		AA008DB9151CC69B001FD906 /* PSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB8151CC69B001FD906 /* PSMasterViewController.m */; };
+		AA008DBC151CC69B001FD906 /* PSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DBB151CC69B001FD906 /* PSDetailViewController.m */; };
+		AA008DBF151CC69B001FD906 /* PSMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA008DBD151CC69B001FD906 /* PSMasterViewController_iPhone.xib */; };
+		AA008DC2151CC69B001FD906 /* PSMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA008DC0151CC69B001FD906 /* PSMasterViewController_iPad.xib */; };
+		AA008DC5151CC69B001FD906 /* PSDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA008DC3151CC69B001FD906 /* PSDetailViewController_iPhone.xib */; };
+		AA008DC8151CC69B001FD906 /* PSDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA008DC6151CC69B001FD906 /* PSDetailViewController_iPad.xib */; };
+		AA008DD0151CC69B001FD906 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DCF151CC69B001FD906 /* SenTestingKit.framework */; };
+		AA008DD1151CC69B001FD906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA5151CC69A001FD906 /* UIKit.framework */; };
+		AA008DD2151CC69B001FD906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA7151CC69A001FD906 /* Foundation.framework */; };
+		AA008DDA151CC69B001FD906 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA008DD8151CC69B001FD906 /* InfoPlist.strings */; };
+		AA008DDD151CC69B001FD906 /* MobileBroadbandTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA008DD3151CC69B001FD906 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA008D98151CC69A001FD906 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA008DA0151CC69A001FD906;
+			remoteInfo = MobileBroadband;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA008DA1151CC69A001FD906 /* MobileBroadband.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileBroadband.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA008DA5151CC69A001FD906 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AA008DA7151CC69A001FD906 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AA008DA9151CC69A001FD906 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AA008DAD151CC69B001FD906 /* MobileBroadband-Info.plist */ = {isa = PBXFileReference; path = "MobileBroadband-Info.plist"; sourceTree = "<group>"; };
+		AA008DAF151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AA008DB1151CC69B001FD906 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AA008DB3151CC69B001FD906 /* MobileBroadband-Prefix.pch */ = {isa = PBXFileReference; path = "MobileBroadband-Prefix.pch"; sourceTree = "<group>"; };
+		AA008DB4151CC69B001FD906 /* PSAppDelegate.h */ = {isa = PBXFileReference; path = PSAppDelegate.h; sourceTree = "<group>"; };
+		AA008DB5151CC69B001FD906 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
+		AA008DB7151CC69B001FD906 /* PSMasterViewController.h */ = {isa = PBXFileReference; path = PSMasterViewController.h; sourceTree = "<group>"; };
+		AA008DB8151CC69B001FD906 /* PSMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMasterViewController.m; sourceTree = "<group>"; };
+		AA008DBA151CC69B001FD906 /* PSDetailViewController.h */ = {isa = PBXFileReference; path = PSDetailViewController.h; sourceTree = "<group>"; };
+		AA008DBB151CC69B001FD906 /* PSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSDetailViewController.m; sourceTree = "<group>"; };
+		AA008DBE151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSMasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		AA008DC1151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSMasterViewController_iPad.xib; sourceTree = "<group>"; };
+		AA008DC4151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		AA008DC7151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSDetailViewController_iPad.xib; sourceTree = "<group>"; };
+		AA008DCE151CC69B001FD906 /* MobileBroadbandTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileBroadbandTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA008DCF151CC69B001FD906 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AA008DD7151CC69B001FD906 /* MobileBroadbandTests-Info.plist */ = {isa = PBXFileReference; path = "MobileBroadbandTests-Info.plist"; sourceTree = "<group>"; };
+		AA008DD9151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AA008DDB151CC69B001FD906 /* MobileBroadbandTests.h */ = {isa = PBXFileReference; path = MobileBroadbandTests.h; sourceTree = "<group>"; };
+		AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileBroadbandTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA008D9E151CC69A001FD906 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA008DA6151CC69A001FD906 /* UIKit.framework in Frameworks */,
+				AA008DA8151CC69A001FD906 /* Foundation.framework in Frameworks */,
+				AA008DAA151CC69A001FD906 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA008DCA151CC69B001FD906 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA008DD0151CC69B001FD906 /* SenTestingKit.framework in Frameworks */,
+				AA008DD1151CC69B001FD906 /* UIKit.framework in Frameworks */,
+				AA008DD2151CC69B001FD906 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA008D96151CC69A001FD906 = {
+			isa = PBXGroup;
+			children = (
+				AA008DAB151CC69B001FD906 /* MobileBroadband */,
+				AA008DD5151CC69B001FD906 /* MobileBroadbandTests */,
+				AA008DA4151CC69A001FD906 /* Frameworks */,
+				AA008DA2151CC69A001FD906 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA008DA2151CC69A001FD906 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA008DA1151CC69A001FD906 /* MobileBroadband.app */,
+				AA008DCE151CC69B001FD906 /* MobileBroadbandTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA008DA4151CC69A001FD906 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA008DA5151CC69A001FD906 /* UIKit.framework */,
+				AA008DA7151CC69A001FD906 /* Foundation.framework */,
+				AA008DA9151CC69A001FD906 /* CoreGraphics.framework */,
+				AA008DCF151CC69B001FD906 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA008DAB151CC69B001FD906 /* MobileBroadband */ = {
+			isa = PBXGroup;
+			children = (
+				AA008DB4151CC69B001FD906 /* PSAppDelegate.h */,
+				AA008DB5151CC69B001FD906 /* PSAppDelegate.m */,
+				AA008DB7151CC69B001FD906 /* PSMasterViewController.h */,
+				AA008DB8151CC69B001FD906 /* PSMasterViewController.m */,
+				AA008DBA151CC69B001FD906 /* PSDetailViewController.h */,
+				AA008DBB151CC69B001FD906 /* PSDetailViewController.m */,
+				AA008DBD151CC69B001FD906 /* PSMasterViewController_iPhone.xib */,
+				AA008DC0151CC69B001FD906 /* PSMasterViewController_iPad.xib */,
+				AA008DC3151CC69B001FD906 /* PSDetailViewController_iPhone.xib */,
+				AA008DC6151CC69B001FD906 /* PSDetailViewController_iPad.xib */,
+				AA008DAC151CC69B001FD906 /* Supporting Files */,
+			);
+			path = MobileBroadband;
+			sourceTree = "<group>";
+		};
+		AA008DAC151CC69B001FD906 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA008DAD151CC69B001FD906 /* MobileBroadband-Info.plist */,
+				AA008DAE151CC69B001FD906 /* InfoPlist.strings */,
+				AA008DB1151CC69B001FD906 /* main.m */,
+				AA008DB3151CC69B001FD906 /* MobileBroadband-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA008DD5151CC69B001FD906 /* MobileBroadbandTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA008DDB151CC69B001FD906 /* MobileBroadbandTests.h */,
+				AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */,
+				AA008DD6151CC69B001FD906 /* Supporting Files */,
+			);
+			path = MobileBroadbandTests;
+			sourceTree = "<group>";
+		};
+		AA008DD6151CC69B001FD906 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA008DD7151CC69B001FD906 /* MobileBroadbandTests-Info.plist */,
+				AA008DD8151CC69B001FD906 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA008DA0151CC69A001FD906 /* MobileBroadband */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA008DE0151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileBroadband" */;
+			buildPhases = (
+				AA008D9D151CC69A001FD906 /* Sources */,
+				AA008D9E151CC69A001FD906 /* Frameworks */,
+				AA008D9F151CC69A001FD906 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobileBroadband;
+			productName = MobileBroadband;
+			productReference = AA008DA1151CC69A001FD906 /* MobileBroadband.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA008DCD151CC69B001FD906 /* MobileBroadbandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA008DE3151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileBroadbandTests" */;
+			buildPhases = (
+				AA008DC9151CC69B001FD906 /* Sources */,
+				AA008DCA151CC69B001FD906 /* Frameworks */,
+				AA008DCB151CC69B001FD906 /* Resources */,
+				AA008DCC151CC69B001FD906 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA008DD4151CC69B001FD906 /* PBXTargetDependency */,
+			);
+			name = MobileBroadbandTests;
+			productName = MobileBroadbandTests;
+			productReference = AA008DCE151CC69B001FD906 /* MobileBroadbandTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA008D98151CC69A001FD906 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PS;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = AA008D9B151CC69A001FD906 /* Build configuration list for PBXProject "MobileBroadband" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AA008D96151CC69A001FD906;
+			productRefGroup = AA008DA2151CC69A001FD906 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA008DA0151CC69A001FD906 /* MobileBroadband */,
+				AA008DCD151CC69B001FD906 /* MobileBroadbandTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA008D9F151CC69A001FD906 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA008DB0151CC69B001FD906 /* InfoPlist.strings in Resources */,
+				AA008DBF151CC69B001FD906 /* PSMasterViewController_iPhone.xib in Resources */,
+				AA008DC2151CC69B001FD906 /* PSMasterViewController_iPad.xib in Resources */,
+				AA008DC5151CC69B001FD906 /* PSDetailViewController_iPhone.xib in Resources */,
+				AA008DC8151CC69B001FD906 /* PSDetailViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA008DCB151CC69B001FD906 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA008DDA151CC69B001FD906 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA008DCC151CC69B001FD906 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA008D9D151CC69A001FD906 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA008DB2151CC69B001FD906 /* main.m in Sources */,
+				AA008DB6151CC69B001FD906 /* PSAppDelegate.m in Sources */,
+				AA008DB9151CC69B001FD906 /* PSMasterViewController.m in Sources */,
+				AA008DBC151CC69B001FD906 /* PSDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA008DC9151CC69B001FD906 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA008DDD151CC69B001FD906 /* MobileBroadbandTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA008DD4151CC69B001FD906 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA008DA0151CC69A001FD906 /* MobileBroadband */;
+			targetProxy = AA008DD3151CC69B001FD906 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA008DAE151CC69B001FD906 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA008DAF151CC69B001FD906 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AA008DBD151CC69B001FD906 /* PSMasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA008DBE151CC69B001FD906 /* en */,
+			);
+			name = PSMasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		AA008DC0151CC69B001FD906 /* PSMasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA008DC1151CC69B001FD906 /* en */,
+			);
+			name = PSMasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		AA008DC3151CC69B001FD906 /* PSDetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA008DC4151CC69B001FD906 /* en */,
+			);
+			name = PSDetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		AA008DC6151CC69B001FD906 /* PSDetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA008DC7151CC69B001FD906 /* en */,
+			);
+			name = PSDetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		AA008DD8151CC69B001FD906 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA008DD9151CC69B001FD906 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA008DDE151CC69B001FD906 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA008DDF151CC69B001FD906 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA008DE1151CC69B001FD906 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
+				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AA008DE2151CC69B001FD906 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
+				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AA008DE4151CC69B001FD906 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MobileBroadband.app/MobileBroadband";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
+				INFOPLIST_FILE = "MobileBroadbandTests/MobileBroadbandTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AA008DE5151CC69B001FD906 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MobileBroadband.app/MobileBroadband";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
+				INFOPLIST_FILE = "MobileBroadbandTests/MobileBroadbandTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA008D9B151CC69A001FD906 /* Build configuration list for PBXProject "MobileBroadband" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA008DDE151CC69B001FD906 /* Debug */,
+				AA008DDF151CC69B001FD906 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA008DE0151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileBroadband" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA008DE1151CC69B001FD906 /* Debug */,
+				AA008DE2151CC69B001FD906 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA008DE3151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileBroadbandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA008DE4151CC69B001FD906 /* Debug */,
+				AA008DE5151CC69B001FD906 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA008D98151CC69A001FD906 /* Project object */;
+}
