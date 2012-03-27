@@ -26,6 +26,8 @@
 
 - (void)testExample
 {
+    //STAssertFalse(<#expr...#><#expr, description...#>)
+    
     STFail(@"Unit tests are not implemented yet in MobileBroadbandTests");
 }
 

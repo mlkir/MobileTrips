@@ -15,15 +15,16 @@
 		AA008DB6151CC69B001FD906 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB5151CC69B001FD906 /* PSAppDelegate.m */; };
 		AA008DB9151CC69B001FD906 /* PSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB8151CC69B001FD906 /* PSMasterViewController.m */; };
 		AA008DBC151CC69B001FD906 /* PSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DBB151CC69B001FD906 /* PSDetailViewController.m */; };
-		AA008DBF151CC69B001FD906 /* PSMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA008DBD151CC69B001FD906 /* PSMasterViewController_iPhone.xib */; };
-		AA008DC2151CC69B001FD906 /* PSMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA008DC0151CC69B001FD906 /* PSMasterViewController_iPad.xib */; };
-		AA008DC5151CC69B001FD906 /* PSDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA008DC3151CC69B001FD906 /* PSDetailViewController_iPhone.xib */; };
-		AA008DC8151CC69B001FD906 /* PSDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA008DC6151CC69B001FD906 /* PSDetailViewController_iPad.xib */; };
 		AA008DD0151CC69B001FD906 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DCF151CC69B001FD906 /* SenTestingKit.framework */; };
 		AA008DD1151CC69B001FD906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA5151CC69A001FD906 /* UIKit.framework */; };
 		AA008DD2151CC69B001FD906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA7151CC69A001FD906 /* Foundation.framework */; };
 		AA008DDA151CC69B001FD906 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA008DD8151CC69B001FD906 /* InfoPlist.strings */; };
 		AA008DDD151CC69B001FD906 /* MobileBroadbandTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */; };
+		AA8BF0DD15209E77004521D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA8BF0DB15209E76004521D4 /* Localizable.strings */; };
+		AA9EB3DD1520A04F0042F799 /* PSDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3D91520A04F0042F799 /* PSDetailViewController_iPad.xib */; };
+		AA9EB3DE1520A04F0042F799 /* PSDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3DA1520A04F0042F799 /* PSDetailViewController_iPhone.xib */; };
+		AA9EB3DF1520A04F0042F799 /* PSMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3DB1520A04F0042F799 /* PSMasterViewController_iPad.xib */; };
+		AA9EB3E01520A04F0042F799 /* PSMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3DC1520A04F0042F799 /* PSMasterViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,26 +42,30 @@
 		AA008DA5151CC69A001FD906 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AA008DA7151CC69A001FD906 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AA008DA9151CC69A001FD906 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		AA008DAD151CC69B001FD906 /* MobileBroadband-Info.plist */ = {isa = PBXFileReference; path = "MobileBroadband-Info.plist"; sourceTree = "<group>"; };
+		AA008DAD151CC69B001FD906 /* MobileBroadband-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobileBroadband-Info.plist"; sourceTree = "<group>"; };
 		AA008DAF151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA008DB1151CC69B001FD906 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AA008DB3151CC69B001FD906 /* MobileBroadband-Prefix.pch */ = {isa = PBXFileReference; path = "MobileBroadband-Prefix.pch"; sourceTree = "<group>"; };
-		AA008DB4151CC69B001FD906 /* PSAppDelegate.h */ = {isa = PBXFileReference; path = PSAppDelegate.h; sourceTree = "<group>"; };
+		AA008DB3151CC69B001FD906 /* MobileBroadband-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobileBroadband-Prefix.pch"; sourceTree = "<group>"; };
+		AA008DB4151CC69B001FD906 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
 		AA008DB5151CC69B001FD906 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
-		AA008DB7151CC69B001FD906 /* PSMasterViewController.h */ = {isa = PBXFileReference; path = PSMasterViewController.h; sourceTree = "<group>"; };
+		AA008DB7151CC69B001FD906 /* PSMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMasterViewController.h; sourceTree = "<group>"; };
 		AA008DB8151CC69B001FD906 /* PSMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMasterViewController.m; sourceTree = "<group>"; };
-		AA008DBA151CC69B001FD906 /* PSDetailViewController.h */ = {isa = PBXFileReference; path = PSDetailViewController.h; sourceTree = "<group>"; };
+		AA008DBA151CC69B001FD906 /* PSDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSDetailViewController.h; sourceTree = "<group>"; };
 		AA008DBB151CC69B001FD906 /* PSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSDetailViewController.m; sourceTree = "<group>"; };
-		AA008DBE151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSMasterViewController_iPhone.xib; sourceTree = "<group>"; };
-		AA008DC1151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSMasterViewController_iPad.xib; sourceTree = "<group>"; };
-		AA008DC4151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSDetailViewController_iPhone.xib; sourceTree = "<group>"; };
-		AA008DC7151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSDetailViewController_iPad.xib; sourceTree = "<group>"; };
 		AA008DCE151CC69B001FD906 /* MobileBroadbandTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileBroadbandTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA008DCF151CC69B001FD906 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		AA008DD7151CC69B001FD906 /* MobileBroadbandTests-Info.plist */ = {isa = PBXFileReference; path = "MobileBroadbandTests-Info.plist"; sourceTree = "<group>"; };
+		AA008DD7151CC69B001FD906 /* MobileBroadbandTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobileBroadbandTests-Info.plist"; sourceTree = "<group>"; };
 		AA008DD9151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AA008DDB151CC69B001FD906 /* MobileBroadbandTests.h */ = {isa = PBXFileReference; path = MobileBroadbandTests.h; sourceTree = "<group>"; };
+		AA008DDB151CC69B001FD906 /* MobileBroadbandTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileBroadbandTests.h; sourceTree = "<group>"; };
 		AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileBroadbandTests.m; sourceTree = "<group>"; };
+		AA8BF0DC15209E77004521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA8BF0DE15209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadbandTests/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
+		AA8BF0E315209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadband/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
+		AA8BF0E415209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadband/ru.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
+		AA9EB3D91520A04F0042F799 /* PSDetailViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSDetailViewController_iPad.xib; path = Views/PSDetailViewController_iPad.xib; sourceTree = "<group>"; };
+		AA9EB3DA1520A04F0042F799 /* PSDetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSDetailViewController_iPhone.xib; path = Views/PSDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		AA9EB3DB1520A04F0042F799 /* PSMasterViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSMasterViewController_iPad.xib; path = Views/PSMasterViewController_iPad.xib; sourceTree = "<group>"; };
+		AA9EB3DC1520A04F0042F799 /* PSMasterViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSMasterViewController_iPhone.xib; path = Views/PSMasterViewController_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,16 +125,13 @@
 		AA008DAB151CC69B001FD906 /* MobileBroadband */ = {
 			isa = PBXGroup;
 			children = (
+				AA9EB3D81520A00B0042F799 /* Views */,
 				AA008DB4151CC69B001FD906 /* PSAppDelegate.h */,
 				AA008DB5151CC69B001FD906 /* PSAppDelegate.m */,
 				AA008DB7151CC69B001FD906 /* PSMasterViewController.h */,
 				AA008DB8151CC69B001FD906 /* PSMasterViewController.m */,
 				AA008DBA151CC69B001FD906 /* PSDetailViewController.h */,
 				AA008DBB151CC69B001FD906 /* PSDetailViewController.m */,
-				AA008DBD151CC69B001FD906 /* PSMasterViewController_iPhone.xib */,
-				AA008DC0151CC69B001FD906 /* PSMasterViewController_iPad.xib */,
-				AA008DC3151CC69B001FD906 /* PSDetailViewController_iPhone.xib */,
-				AA008DC6151CC69B001FD906 /* PSDetailViewController_iPad.xib */,
 				AA008DAC151CC69B001FD906 /* Supporting Files */,
 			);
 			path = MobileBroadband;
@@ -138,10 +140,11 @@
 		AA008DAC151CC69B001FD906 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA008DAD151CC69B001FD906 /* MobileBroadband-Info.plist */,
-				AA008DAE151CC69B001FD906 /* InfoPlist.strings */,
 				AA008DB1151CC69B001FD906 /* main.m */,
+				AA008DAD151CC69B001FD906 /* MobileBroadband-Info.plist */,
 				AA008DB3151CC69B001FD906 /* MobileBroadband-Prefix.pch */,
+				AA008DAE151CC69B001FD906 /* InfoPlist.strings */,
+				AA8BF0DB15209E76004521D4 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -163,6 +166,17 @@
 				AA008DD8151CC69B001FD906 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA9EB3D81520A00B0042F799 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA9EB3D91520A04F0042F799 /* PSDetailViewController_iPad.xib */,
+				AA9EB3DA1520A04F0042F799 /* PSDetailViewController_iPhone.xib */,
+				AA9EB3DB1520A04F0042F799 /* PSMasterViewController_iPad.xib */,
+				AA9EB3DC1520A04F0042F799 /* PSMasterViewController_iPhone.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,10 +251,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA008DB0151CC69B001FD906 /* InfoPlist.strings in Resources */,
-				AA008DBF151CC69B001FD906 /* PSMasterViewController_iPhone.xib in Resources */,
-				AA008DC2151CC69B001FD906 /* PSMasterViewController_iPad.xib in Resources */,
-				AA008DC5151CC69B001FD906 /* PSDetailViewController_iPhone.xib in Resources */,
-				AA008DC8151CC69B001FD906 /* PSDetailViewController_iPad.xib in Resources */,
+				AA8BF0DD15209E77004521D4 /* Localizable.strings in Resources */,
+				AA9EB3DD1520A04F0042F799 /* PSDetailViewController_iPad.xib in Resources */,
+				AA9EB3DE1520A04F0042F799 /* PSDetailViewController_iPhone.xib in Resources */,
+				AA9EB3DF1520A04F0042F799 /* PSMasterViewController_iPad.xib in Resources */,
+				AA9EB3E01520A04F0042F799 /* PSMasterViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,48 +320,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				AA008DAF151CC69B001FD906 /* en */,
+				AA8BF0E315209F7A004521D4 /* ru */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		AA008DBD151CC69B001FD906 /* PSMasterViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA008DBE151CC69B001FD906 /* en */,
-			);
-			name = PSMasterViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		AA008DC0151CC69B001FD906 /* PSMasterViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA008DC1151CC69B001FD906 /* en */,
-			);
-			name = PSMasterViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		AA008DC3151CC69B001FD906 /* PSDetailViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA008DC4151CC69B001FD906 /* en */,
-			);
-			name = PSDetailViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		AA008DC6151CC69B001FD906 /* PSDetailViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA008DC7151CC69B001FD906 /* en */,
-			);
-			name = PSDetailViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 		AA008DD8151CC69B001FD906 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AA008DD9151CC69B001FD906 /* en */,
+				AA8BF0DE15209F7A004521D4 /* ru */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AA8BF0DB15209E76004521D4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA8BF0DC15209E77004521D4 /* en */,
+				AA8BF0E415209F7A004521D4 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -371,7 +365,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -389,7 +383,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,6 +394,7 @@
 		AA008DE1151CC69B001FD906 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
 				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
@@ -411,6 +406,7 @@
 		AA008DE2151CC69B001FD906 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
 				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
@@ -422,6 +418,7 @@
 		AA008DE4151CC69B001FD906 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MobileBroadband.app/MobileBroadband";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -439,6 +436,7 @@
 		AA008DE5151CC69B001FD906 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MobileBroadband.app/MobileBroadband";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -472,6 +470,7 @@
 				AA008DE2151CC69B001FD906 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA008DE3151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileBroadbandTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +479,7 @@
 				AA008DE5151CC69B001FD906 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
