@@ -8,9 +8,10 @@
 
 #import "PSAppDelegate.h"
 
-#import "PSMasterViewController.h"
+#import "PSCountryController.h"
+#import "PSTariffsController.h"
+#import "PSTariffDetailController.h"
 
-#import "PSDetailViewController.h"
 
 @implementation PSAppDelegate
 
@@ -31,17 +32,19 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        PSMasterViewController *masterViewController = [[[PSMasterViewController alloc] initWithNibName:@"PSMasterViewController_iPhone" bundle:nil] autorelease];
+        PSCountryController *masterViewController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
+        //PSTariffsController *masterViewController = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
         self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
         self.window.rootViewController = self.navigationController;
     } else {
-        PSMasterViewController *masterViewController = [[[PSMasterViewController alloc] initWithNibName:@"PSMasterViewController_iPad" bundle:nil] autorelease];
+        PSCountryController *masterViewController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
+        //PSTariffsController *masterViewController = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
         UINavigationController *masterNavigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
         
-        PSDetailViewController *detailViewController = [[[PSDetailViewController alloc] initWithNibName:@"PSDetailViewController_iPad" bundle:nil] autorelease];
+        PSTariffDetailController *detailViewController = [[[PSTariffDetailController alloc] initWithNibName:@"PSTariffDetailController" bundle:nil] autorelease];
         UINavigationController *detailNavigationController = [[[UINavigationController alloc] initWithRootViewController:detailViewController] autorelease];
     	
-    	masterViewController.detailViewController = detailViewController;
+    	//masterViewController.detailViewController = detailViewController;
     	
         self.splitViewController = [[[UISplitViewController alloc] init] autorelease];
         self.splitViewController.delegate = detailViewController;

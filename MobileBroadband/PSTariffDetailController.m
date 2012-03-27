@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PSDetailViewController.h"
+#import "PSTariffDetailController.h"
 
-@interface PSDetailViewController ()
+@interface PSTariffDetailController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
 
-@implementation PSDetailViewController
+@implementation PSTariffDetailController
 
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;

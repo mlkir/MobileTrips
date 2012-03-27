@@ -1,10 +1,12 @@
-/* 
-  Localizable.strings
-  MobileBroadband
+/* Localizable.strings */
 
-  Created by Медведь on 26.03.12.
-  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-*/
+button.cancel = "Закрыть";
 
-
-Title = "Заголовок";
+/* Заголовок */
+PSCountryController.title = "Выбор страны";
+/* Дата последнего обновления (загрузки данных с сервера) */
+PSCountryController.lastUpdateLabel.text = "Последнее обновление: %@ г.";
+/* Комментарии */
+PSCountryController.commentLabel.text = "Здесь некая информационная строка или несколько строк, пока точно неизвестно, но место надо оставить";
+/* Название кнопки для загрузки с сервера */
+PSCountryController.downloadButton.title = "Загрузить обновления";

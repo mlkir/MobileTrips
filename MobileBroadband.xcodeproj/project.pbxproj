@@ -13,18 +13,28 @@
 		AA008DB0151CC69B001FD906 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA008DAE151CC69B001FD906 /* InfoPlist.strings */; };
 		AA008DB2151CC69B001FD906 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB1151CC69B001FD906 /* main.m */; };
 		AA008DB6151CC69B001FD906 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB5151CC69B001FD906 /* PSAppDelegate.m */; };
-		AA008DB9151CC69B001FD906 /* PSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB8151CC69B001FD906 /* PSMasterViewController.m */; };
-		AA008DBC151CC69B001FD906 /* PSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DBB151CC69B001FD906 /* PSDetailViewController.m */; };
+		AA008DB9151CC69B001FD906 /* PSTariffsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DB8151CC69B001FD906 /* PSTariffsController.m */; };
+		AA008DBC151CC69B001FD906 /* PSTariffDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DBB151CC69B001FD906 /* PSTariffDetailController.m */; };
 		AA008DD0151CC69B001FD906 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DCF151CC69B001FD906 /* SenTestingKit.framework */; };
 		AA008DD1151CC69B001FD906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA5151CC69A001FD906 /* UIKit.framework */; };
 		AA008DD2151CC69B001FD906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA7151CC69A001FD906 /* Foundation.framework */; };
 		AA008DDA151CC69B001FD906 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA008DD8151CC69B001FD906 /* InfoPlist.strings */; };
 		AA008DDD151CC69B001FD906 /* MobileBroadbandTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */; };
+		AA26C06715223DAB00556790 /* btn_russia.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C06615223DAB00556790 /* btn_russia.png */; };
+		AA26C06A1522405A00556790 /* btn_download.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C0691522405A00556790 /* btn_download.png */; };
+		AA63B3BC1521A6F70039AC5E /* PSCountryController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3BB1521A6F70039AC5E /* PSCountryController.m */; };
+		AA63B3BF1521AC970039AC5E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3BE1521AC970039AC5E /* Utils.m */; };
+		AA63B3C31521B9540039AC5E /* database_en.db in Resources */ = {isa = PBXBuildFile; fileRef = AA63B3C21521B9540039AC5E /* database_en.db */; };
+		AA63B3D71521BAA50039AC5E /* PSCountryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3D61521BAA50039AC5E /* PSCountryModel.m */; };
+		AA63B3D91521C7BF0039AC5E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA63B3D81521C7BF0039AC5E /* libsqlite3.dylib */; };
+		AA63B3DF1521D1CD0039AC5E /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3DE1521D1CD0039AC5E /* DBManager.m */; };
+		AA63B3E21521D29E0039AC5E /* AbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3E11521D29E0039AC5E /* AbstractModel.m */; };
+		AA7CDFD015227FBB00BF3D03 /* PSCountryInfoDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7CDFCF15227FBB00BF3D03 /* PSCountryInfoDialog.m */; };
 		AA8BF0DD15209E77004521D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA8BF0DB15209E76004521D4 /* Localizable.strings */; };
-		AA9EB3DD1520A04F0042F799 /* PSDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3D91520A04F0042F799 /* PSDetailViewController_iPad.xib */; };
-		AA9EB3DE1520A04F0042F799 /* PSDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3DA1520A04F0042F799 /* PSDetailViewController_iPhone.xib */; };
-		AA9EB3DF1520A04F0042F799 /* PSMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3DB1520A04F0042F799 /* PSMasterViewController_iPad.xib */; };
-		AA9EB3E01520A04F0042F799 /* PSMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3DC1520A04F0042F799 /* PSMasterViewController_iPhone.xib */; };
+		AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */; };
+		AABBF0D31521994D007BE589 /* PSTariffsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D21521994D007BE589 /* PSTariffsController.xib */; };
+		AABBF0D715219E76007BE589 /* PSCountryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D615219E76007BE589 /* PSCountryController.xib */; };
+		AAD85C5C1521DAE900FF5E40 /* database_en.db in Resources */ = {isa = PBXBuildFile; fileRef = AA63B3C21521B9540039AC5E /* database_en.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,24 +58,39 @@
 		AA008DB3151CC69B001FD906 /* MobileBroadband-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobileBroadband-Prefix.pch"; sourceTree = "<group>"; };
 		AA008DB4151CC69B001FD906 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
 		AA008DB5151CC69B001FD906 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
-		AA008DB7151CC69B001FD906 /* PSMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMasterViewController.h; sourceTree = "<group>"; };
-		AA008DB8151CC69B001FD906 /* PSMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMasterViewController.m; sourceTree = "<group>"; };
-		AA008DBA151CC69B001FD906 /* PSDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSDetailViewController.h; sourceTree = "<group>"; };
-		AA008DBB151CC69B001FD906 /* PSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSDetailViewController.m; sourceTree = "<group>"; };
+		AA008DB7151CC69B001FD906 /* PSTariffsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSTariffsController.h; sourceTree = "<group>"; };
+		AA008DB8151CC69B001FD906 /* PSTariffsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSTariffsController.m; sourceTree = "<group>"; };
+		AA008DBA151CC69B001FD906 /* PSTariffDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSTariffDetailController.h; sourceTree = "<group>"; };
+		AA008DBB151CC69B001FD906 /* PSTariffDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSTariffDetailController.m; sourceTree = "<group>"; };
 		AA008DCE151CC69B001FD906 /* MobileBroadbandTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileBroadbandTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA008DCF151CC69B001FD906 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		AA008DD7151CC69B001FD906 /* MobileBroadbandTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobileBroadbandTests-Info.plist"; sourceTree = "<group>"; };
 		AA008DD9151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA008DDB151CC69B001FD906 /* MobileBroadbandTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileBroadbandTests.h; sourceTree = "<group>"; };
 		AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileBroadbandTests.m; sourceTree = "<group>"; };
+		AA26C06615223DAB00556790 /* btn_russia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_russia.png; path = Resources/Images/btn_russia.png; sourceTree = "<group>"; };
+		AA26C0691522405A00556790 /* btn_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_download.png; path = Resources/Images/btn_download.png; sourceTree = "<group>"; };
+		AA63B3BA1521A6F70039AC5E /* PSCountryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryController.h; sourceTree = "<group>"; };
+		AA63B3BB1521A6F70039AC5E /* PSCountryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryController.m; sourceTree = "<group>"; };
+		AA63B3BD1521AC970039AC5E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		AA63B3BE1521AC970039AC5E /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		AA63B3C21521B9540039AC5E /* database_en.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = database_en.db; path = Resources/database_en.db; sourceTree = "<group>"; };
+		AA63B3D51521BAA50039AC5E /* PSCountryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryModel.h; sourceTree = "<group>"; };
+		AA63B3D61521BAA50039AC5E /* PSCountryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryModel.m; sourceTree = "<group>"; };
+		AA63B3D81521C7BF0039AC5E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AA63B3DD1521D1CD0039AC5E /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		AA63B3DE1521D1CD0039AC5E /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		AA63B3E01521D29E0039AC5E /* AbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractModel.h; sourceTree = "<group>"; };
+		AA63B3E11521D29E0039AC5E /* AbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractModel.m; sourceTree = "<group>"; };
+		AA7CDFCE15227FBB00BF3D03 /* PSCountryInfoDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryInfoDialog.h; sourceTree = "<group>"; };
+		AA7CDFCF15227FBB00BF3D03 /* PSCountryInfoDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryInfoDialog.m; sourceTree = "<group>"; };
 		AA8BF0DC15209E77004521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA8BF0DE15209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadbandTests/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		AA8BF0E315209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadband/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		AA8BF0E415209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadband/ru.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
-		AA9EB3D91520A04F0042F799 /* PSDetailViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSDetailViewController_iPad.xib; path = Views/PSDetailViewController_iPad.xib; sourceTree = "<group>"; };
-		AA9EB3DA1520A04F0042F799 /* PSDetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSDetailViewController_iPhone.xib; path = Views/PSDetailViewController_iPhone.xib; sourceTree = "<group>"; };
-		AA9EB3DB1520A04F0042F799 /* PSMasterViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSMasterViewController_iPad.xib; path = Views/PSMasterViewController_iPad.xib; sourceTree = "<group>"; };
-		AA9EB3DC1520A04F0042F799 /* PSMasterViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSMasterViewController_iPhone.xib; path = Views/PSMasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffDetailController.xib; path = Views/PSTariffDetailController.xib; sourceTree = "<group>"; };
+		AABBF0D21521994D007BE589 /* PSTariffsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffsController.xib; path = Views/PSTariffsController.xib; sourceTree = "<group>"; };
+		AABBF0D615219E76007BE589 /* PSCountryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSCountryController.xib; path = Views/PSCountryController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA63B3D91521C7BF0039AC5E /* libsqlite3.dylib in Frameworks */,
 				AA008DA6151CC69A001FD906 /* UIKit.framework in Frameworks */,
 				AA008DA8151CC69A001FD906 /* Foundation.framework in Frameworks */,
 				AA008DAA151CC69A001FD906 /* CoreGraphics.framework in Frameworks */,
@@ -118,6 +144,7 @@
 				AA008DA7151CC69A001FD906 /* Foundation.framework */,
 				AA008DA9151CC69A001FD906 /* CoreGraphics.framework */,
 				AA008DCF151CC69B001FD906 /* SenTestingKit.framework */,
+				AA63B3D81521C7BF0039AC5E /* libsqlite3.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,13 +152,10 @@
 		AA008DAB151CC69B001FD906 /* MobileBroadband */ = {
 			isa = PBXGroup;
 			children = (
+				AABBF0D515219AB0007BE589 /* Common */,
+				AA63B3C81521BA120039AC5E /* Models */,
 				AA9EB3D81520A00B0042F799 /* Views */,
-				AA008DB4151CC69B001FD906 /* PSAppDelegate.h */,
-				AA008DB5151CC69B001FD906 /* PSAppDelegate.m */,
-				AA008DB7151CC69B001FD906 /* PSMasterViewController.h */,
-				AA008DB8151CC69B001FD906 /* PSMasterViewController.m */,
-				AA008DBA151CC69B001FD906 /* PSDetailViewController.h */,
-				AA008DBB151CC69B001FD906 /* PSDetailViewController.m */,
+				AABBF0D415219A96007BE589 /* Controllers */,
 				AA008DAC151CC69B001FD906 /* Supporting Files */,
 			);
 			path = MobileBroadband;
@@ -140,7 +164,8 @@
 		AA008DAC151CC69B001FD906 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA008DB1151CC69B001FD906 /* main.m */,
+				AA63B3C11521B9490039AC5E /* Images */,
+				AA63B3C01521B9400039AC5E /* Resources */,
 				AA008DAD151CC69B001FD906 /* MobileBroadband-Info.plist */,
 				AA008DB3151CC69B001FD906 /* MobileBroadband-Prefix.pch */,
 				AA008DAE151CC69B001FD906 /* InfoPlist.strings */,
@@ -168,15 +193,71 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AA63B3C01521B9400039AC5E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA63B3C21521B9540039AC5E /* database_en.db */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AA63B3C11521B9490039AC5E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AA26C0691522405A00556790 /* btn_download.png */,
+				AA26C06615223DAB00556790 /* btn_russia.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		AA63B3C81521BA120039AC5E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA63B3DD1521D1CD0039AC5E /* DBManager.h */,
+				AA63B3DE1521D1CD0039AC5E /* DBManager.m */,
+				AA63B3E01521D29E0039AC5E /* AbstractModel.h */,
+				AA63B3E11521D29E0039AC5E /* AbstractModel.m */,
+				AA63B3D51521BAA50039AC5E /* PSCountryModel.h */,
+				AA63B3D61521BAA50039AC5E /* PSCountryModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		AA9EB3D81520A00B0042F799 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AA9EB3D91520A04F0042F799 /* PSDetailViewController_iPad.xib */,
-				AA9EB3DA1520A04F0042F799 /* PSDetailViewController_iPhone.xib */,
-				AA9EB3DB1520A04F0042F799 /* PSMasterViewController_iPad.xib */,
-				AA9EB3DC1520A04F0042F799 /* PSMasterViewController_iPhone.xib */,
+				AABBF0D615219E76007BE589 /* PSCountryController.xib */,
+				AABBF0D21521994D007BE589 /* PSTariffsController.xib */,
+				AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */,
+				AA7CDFCE15227FBB00BF3D03 /* PSCountryInfoDialog.h */,
+				AA7CDFCF15227FBB00BF3D03 /* PSCountryInfoDialog.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		AABBF0D415219A96007BE589 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA63B3BA1521A6F70039AC5E /* PSCountryController.h */,
+				AA63B3BB1521A6F70039AC5E /* PSCountryController.m */,
+				AA008DB7151CC69B001FD906 /* PSTariffsController.h */,
+				AA008DB8151CC69B001FD906 /* PSTariffsController.m */,
+				AA008DBA151CC69B001FD906 /* PSTariffDetailController.h */,
+				AA008DBB151CC69B001FD906 /* PSTariffDetailController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AABBF0D515219AB0007BE589 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AA008DB1151CC69B001FD906 /* main.m */,
+				AA63B3BD1521AC970039AC5E /* Utils.h */,
+				AA63B3BE1521AC970039AC5E /* Utils.m */,
+				AA008DB4151CC69B001FD906 /* PSAppDelegate.h */,
+				AA008DB5151CC69B001FD906 /* PSAppDelegate.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,12 +331,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAD85C5C1521DAE900FF5E40 /* database_en.db in Resources */,
 				AA008DB0151CC69B001FD906 /* InfoPlist.strings in Resources */,
 				AA8BF0DD15209E77004521D4 /* Localizable.strings in Resources */,
-				AA9EB3DD1520A04F0042F799 /* PSDetailViewController_iPad.xib in Resources */,
-				AA9EB3DE1520A04F0042F799 /* PSDetailViewController_iPhone.xib in Resources */,
-				AA9EB3DF1520A04F0042F799 /* PSMasterViewController_iPad.xib in Resources */,
-				AA9EB3E01520A04F0042F799 /* PSMasterViewController_iPhone.xib in Resources */,
+				AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */,
+				AABBF0D31521994D007BE589 /* PSTariffsController.xib in Resources */,
+				AABBF0D715219E76007BE589 /* PSCountryController.xib in Resources */,
+				AA26C06715223DAB00556790 /* btn_russia.png in Resources */,
+				AA26C06A1522405A00556790 /* btn_download.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA008DDA151CC69B001FD906 /* InfoPlist.strings in Resources */,
+				AA63B3C31521B9540039AC5E /* database_en.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +376,14 @@
 			files = (
 				AA008DB2151CC69B001FD906 /* main.m in Sources */,
 				AA008DB6151CC69B001FD906 /* PSAppDelegate.m in Sources */,
-				AA008DB9151CC69B001FD906 /* PSMasterViewController.m in Sources */,
-				AA008DBC151CC69B001FD906 /* PSDetailViewController.m in Sources */,
+				AA008DB9151CC69B001FD906 /* PSTariffsController.m in Sources */,
+				AA008DBC151CC69B001FD906 /* PSTariffDetailController.m in Sources */,
+				AA63B3BC1521A6F70039AC5E /* PSCountryController.m in Sources */,
+				AA63B3BF1521AC970039AC5E /* Utils.m in Sources */,
+				AA63B3D71521BAA50039AC5E /* PSCountryModel.m in Sources */,
+				AA63B3DF1521D1CD0039AC5E /* DBManager.m in Sources */,
+				AA63B3E21521D29E0039AC5E /* AbstractModel.m in Sources */,
+				AA7CDFD015227FBB00BF3D03 /* PSCountryInfoDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

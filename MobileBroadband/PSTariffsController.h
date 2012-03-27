@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class PSDetailViewController;
+@class PSTariffDetailController;
 
-@interface PSMasterViewController : UITableViewController
+@interface PSTariffsController : UITableViewController
 
-@property (strong, nonatomic) PSDetailViewController *detailViewController;
+@property (strong, nonatomic) PSTariffDetailController *detailViewController;
 
 @end

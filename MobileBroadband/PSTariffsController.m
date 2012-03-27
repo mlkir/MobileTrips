@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PSMasterViewController.h"
+#import "PSTariffsController.h"
 
-#import "PSDetailViewController.h"
+#import "PSTariffDetailController.h"
 
-@interface PSMasterViewController () {
+@interface PSTariffsController () {
     NSMutableArray *_objects;
 }
 @end
 
-@implementation PSMasterViewController
+@implementation PSTariffsController
 
 @synthesize detailViewController = _detailViewController;
 
@@ -142,7 +142,7 @@
     NSDate *object = [_objects objectAtIndex:indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 	    if (!self.detailViewController) {
-	        self.detailViewController = [[[PSDetailViewController alloc] initWithNibName:@"PSDetailViewController_iPhone" bundle:nil] autorelease];
+	        self.detailViewController = [[[PSTariffDetailController alloc] initWithNibName:@"PSTariffDetailController" bundle:nil] autorelease];
 	    }
 	    self.detailViewController.detailItem = object;
         [self.navigationController pushViewController:self.detailViewController animated:YES];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PSDetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface PSTariffDetailController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
 
