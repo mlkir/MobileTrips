@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PSCountryInfoDialog : UIActionSheet <UIActionSheetDelegate>
+@interface PSHtmlDialog : UIActionSheet <UIActionSheetDelegate>
 
 @property (nonatomic, retain) NSString *text;
+
+
+- (id)initWithTitle:(NSString *)title;
 
 @end

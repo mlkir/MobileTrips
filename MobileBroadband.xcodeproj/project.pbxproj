@@ -29,7 +29,7 @@
 		AA63B3D91521C7BF0039AC5E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA63B3D81521C7BF0039AC5E /* libsqlite3.dylib */; };
 		AA63B3DF1521D1CD0039AC5E /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3DE1521D1CD0039AC5E /* DBManager.m */; };
 		AA63B3E21521D29E0039AC5E /* AbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3E11521D29E0039AC5E /* AbstractModel.m */; };
-		AA7CDFD015227FBB00BF3D03 /* PSCountryInfoDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7CDFCF15227FBB00BF3D03 /* PSCountryInfoDialog.m */; };
+		AA7CDFD015227FBB00BF3D03 /* PSHtmlDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */; };
 		AA8BF0DD15209E77004521D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA8BF0DB15209E76004521D4 /* Localizable.strings */; };
 		AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */; };
 		AABBF0D31521994D007BE589 /* PSTariffsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D21521994D007BE589 /* PSTariffsController.xib */; };
@@ -82,8 +82,8 @@
 		AA63B3DE1521D1CD0039AC5E /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		AA63B3E01521D29E0039AC5E /* AbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractModel.h; sourceTree = "<group>"; };
 		AA63B3E11521D29E0039AC5E /* AbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractModel.m; sourceTree = "<group>"; };
-		AA7CDFCE15227FBB00BF3D03 /* PSCountryInfoDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryInfoDialog.h; sourceTree = "<group>"; };
-		AA7CDFCF15227FBB00BF3D03 /* PSCountryInfoDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryInfoDialog.m; sourceTree = "<group>"; };
+		AA7CDFCE15227FBB00BF3D03 /* PSHtmlDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PSHtmlDialog.h; sourceTree = "<group>"; };
+		AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHtmlDialog.m; sourceTree = "<group>"; };
 		AA8BF0DC15209E77004521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA8BF0DE15209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadbandTests/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		AA8BF0E315209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadband/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
@@ -229,8 +229,8 @@
 				AABBF0D615219E76007BE589 /* PSCountryController.xib */,
 				AABBF0D21521994D007BE589 /* PSTariffsController.xib */,
 				AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */,
-				AA7CDFCE15227FBB00BF3D03 /* PSCountryInfoDialog.h */,
-				AA7CDFCF15227FBB00BF3D03 /* PSCountryInfoDialog.m */,
+				AA7CDFCE15227FBB00BF3D03 /* PSHtmlDialog.h */,
+				AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -383,7 +383,7 @@
 				AA63B3D71521BAA50039AC5E /* PSCountryModel.m in Sources */,
 				AA63B3DF1521D1CD0039AC5E /* DBManager.m in Sources */,
 				AA63B3E21521D29E0039AC5E /* AbstractModel.m in Sources */,
-				AA7CDFD015227FBB00BF3D03 /* PSCountryInfoDialog.m in Sources */,
+				AA7CDFD015227FBB00BF3D03 /* PSHtmlDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

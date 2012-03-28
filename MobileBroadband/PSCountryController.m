@@ -9,7 +9,7 @@
 #import "PSCountryController.h"
 #import "PSCountryModel.h"
 #import "Utils.h"
-#import "PSCountryInfoDialog.h"
+#import "PSHtmlDialog.h"
 
 
 
@@ -111,9 +111,9 @@
     PSCountryModel *object = [_objects objectAtIndex:index];    
     //if (object.isPageExists) {
         //Отображаем описание     
-        PSCountryInfoDialog *dialog = [[PSCountryInfoDialog alloc] init];
-        dialog.title = object.name;
-        dialog.text = object.page;
+        PSHtmlDialog *dialog = [[PSHtmlDialog alloc] initWithTitle:object.name];
+        //dialog.text = object.page;
+        dialog.text = (object.page) ? object.page : @"<html><body style='text-align: center;'>Нет данных</body></html>"; //TODO: убрать после того как будет заполнена база
         [dialog showInView:self.view];
         [dialog release];    
     //}
