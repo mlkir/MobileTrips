@@ -3,10 +3,16 @@
 button.cancel = "Закрыть";
 
 /* Заголовок */
-PSCountryController.title = "Выбор страны";
+PSCountryController.title = "Меню";
 /* Дата последнего обновления (загрузки данных с сервера) */
 PSCountryController.lastUpdateLabel.text = "Последнее обновление: %@ г.";
 /* Комментарии */
 PSCountryController.commentLabel.text = "Здесь некая информационная строка или несколько строк, пока точно неизвестно, но место надо оставить";
 /* Название кнопки для загрузки с сервера */
 PSCountryController.downloadButton.title = "Загрузить обновления";
+
+/* Заголовок */
+PSTariffsController.title = "Тарифы";
+
+/* Заголовок */
+PSTariffDetailController.title = "Тариф";

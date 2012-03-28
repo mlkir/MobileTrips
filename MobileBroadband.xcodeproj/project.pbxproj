@@ -29,6 +29,7 @@
 		AA63B3D91521C7BF0039AC5E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA63B3D81521C7BF0039AC5E /* libsqlite3.dylib */; };
 		AA63B3DF1521D1CD0039AC5E /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3DE1521D1CD0039AC5E /* DBManager.m */; };
 		AA63B3E21521D29E0039AC5E /* AbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3E11521D29E0039AC5E /* AbstractModel.m */; };
+		AA6E72DF15238E4F00B70DFF /* PSTariffModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6E72DE15238E4F00B70DFF /* PSTariffModel.m */; };
 		AA7CDFD015227FBB00BF3D03 /* PSHtmlDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */; };
 		AA8BF0DD15209E77004521D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA8BF0DB15209E76004521D4 /* Localizable.strings */; };
 		AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */; };
@@ -82,7 +83,9 @@
 		AA63B3DE1521D1CD0039AC5E /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		AA63B3E01521D29E0039AC5E /* AbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractModel.h; sourceTree = "<group>"; };
 		AA63B3E11521D29E0039AC5E /* AbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractModel.m; sourceTree = "<group>"; };
-		AA7CDFCE15227FBB00BF3D03 /* PSHtmlDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PSHtmlDialog.h; sourceTree = "<group>"; };
+		AA6E72DD15238E4F00B70DFF /* PSTariffModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTariffModel.h; sourceTree = "<group>"; };
+		AA6E72DE15238E4F00B70DFF /* PSTariffModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTariffModel.m; sourceTree = "<group>"; };
+		AA7CDFCE15227FBB00BF3D03 /* PSHtmlDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHtmlDialog.h; sourceTree = "<group>"; };
 		AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHtmlDialog.m; sourceTree = "<group>"; };
 		AA8BF0DC15209E77004521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA8BF0DE15209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadbandTests/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
@@ -153,9 +156,10 @@
 			isa = PBXGroup;
 			children = (
 				AABBF0D515219AB0007BE589 /* Common */,
-				AA63B3C81521BA120039AC5E /* Models */,
-				AA9EB3D81520A00B0042F799 /* Views */,
-				AABBF0D415219A96007BE589 /* Controllers */,
+				AA6E72DC152370FC00B70DFF /* Database */,
+				AA63B3C81521BA120039AC5E /* StartScreen */,
+				AA9EB3D81520A00B0042F799 /* TariffsList */,
+				AABBF0D415219A96007BE589 /* TariffDetail */,
 				AA008DAC151CC69B001FD906 /* Supporting Files */,
 			);
 			path = MobileBroadband;
@@ -210,42 +214,49 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		AA63B3C81521BA120039AC5E /* Models */ = {
+		AA63B3C81521BA120039AC5E /* StartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AA63B3D51521BAA50039AC5E /* PSCountryModel.h */,
+				AA63B3D61521BAA50039AC5E /* PSCountryModel.m */,
+				AA63B3BA1521A6F70039AC5E /* PSCountryController.h */,
+				AA63B3BB1521A6F70039AC5E /* PSCountryController.m */,
+				AABBF0D615219E76007BE589 /* PSCountryController.xib */,
+			);
+			name = StartScreen;
+			sourceTree = "<group>";
+		};
+		AA6E72DC152370FC00B70DFF /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				AA63B3DD1521D1CD0039AC5E /* DBManager.h */,
 				AA63B3DE1521D1CD0039AC5E /* DBManager.m */,
 				AA63B3E01521D29E0039AC5E /* AbstractModel.h */,
 				AA63B3E11521D29E0039AC5E /* AbstractModel.m */,
-				AA63B3D51521BAA50039AC5E /* PSCountryModel.h */,
-				AA63B3D61521BAA50039AC5E /* PSCountryModel.m */,
 			);
-			name = Models;
+			name = Database;
 			sourceTree = "<group>";
 		};
-		AA9EB3D81520A00B0042F799 /* Views */ = {
+		AA9EB3D81520A00B0042F799 /* TariffsList */ = {
 			isa = PBXGroup;
 			children = (
-				AABBF0D615219E76007BE589 /* PSCountryController.xib */,
-				AABBF0D21521994D007BE589 /* PSTariffsController.xib */,
-				AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */,
-				AA7CDFCE15227FBB00BF3D03 /* PSHtmlDialog.h */,
-				AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		AABBF0D415219A96007BE589 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				AA63B3BA1521A6F70039AC5E /* PSCountryController.h */,
-				AA63B3BB1521A6F70039AC5E /* PSCountryController.m */,
+				AA6E72DD15238E4F00B70DFF /* PSTariffModel.h */,
+				AA6E72DE15238E4F00B70DFF /* PSTariffModel.m */,
 				AA008DB7151CC69B001FD906 /* PSTariffsController.h */,
 				AA008DB8151CC69B001FD906 /* PSTariffsController.m */,
+				AABBF0D21521994D007BE589 /* PSTariffsController.xib */,
+			);
+			name = TariffsList;
+			sourceTree = "<group>";
+		};
+		AABBF0D415219A96007BE589 /* TariffDetail */ = {
+			isa = PBXGroup;
+			children = (
 				AA008DBA151CC69B001FD906 /* PSTariffDetailController.h */,
 				AA008DBB151CC69B001FD906 /* PSTariffDetailController.m */,
+				AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */,
 			);
-			name = Controllers;
+			name = TariffDetail;
 			sourceTree = "<group>";
 		};
 		AABBF0D515219AB0007BE589 /* Common */ = {
@@ -256,6 +267,8 @@
 				AA63B3BE1521AC970039AC5E /* Utils.m */,
 				AA008DB4151CC69B001FD906 /* PSAppDelegate.h */,
 				AA008DB5151CC69B001FD906 /* PSAppDelegate.m */,
+				AA7CDFCE15227FBB00BF3D03 /* PSHtmlDialog.h */,
+				AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -384,6 +397,7 @@
 				AA63B3DF1521D1CD0039AC5E /* DBManager.m in Sources */,
 				AA63B3E21521D29E0039AC5E /* AbstractModel.m in Sources */,
 				AA7CDFD015227FBB00BF3D03 /* PSHtmlDialog.m in Sources */,
+				AA6E72DF15238E4F00B70DFF /* PSTariffModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

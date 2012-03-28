@@ -194,4 +194,8 @@
     return  [languages objectAtIndex:0];
 }
 
+
++ (NSURL *)getBaseURL {
+    return nil;
+}
 @end

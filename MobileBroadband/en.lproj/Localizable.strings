@@ -2,10 +2,17 @@
 
 button.cancel = "Close";
 
-PSCountryController.title = "Select a country";
+PSCountryController.title = "Menu";
 /* Дата последнего обновления (загрузки данных с сервера) */
 PSCountryController.lastUpdateLabel.text = "Last update %@";
 /* Комментарии */
 PSCountryController.commentLabel.text = "Pltcm ytrfz byajhvfwbjyyfz cnhjrf bkb ytcrjkmrj cnhjr^ gjrf njxyj ytbpdtcnyj^ yj vtcnj yflj jcnfdbnm";
 /* Название кнопки для загрузки с сервера */
 PSCountryController.downloadButton.title = "Download update";
+
+
+/* Заголовок */
+PSTariffsController.title = "Tariffs";
+
+/* Заголовок */
+PSTariffDetailController.title = "Tariff";

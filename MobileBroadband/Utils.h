@@ -35,4 +35,5 @@
 
 + (NSString *)getCurrentLanguage;
 
++ (NSURL *)getBaseURL;
 @end

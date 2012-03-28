@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSTariffModel.h"
 
-@interface PSTariffDetailController : UIViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@interface PSTariffDetailController : UIViewController <UIWebViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+@property (nonatomic, retain) PSTariffModel *tariff;
+
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @end

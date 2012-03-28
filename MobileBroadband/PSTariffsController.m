@@ -7,52 +7,71 @@
 //
 
 #import "PSTariffsController.h"
+#import "PSTariffModel.h"
 
 #import "PSTariffDetailController.h"
 
 @interface PSTariffsController () {
-    NSMutableArray *_objects;
+    
 }
+
+@property (nonatomic, retain) NSArray *objects;  
+
 @end
+
+
 
 @implementation PSTariffsController
 
-@synthesize detailViewController = _detailViewController;
+@synthesize country = _country;
+@synthesize objects = _objects;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Master", @"Master");
+        
+        /*
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         }
+         */
     }
     return self;
 }
 							
 - (void)dealloc
 {
-    [_detailViewController release];
     [_objects release];
+    
     [super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    //Указываем заголовок
+    self.title = NSLocalizedString(@"PSTariffsController.title", nil);;
+    
+    //Подгружаем данные со странами    
+    self.objects = [PSTariffModel newListByCountryId:3];//self.country.ID]; TODO: вернуть по ИД страны
+    
+    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
-    self.navigationItem.rightBarButtonItem = addButton;
+    //UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(insertNewObject:)] autorelease];
+    //self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+    
+    self.objects = nil;
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -64,15 +83,6 @@
     }
 }
 
-- (void)insertNewObject:(id)sender
-{
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
 
 #pragma mark - Table View
 
@@ -89,66 +99,42 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    PSTariffModel *object = [_objects objectAtIndex:indexPath.row];
+    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
 
 
-    NSDate *object = [_objects objectAtIndex:indexPath.row];
-    cell.textLabel.text = [object description];
+    
+    cell.textLabel.text = object.tariffName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%f: %@", object.price, object.tariffType];
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath 
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+	[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];	
+	[tableView.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDate *object = [_objects objectAtIndex:indexPath.row];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    if (!self.detailViewController) {
-	        self.detailViewController = [[[PSTariffDetailController alloc] initWithNibName:@"PSTariffDetailController" bundle:nil] autorelease];
-	    }
-	    self.detailViewController.detailItem = object;
-        [self.navigationController pushViewController:self.detailViewController animated:YES];
-    } else {
-        self.detailViewController.detailItem = object;
-    }
+    PSTariffModel *object = [_objects objectAtIndex:indexPath.row];
+    
+	PSTariffDetailController *controller = [[[PSTariffDetailController alloc] initWithNibName:@"PSTariffDetailController" bundle:nil] autorelease];
+    [controller setTariff:object];
+    [self.navigationController pushViewController:controller animated:YES];
+    
 }
 
 @end

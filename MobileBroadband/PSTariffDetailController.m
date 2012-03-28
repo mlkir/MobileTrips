@@ -7,64 +7,57 @@
 //
 
 #import "PSTariffDetailController.h"
+#import "Utils.h"
 
 @interface PSTariffDetailController ()
-@property (strong, nonatomic) UIPopoverController *masterPopoverController;
-- (void)configureView;
+
+
 @end
 
 @implementation PSTariffDetailController
 
-@synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
-@synthesize masterPopoverController = _masterPopoverController;
+@synthesize tariff = _tariff;
+@synthesize webView = _webView;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        
+    }
+    return self;
+}
 
 - (void)dealloc
 {
-    [_detailItem release];
-    [_detailDescriptionLabel release];
-    [_masterPopoverController release];
+    [_tariff release];
+    
     [super dealloc];
 }
 
-#pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        [_detailItem release];
-        _detailItem = [newDetailItem retain];
-
-        // Update the view.
-        [self configureView];
-    }
-
-    if (self.masterPopoverController != nil) {
-        [self.masterPopoverController dismissPopoverAnimated:YES];
-    }        
-}
-
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+	
+    //Указываем заголовок
+    self.title = NSLocalizedString(@"PSTariffDetailController.title", nil);
+    
+    //Подгружаем данные тарифа (впервую очередь при смене локали чтобы переподгрузились данные)
+    //self.tariff = [PSTariffModel initById:]
+    
+    //Загружаем страницу
+    NSString *html = [[NSString alloc] initWithFormat:@"<html><body style='text-align: center;'>%@</body></html>", self.tariff.tariffName]; 
+    [self.webView loadHTMLString:html baseURL:[Utils getBaseURL]];
+    [html release];
+        
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    self.detailDescriptionLabel = nil;
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -76,29 +69,5 @@
     }
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"Detail", @"Detail");
-    }
-    return self;
-}
-							
-#pragma mark - Split view
-
-- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
-{
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
-    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
-    self.masterPopoverController = popoverController;
-}
-
-- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    self.masterPopoverController = nil;
-}
-
+	
 @end

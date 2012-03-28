@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSCountryModel.h"
 
 @class PSTariffDetailController;
 
 @interface PSTariffsController : UITableViewController
 
-@property (strong, nonatomic) PSTariffDetailController *detailViewController;
+@property (nonatomic, retain) PSCountryModel *country;
 
 @end

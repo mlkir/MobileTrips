@@ -7,6 +7,8 @@
 //
 
 #import "PSHtmlDialog.h"
+#import "Utils.h"
+
 
 @implementation PSHtmlDialog
 
@@ -37,7 +39,7 @@
     
     //Выводим WebView
     UIWebView *webView = [[UIWebView alloc] initWithFrame:rect];    
-    [webView loadHTMLString:self.text baseURL:nil];
+    [webView loadHTMLString:self.text baseURL:[Utils getBaseURL]];
     [self addSubview:webView];
     [webView release];
     

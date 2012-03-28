@@ -10,7 +10,7 @@
 #import "PSCountryModel.h"
 #import "Utils.h"
 #import "PSHtmlDialog.h"
-
+#import "PSTariffsController.h"
 
 
 @interface PSCountryController () {
@@ -18,6 +18,7 @@
 }
 
 @property (nonatomic, retain) NSArray *objects;  
+
 @end
 
 
@@ -59,7 +60,7 @@
     //Подгружаем данные со странами
     self.objects = [PSCountryModel newList];
     
-    //Указываем тату последнего обновления
+    //Указываем дату последнего обновления
     NSString *str = NSLocalizedString(@"PSCountryController.lastUpdateLabel.text", nil);
     self.lastUpdateLabel.text = [NSString stringWithFormat:str,  @"10.10.2010"];
     
@@ -96,7 +97,7 @@
 
 - (IBAction)onDownload:(UIButton *)sender {
     NSString *lang = [Utils getCurrentLanguage];
-    
+    //TODO: закачка базы с сервера
     NSLog(@"Надо загрузить базу на языке %@", lang);
 }
 
@@ -175,22 +176,22 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath 
+{
+	[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];	
+	[tableView.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PSCountryModel *object = [_objects objectAtIndex:indexPath.row];
-    NSLog(@"%@", object.name);
     
-   /* if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    if (!self.detailViewController) {
-	        self.detailViewController = [[[PSTariffDetailController alloc] initWithNibName:@"PSTariffDetailController" bundle:nil] autorelease];
-	    }
-	    self.detailViewController.detailItem = object;
-        [self.navigationController pushViewController:self.detailViewController animated:YES];
-    } else {
-        self.detailViewController.detailItem = object;
-    }
-    */
+    PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
+    controller.country = object;    
+    [self.navigationController pushViewController:controller animated:YES];
+    
 }
 
 @end

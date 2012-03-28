@@ -30,28 +30,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    
         PSCountryController *masterViewController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
         //PSTariffsController *masterViewController = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
         self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
         self.window.rootViewController = self.navigationController;
-    } else {
-        PSCountryController *masterViewController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
-        //PSTariffsController *masterViewController = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
-        UINavigationController *masterNavigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
-        
-        PSTariffDetailController *detailViewController = [[[PSTariffDetailController alloc] initWithNibName:@"PSTariffDetailController" bundle:nil] autorelease];
-        UINavigationController *detailNavigationController = [[[UINavigationController alloc] initWithRootViewController:detailViewController] autorelease];
-    	
-    	//masterViewController.detailViewController = detailViewController;
-    	
-        self.splitViewController = [[[UISplitViewController alloc] init] autorelease];
-        self.splitViewController.delegate = detailViewController;
-        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
-        
-        self.window.rootViewController = self.splitViewController;
-    }
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
