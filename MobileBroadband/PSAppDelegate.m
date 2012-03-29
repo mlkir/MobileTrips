@@ -31,10 +31,25 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-        PSCountryController *masterViewController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
-        //PSTariffsController *masterViewController = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
-        self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
+    PSCountryController *masterViewController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
+    UINavigationController *masterNavigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {                
+        self.navigationController = masterNavigationController;
         self.window.rootViewController = self.navigationController;
+    } else {
+        
+        PSTariffsController *detailViewController = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
+        UINavigationController *detailNavigationController = [[[UINavigationController alloc] initWithRootViewController:detailViewController] autorelease];
+    	
+    	masterViewController.detailViewController = detailViewController;
+    	
+        self.splitViewController = [[[UISplitViewController alloc] init] autorelease];
+        self.splitViewController.delegate = detailViewController;
+        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+        
+        self.window.rootViewController = self.splitViewController;
+    }
     
     [self.window makeKeyAndVisible];
     return YES;

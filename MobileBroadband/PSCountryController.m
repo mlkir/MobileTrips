@@ -30,7 +30,7 @@
 @synthesize commentLabel = _commentLabel;
 @synthesize downloadButton = _downloadButton;
 @synthesize downloadSegmentedControl = _downloadSegmentedControl;
-
+@synthesize detailViewController = _detailViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +45,7 @@
 - (void)dealloc
 {
     [_objects release];
+    [_detailViewController release];
     
     [super dealloc];
 }
@@ -187,10 +188,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PSCountryModel *object = [_objects objectAtIndex:indexPath.row];
+        
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+	    PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
+        controller.country = object;    
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        [self.detailViewController.navigationController popToRootViewControllerAnimated:NO];
+        self.detailViewController.country = object;
+        [self.detailViewController refreshTableView];
+    }
+
     
-    PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
-    controller.country = object;    
-    [self.navigationController pushViewController:controller animated:YES];
     
 }
 

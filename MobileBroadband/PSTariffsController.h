@@ -11,8 +11,12 @@
 
 @class PSTariffDetailController;
 
-@interface PSTariffsController : UITableViewController
+@interface PSTariffsController : UITableViewController <UISplitViewControllerDelegate>
 
 @property (nonatomic, retain) PSCountryModel *country;
+
+
+- (void)refreshTableView;
+
 
 @end

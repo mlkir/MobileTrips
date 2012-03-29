@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSTariffsController.h"
+
+
 
 @interface PSCountryController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -16,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *downloadButton;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *downloadSegmentedControl;
 
+@property (strong, nonatomic) PSTariffsController *detailViewController;
 
 - (IBAction)onDownload:(id)sender;
 

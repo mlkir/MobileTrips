@@ -16,6 +16,7 @@
 }
 
 @property (nonatomic, retain) NSArray *objects;  
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
 
 @end
 
@@ -25,7 +26,7 @@
 
 @synthesize country = _country;
 @synthesize objects = _objects;
-
+@synthesize masterPopoverController = _masterPopoverController;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,8 +47,24 @@
 - (void)dealloc
 {
     [_objects release];
+    [_masterPopoverController release];
     
     [super dealloc];
+}
+
+- (void)setCountry:(PSCountryModel *)country {
+    [_country release];
+    _country = [country retain];
+    
+    if (self.masterPopoverController != nil) {
+        [self.masterPopoverController dismissPopoverAnimated:YES];
+    }
+}
+
+- (void)refreshTableView {
+    //Подгружаем данные со странами    
+    self.objects = [PSTariffModel newListByCountryId:self.country.ID];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -58,7 +75,7 @@
     self.title = NSLocalizedString(@"PSTariffsController.title", nil);;
     
     //Подгружаем данные со странами    
-    self.objects = [PSTariffModel newListByCountryId:3];//self.country.ID]; TODO: вернуть по ИД страны
+    self.objects = [PSTariffModel newListByCountryId:self.country.ID];
     
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
@@ -135,6 +152,23 @@
     [controller setTariff:object];
     [self.navigationController pushViewController:controller animated:YES];
     
+}
+
+#pragma mark - Split view
+
+
+- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
+{
+    barButtonItem.title = NSLocalizedString(@"PSCountryController.title", nil);
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.masterPopoverController = popoverController;
+}
+
+- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    // Called when the view is shown again in the split view, invalidating the button and popover controller.
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.masterPopoverController = nil;
 }
 
 @end
