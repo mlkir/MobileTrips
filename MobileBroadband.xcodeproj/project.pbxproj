@@ -32,9 +32,13 @@
 		AA6E72DF15238E4F00B70DFF /* PSTariffModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6E72DE15238E4F00B70DFF /* PSTariffModel.m */; };
 		AA7CDFD015227FBB00BF3D03 /* PSHtmlDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */; };
 		AA8BF0DD15209E77004521D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA8BF0DB15209E76004521D4 /* Localizable.strings */; };
+		AA9A792D1524B549004DCE2A /* PSTariffsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9A792C1524B549004DCE2A /* PSTariffsTableViewCell.m */; };
+		AA9A79301524C710004DCE2A /* provider.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9A792F1524C710004DCE2A /* provider.png */; };
 		AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */; };
 		AABBF0D31521994D007BE589 /* PSTariffsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D21521994D007BE589 /* PSTariffsController.xib */; };
 		AABBF0D715219E76007BE589 /* PSCountryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D615219E76007BE589 /* PSCountryController.xib */; };
+		AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC503C91524E9C20035ACB0 /* table-header.png */; };
+		AAC503CE1524F95D0035ACB0 /* PSTariffsHederSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */; };
 		AAD85C5C1521DAE900FF5E40 /* database_en.db in Resources */ = {isa = PBXBuildFile; fileRef = AA63B3C21521B9540039AC5E /* database_en.db */; };
 /* End PBXBuildFile section */
 
@@ -91,9 +95,15 @@
 		AA8BF0DE15209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadbandTests/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		AA8BF0E315209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadband/ru.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		AA8BF0E415209F7A004521D4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/kiryushin/MyApp/1-Progress/MobileBroadband/MobileBroadband/ru.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
+		AA9A792B1524B549004DCE2A /* PSTariffsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTariffsTableViewCell.h; sourceTree = "<group>"; };
+		AA9A792C1524B549004DCE2A /* PSTariffsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTariffsTableViewCell.m; sourceTree = "<group>"; };
+		AA9A792F1524C710004DCE2A /* provider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = provider.png; path = Resources/Images/provider.png; sourceTree = "<group>"; };
 		AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffDetailController.xib; path = Views/PSTariffDetailController.xib; sourceTree = "<group>"; };
 		AABBF0D21521994D007BE589 /* PSTariffsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffsController.xib; path = Views/PSTariffsController.xib; sourceTree = "<group>"; };
 		AABBF0D615219E76007BE589 /* PSCountryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSCountryController.xib; path = Views/PSCountryController.xib; sourceTree = "<group>"; };
+		AAC503C91524E9C20035ACB0 /* table-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-header.png"; path = "Resources/Images/table-header.png"; sourceTree = "<group>"; };
+		AAC503CC1524F95D0035ACB0 /* PSTariffsHederSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTariffsHederSectionView.h; sourceTree = "<group>"; };
+		AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTariffsHederSectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +218,8 @@
 		AA63B3C11521B9490039AC5E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAC503C91524E9C20035ACB0 /* table-header.png */,
+				AA9A792F1524C710004DCE2A /* provider.png */,
 				AA26C0691522405A00556790 /* btn_download.png */,
 				AA26C06615223DAB00556790 /* btn_russia.png */,
 			);
@@ -245,6 +257,10 @@
 				AA008DB7151CC69B001FD906 /* PSTariffsController.h */,
 				AA008DB8151CC69B001FD906 /* PSTariffsController.m */,
 				AABBF0D21521994D007BE589 /* PSTariffsController.xib */,
+				AA9A792B1524B549004DCE2A /* PSTariffsTableViewCell.h */,
+				AA9A792C1524B549004DCE2A /* PSTariffsTableViewCell.m */,
+				AAC503CC1524F95D0035ACB0 /* PSTariffsHederSectionView.h */,
+				AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */,
 			);
 			name = TariffsList;
 			sourceTree = "<group>";
@@ -352,6 +368,8 @@
 				AABBF0D715219E76007BE589 /* PSCountryController.xib in Resources */,
 				AA26C06715223DAB00556790 /* btn_russia.png in Resources */,
 				AA26C06A1522405A00556790 /* btn_download.png in Resources */,
+				AA9A79301524C710004DCE2A /* provider.png in Resources */,
+				AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +416,8 @@
 				AA63B3E21521D29E0039AC5E /* AbstractModel.m in Sources */,
 				AA7CDFD015227FBB00BF3D03 /* PSHtmlDialog.m in Sources */,
 				AA6E72DF15238E4F00B70DFF /* PSTariffModel.m in Sources */,
+				AA9A792D1524B549004DCE2A /* PSTariffsTableViewCell.m in Sources */,
+				AAC503CE1524F95D0035ACB0 /* PSTariffsHederSectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

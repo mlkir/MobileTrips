@@ -13,16 +13,17 @@
 
 @implementation PSTariffModel
 
+NSString *CURRENCY_NAME;
+
+
 @synthesize ID = _ID;
-@synthesize tariffType = _tariffType;
+@synthesize trafficType = _trafficType;
 @synthesize tariffName = _tariffName;
 @synthesize provaderId = _provaderId;
 @synthesize provaderName = _provaderName;
 @synthesize price = _price;
-@synthesize priceUnit = _priceUnit;
 @synthesize priceForSort = _priceForSort;
 @synthesize speed = _speed;
-@synthesize speedUnit = _speedUnit;
 @synthesize speedForSort = _speedForSort;
 @synthesize dataLimit = _dataLimit;
 
@@ -49,11 +50,11 @@
 /* Деструктор */
 - (void)dealloc {
     
-    [_tariffType release];
+    [_trafficType release];
 	[_tariffName release];
     [_provaderName release];
-    [_priceUnit release];
-    [_speedUnit release];
+    [_price release];
+    [_speed release];
     [_dataLimit release];
 	
     [super dealloc];
@@ -77,30 +78,37 @@
 - (void)fillAttributes:(sqlite3_stmt *)stmt manager:(DBManager *)dbManager {
 	int pos = -1;                
     _ID = sqlite3_column_int(stmt, ++pos);    
-    self.tariffType = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.trafficType = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     self.tariffName = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     
     self.provaderId = sqlite3_column_int(stmt, ++pos);	
     self.provaderName = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     
-    self.price = sqlite3_column_double(stmt, ++pos);
+    double priceDouble = sqlite3_column_double(stmt, ++pos);
+    NSNumber *price = [NSNumber numberWithDouble:priceDouble];
     int priceUnitId = sqlite3_column_int(stmt, ++pos);
-    self.priceUnit = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
-    self.priceForSort = [self convertPrice:self.price withUnitId:priceUnitId];
+    NSString *priceUnit = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];    
+    self.priceForSort = [self convertPrice:priceDouble withUnitId:priceUnitId];
+    self.price = [NSString stringWithFormat:@"%@%@/%@", price, CURRENCY_NAME, priceUnit];
+    
     
 	self.dataLimit = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     
-    self.speed = sqlite3_column_double(stmt, ++pos);
+    double speedDouble = sqlite3_column_double(stmt, ++pos);
+    NSNumber *speed = [NSNumber numberWithDouble:speedDouble];
     int speedUnitId = sqlite3_column_int(stmt, ++pos);
-    self.speedUnit = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];    
-	self.speedForSort = [self convertSpeed:self.speed withUnitId:speedUnitId];
+    NSString *speedUnit = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];    
+	self.speedForSort = [self convertSpeed:speedDouble withUnitId:speedUnitId];
+    self.speed = [NSString stringWithFormat:@"%@ %@", speed, speedUnit];
+                  
 }
 
 
 
 /* Получить список */
-+ (NSArray *)newListByCountryId:(int)countryId {
-    NSString *query = [[NSString alloc] initWithFormat:@"SELECT id, traf_type_name, tariff, provider_id, provider_name, price, price_unit_id, price_unit_name, data_limit, speed, speed_unit_id, speed_unit_name FROM price_data WHERE country_id = %d", countryId]; 
++ (NSArray *)newListByCountry:(PSCountryModel *)country {
+    CURRENCY_NAME = country.currencyName;
+    NSString *query = [[NSString alloc] initWithFormat:@"SELECT id, traf_type_name, tariff, provider_id, provider_name, price, price_unit_id, price_unit_name, data_limit, speed, speed_unit_id, speed_unit_name FROM price_data WHERE country_id = %d", country.ID]; 
     NSMutableArray *list = [[DBManager getInstance] newListEntiteClass:[self class] query:[query UTF8String]];
     [query release];
     return list;

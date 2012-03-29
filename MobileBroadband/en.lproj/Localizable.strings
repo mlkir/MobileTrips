@@ -1,5 +1,11 @@
 /* Localizable.strings */
 
+/* Валюта */
+GBP = "£";
+EUR = "€";
+USD = "$";
+RUR = "RUR";
+
 button.cancel = "Close";
 
 PSCountryController.title = "Menu";
@@ -13,6 +19,13 @@ PSCountryController.downloadButton.title = "Download update";
 
 /* Заголовок */
 PSTariffsController.title = "Tariffs";
+
+PSTariffsController.tableHeader.trafficType = "Type";
+PSTariffsController.tableHeader.price = "Price";
+PSTariffsController.tableHeader.speed = "Speed";
+PSTariffsController.tableHeader.limit = "Limit";
+
+
 
 /* Заголовок */
 PSTariffDetailController.title = "Tariff";

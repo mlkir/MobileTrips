@@ -16,7 +16,7 @@
 @synthesize ID = _ID;
 @synthesize name = _name;
 @synthesize page = _page;
-@synthesize currencyCode = _currencyCode;
+@synthesize currencyName = _currencyName;
 @synthesize isPageExists = _isPageExists;
 
 /* Конструктор */
@@ -35,7 +35,7 @@
     
 	[_name release];
     [_page release];
-	[_currencyCode release];
+	[_currencyName release];
     
     [super dealloc];
 }
@@ -56,7 +56,7 @@
 	int pos = -1;                
     _ID = sqlite3_column_int(stmt, ++pos);
 	self.name = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
-    self.currencyCode = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.currencyName = NSLocalizedString([dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""], nil);
     int len = sqlite3_column_int(stmt, ++pos);    
 	_isPageExists = (len > 0); //если длина текста больше 0 - описание существует
     self.page = nil;

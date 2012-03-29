@@ -8,8 +8,11 @@
 
 #import "PSTariffsController.h"
 #import "PSTariffModel.h"
-
+#import "PSTariffsTableViewCell.h"
 #import "PSTariffDetailController.h"
+#import "PSTariffsHederSectionView.h"
+
+
 
 @interface PSTariffsController () {
     
@@ -63,7 +66,7 @@
 
 - (void)refreshTableView {
     //Подгружаем данные со странами    
-    self.objects = [PSTariffModel newListByCountryId:self.country.ID];
+    self.objects = [PSTariffModel newListByCountry:self.country];
     [self.tableView reloadData];
 }
 
@@ -75,12 +78,13 @@
     self.title = NSLocalizedString(@"PSTariffsController.title", nil);;
     
     //Подгружаем данные со странами    
-    self.objects = [PSTariffModel newListByCountryId:self.country.ID];
+    self.objects = [PSTariffModel newListByCountry:self.country];
     
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     //UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(insertNewObject:)] autorelease];
     //self.navigationItem.rightBarButtonItem = addButton;
+    
 }
 
 - (void)viewDidUnload
@@ -113,6 +117,13 @@
     return _objects.count;
 }
 
+ 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section 
+{
+    PSTariffsHederSectionView *header = [[PSTariffsHederSectionView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)]; //размеры от болды только для удобства
+    return [header autorelease];
+}
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -121,18 +132,14 @@
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PSTariffsTableViewCell *cell = (PSTariffsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
+        cell = [[[PSTariffsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-
-
     
-    cell.textLabel.text = object.tariffName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%f: %@", object.price, object.tariffType];
+    cell.object = object;
+    
     return cell;
 }
 

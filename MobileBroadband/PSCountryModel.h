@@ -15,8 +15,8 @@
 
 @property (nonatomic, readonly) int ID;
 @property (nonatomic, retain) NSString *name;           //название страны (например: United Kingdom)
-@property (nonatomic, retain) NSString *page;          //описание общих вещей характерных для страны (в формате HTML)
-@property (nonatomic, retain) NSString *currencyCode;   //код валюты (например: GBP)
+@property (nonatomic, retain) NSString *page;           //описание общих вещей характерных для страны (в формате HTML)
+@property (nonatomic, retain) NSString *currencyName;   //код валюты
 @property (nonatomic, readwrite) BOOL isPageExists;     //есть страница с опичанием (чтобы не подгружать без необходимости
 
 + (NSMutableArray *)newList;
