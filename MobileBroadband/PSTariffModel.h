@@ -31,7 +31,7 @@
 @property (nonatomic, retain) NSString *dataLimit;      //Ограничение
 
 
-+ (NSArray *)newListByCountry:(PSCountryModel *)country;
++ (NSMutableArray *)newListByCountry:(PSCountryModel *)country;
 
 - (id)initById:(int)Id;
 

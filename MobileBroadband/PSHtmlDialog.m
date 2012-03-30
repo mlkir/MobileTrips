@@ -24,6 +24,11 @@
     return self;
 }
 
+- (void)dealloc 
+{
+    [super dealloc];
+}
+
 #pragma mark - Action sheet delegate
 
 /* Событие перед выводом на экран */

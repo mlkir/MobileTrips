@@ -68,8 +68,8 @@ NSString *CURRENCY_NAME;
 - (double)convertSpeed:(double)speed withUnitId:(int)unitId {
     int x = 1;
     switch (unitId) {
-        case 1: x = 1000;   break;      //Kbps
-        case 2: x = 1;      break;      //Mbps
+        case 1: x = 1;      break;      //Kbps
+        case 2: x = 1000;   break;      //Mbps
     }
     return speed * x;    
 }
@@ -106,7 +106,7 @@ NSString *CURRENCY_NAME;
 
 
 /* Получить список */
-+ (NSArray *)newListByCountry:(PSCountryModel *)country {
++ (NSMutableArray *)newListByCountry:(PSCountryModel *)country {
     CURRENCY_NAME = country.currencyName;
     NSString *query = [[NSString alloc] initWithFormat:@"SELECT id, traf_type_name, tariff, provider_id, provider_name, price, price_unit_id, price_unit_name, data_limit, speed, speed_unit_id, speed_unit_name FROM price_data WHERE country_id = %d", country.ID]; 
     NSMutableArray *list = [[DBManager getInstance] newListEntiteClass:[self class] query:[query UTF8String]];

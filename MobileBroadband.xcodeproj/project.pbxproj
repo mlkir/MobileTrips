@@ -35,6 +35,7 @@
 		AA9A792D1524B549004DCE2A /* PSTariffsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9A792C1524B549004DCE2A /* PSTariffsTableViewCell.m */; };
 		AA9A79301524C710004DCE2A /* provider.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9A792F1524C710004DCE2A /* provider.png */; };
 		AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */; };
+		AAA964C1152515260070DAC9 /* PSSortDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA964C0152515260070DAC9 /* PSSortDialog.m */; };
 		AABBF0D31521994D007BE589 /* PSTariffsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D21521994D007BE589 /* PSTariffsController.xib */; };
 		AABBF0D715219E76007BE589 /* PSCountryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D615219E76007BE589 /* PSCountryController.xib */; };
 		AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC503C91524E9C20035ACB0 /* table-header.png */; };
@@ -99,6 +100,8 @@
 		AA9A792C1524B549004DCE2A /* PSTariffsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTariffsTableViewCell.m; sourceTree = "<group>"; };
 		AA9A792F1524C710004DCE2A /* provider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = provider.png; path = Resources/Images/provider.png; sourceTree = "<group>"; };
 		AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffDetailController.xib; path = Views/PSTariffDetailController.xib; sourceTree = "<group>"; };
+		AAA964BF152515260070DAC9 /* PSSortDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSortDialog.h; sourceTree = "<group>"; };
+		AAA964C0152515260070DAC9 /* PSSortDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSortDialog.m; sourceTree = "<group>"; };
 		AABBF0D21521994D007BE589 /* PSTariffsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffsController.xib; path = Views/PSTariffsController.xib; sourceTree = "<group>"; };
 		AABBF0D615219E76007BE589 /* PSCountryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSCountryController.xib; path = Views/PSCountryController.xib; sourceTree = "<group>"; };
 		AAC503C91524E9C20035ACB0 /* table-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-header.png"; path = "Resources/Images/table-header.png"; sourceTree = "<group>"; };
@@ -281,10 +284,12 @@
 				AA008DB1151CC69B001FD906 /* main.m */,
 				AA63B3BD1521AC970039AC5E /* Utils.h */,
 				AA63B3BE1521AC970039AC5E /* Utils.m */,
-				AA008DB4151CC69B001FD906 /* PSAppDelegate.h */,
-				AA008DB5151CC69B001FD906 /* PSAppDelegate.m */,
+				AAA964BF152515260070DAC9 /* PSSortDialog.h */,
+				AAA964C0152515260070DAC9 /* PSSortDialog.m */,
 				AA7CDFCE15227FBB00BF3D03 /* PSHtmlDialog.h */,
 				AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */,
+				AA008DB4151CC69B001FD906 /* PSAppDelegate.h */,
+				AA008DB5151CC69B001FD906 /* PSAppDelegate.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 				AA6E72DF15238E4F00B70DFF /* PSTariffModel.m in Sources */,
 				AA9A792D1524B549004DCE2A /* PSTariffsTableViewCell.m in Sources */,
 				AAC503CE1524F95D0035ACB0 /* PSTariffsHederSectionView.m in Sources */,
+				AAA964C1152515260070DAC9 /* PSSortDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

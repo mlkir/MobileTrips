@@ -11,15 +11,14 @@
 #import "PSTariffsTableViewCell.h"
 #import "PSTariffDetailController.h"
 #import "PSTariffsHederSectionView.h"
-
+#import "PSSortDialog.h"
 
 
 @interface PSTariffsController () {
     
 }
 
-@property (nonatomic, retain) NSArray *objects;  
-@property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (nonatomic, retain) NSMutableArray *objects;  
 
 @end
 
@@ -82,8 +81,9 @@
     
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    //UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(insertNewObject:)] autorelease];
-    //self.navigationItem.rightBarButtonItem = addButton;
+    UIBarButtonItem *btnSort = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"PSTariffsController.sortButton.title", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onTouchButtonSort:)];
+    self.navigationItem.rightBarButtonItem = btnSort;
+    [btnSort release];
     
 }
 
@@ -104,6 +104,69 @@
     }
 }
 
+
+- (void)onTouchButtonSort:(UIBarButtonItem *)sender {
+    PSSortDialog *dialog = [[PSSortDialog alloc] initWithTitle:sender.title];   
+    [dialog addTarget:self action:@selector(onSort:)];
+    [dialog showFromBarButtonItem:sender animated:YES];
+    [dialog release];    
+}
+
+- (void)onSort:(NSIndexPath *)indexPath {
+    //Получаем индекс колонки по которой необходимо выполнить сортировку
+    NSInteger column = indexPath.row + 1;
+    
+    /*
+    NSLog(@"%d", column);
+        
+    NSLog(@"TAG = %d: %@; SORT %@", column.tag, column.titleLabel.text, column.sortAscending ? @"v" : @"^");    
+    NSLog(@"------  До  ------");
+    for (PSTariffModel *model1 in _broadbandList) {
+        NSLog(@"ID=%d\t: %f", model1.ID, model1.price);
+    }
+    //*/
+    
+    //Выполняем сортировку
+    [_objects sortUsingComparator:(NSComparator)^(id obj1, id obj2){
+        PSTariffModel *model1 = (PSTariffModel *)obj1;
+        PSTariffModel *model2 = (PSTariffModel *)obj2;
+        
+        
+        NSComparisonResult result = NSOrderedSame;
+        switch (column) {
+            case 1: //По тарифу 
+                result = [model1.trafficType compare:model2.trafficType options:NSCaseInsensitiveSearch];
+                break;
+            case 2: //По стоимости 
+                if (model1.priceForSort < model2.priceForSort) result = NSOrderedAscending;
+                else if (model1.priceForSort > model2.priceForSort) result = NSOrderedDescending;
+                break;
+            case 3: //По скорости
+                if (model1.speedForSort > model2.speedForSort) result = NSOrderedAscending;
+                else if (model1.speedForSort < model2.speedForSort) result = NSOrderedDescending;
+                break;  
+            case 4: //По лимиту
+                result = [model1.dataLimit compare:model2.dataLimit options:NSCaseInsensitiveSearch];
+                break;
+            default:
+                break;
+        }
+                
+        //NSLog(@"%d - %d \t %f <> %f \t result = %d", model1.ID, model2.ID, model1.price, model2.price, result);
+        
+        return result;
+    }];
+    
+    /*
+    NSLog(@"------ После ------");
+    for (PSTariffModel *model1 in _broadbandList) {
+        NSLog(@"ID=%d\t: %f", model1.ID, model1.price);
+    }
+    //*/
+    
+    [self.tableView reloadData]; 
+    
+}
 
 #pragma mark - Table View
 

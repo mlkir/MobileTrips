@@ -14,6 +14,7 @@
 @interface PSTariffsController : UITableViewController <UISplitViewControllerDelegate>
 
 @property (nonatomic, retain) PSCountryModel *country;
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
 
 
 - (void)refreshTableView;

@@ -105,18 +105,27 @@
 
 - (void)onShowCountryInfo:(UIButton *)sender {
     int index = sender.superview.tag;
-    NSIndexPath *selIndexPath = _countryTableView.indexPathForSelectedRow;
+    /*NSIndexPath *selIndexPath = _countryTableView.indexPathForSelectedRow;
     if (index != selIndexPath.row) {
         [_countryTableView deselectRowAtIndexPath:selIndexPath animated:YES];
-    }
+        //[_countryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }*/
             
     PSCountryModel *object = [_objects objectAtIndex:index];    
-    //if (object.isPageExists) {
+    //if (object.isPageExists) {        
         //Отображаем описание     
         PSHtmlDialog *dialog = [[PSHtmlDialog alloc] initWithTitle:object.name];
         //dialog.text = object.page;
         dialog.text = (object.page) ? object.page : @"<html><body style='text-align: center;'>Нет данных</body></html>"; //TODO: убрать после того как будет заполнена база
-        [dialog showInView:self.view];
+        //Если вьюха отображена как Popover
+        if (self.detailViewController.masterPopoverController) {
+            //Чтобы не валилась ошибка нужно отображать не из поповера
+            UIView *tmp = [self.view.window.subviews objectAtIndex:0];
+            [dialog showInView:tmp];
+        } else {
+            [dialog showInView:self.view];
+        }    
+        
         [dialog release];    
     //}
 }

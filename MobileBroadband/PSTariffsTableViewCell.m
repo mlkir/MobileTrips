@@ -94,6 +94,7 @@
         
         _trafficType = [[UILabel alloc] init];
         _trafficType.font = font;
+        _trafficType.textAlignment = UITextAlignmentCenter;
         _trafficType.backgroundColor = [UIColor clearColor];
         [self addSubview:_trafficType];
         
