@@ -117,6 +117,7 @@
     menuController.detailViewController = self;    
     UINavigationController *navigationController = [[[UINavigationController alloc] initWithRootViewController:menuController] autorelease];    
     UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
+    popoverController.popoverContentSize = CGSizeMake(popoverController.popoverContentSize.width, 500.0f);
     self.masterPopoverController = popoverController;
     [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }

@@ -14,8 +14,7 @@
     
 }
 
-@property (nonatomic, retain) UIImageView *providerLogo;
-//@property (nonatomic, retain) UILabel *providerName;
+@property (nonatomic, retain) UILabel *providerName;
 @property (nonatomic, retain) UILabel *trafficType;
 @property (nonatomic, retain) UILabel *price;
 @property (nonatomic, retain) UILabel *speed;
@@ -28,7 +27,7 @@
 
 
 
-@synthesize providerLogo = _providerLogo;
+@synthesize providerName = _providerName;
 @synthesize trafficType = _trafficType;
 @synthesize price = _price;
 @synthesize speed = _speed;
@@ -47,13 +46,15 @@
         CGFloat topCapHeight = image.size.height / 2;
         self.image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(topCapHeight, 0, topCapHeight, 0)];
         
-        
-        _providerLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"provider.png"]];
-        _providerLogo.contentMode = UIViewContentModeCenter; //UIViewContentModeScaleAspectFit;
-        [self addSubview:_providerLogo];
-        
         BOOL isIPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
         UIFont *font = [UIFont boldSystemFontOfSize:(isIPhone ? 12.0f : 14.0f)];
+        
+        _providerName = [[UILabel alloc] init];
+        _providerName.font = font;
+        _providerName.textAlignment = UITextAlignmentCenter;
+        _providerName.backgroundColor = [UIColor clearColor];
+        _providerName.text =  NSLocalizedString(@"PSTariffsController.tableHeader.providerName", nil);   
+        [self addSubview:_providerName];
         
         _trafficType = [[UILabel alloc] init];
         _trafficType.font = font;
@@ -88,7 +89,7 @@
 
 - (void)dealloc {
         
-    [_providerLogo release];
+    [_providerName release];
     [_trafficType release];
     [_price release];
     [_speed release];
@@ -105,7 +106,7 @@
     rect.size.width -= 20.0f; //отступ от правого края на ширину стрелки (AccessoryDisclosureIndicator)
     
     //Размещаем логотип провайдера
-    self.providerLogo.frame = [PSTariffsTableViewCell getFrameForColumn:0 withRowContentFrame:rect];    
+    self.providerName.frame = [PSTariffsTableViewCell getFrameForColumn:0 withRowContentFrame:rect];    
     //Размещаем тип трафика
     self.trafficType.frame = [PSTariffsTableViewCell getFrameForColumn:1 withRowContentFrame:rect];    
     //Размещаем стоимость 

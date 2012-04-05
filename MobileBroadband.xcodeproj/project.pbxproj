@@ -90,7 +90,7 @@
 		AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileBroadbandTests.m; sourceTree = "<group>"; };
 		AA26C06615223DAB00556790 /* btn_russia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_russia.png; path = Resources/Images/btn_russia.png; sourceTree = "<group>"; };
 		AA26C0691522405A00556790 /* btn_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_download.png; path = Resources/Images/btn_download.png; sourceTree = "<group>"; };
-		AA5989D01525CE55007704DC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
+		AA5989D01525CE55007704DC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
 		AA5989D11525CE55007704DC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
 		AA5989D31525CF20007704DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AA5989D51525CF2F007704DC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };

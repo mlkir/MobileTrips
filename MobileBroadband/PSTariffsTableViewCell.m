@@ -12,11 +12,11 @@
 
 #define HEIGHT_DETAIL       14.0f
 
-#define WIDTH_PROVIDER      60.0f 
-#define WIDTH_TRAFFIC_TYPE  25  
-#define WIDTH_PRICE         30
+#define WIDTH_PROVIDER      20
+#define WIDTH_TRAFFIC_TYPE  20  
+#define WIDTH_PRICE         20
 #define WIDTH_SPEED         20
-#define WIDTH_LIMIT         25
+#define WIDTH_LIMIT         20
 
 
 
@@ -24,7 +24,7 @@
     
 }
 
-@property (nonatomic, retain) UIImageView *providerLogo;
+//@property (nonatomic, retain) UIImageView *providerLogo; [2b4ac1c] - ревизия в которой было и название провайдера и его логотип
 @property (nonatomic, retain) UILabel *providerName;
 @property (nonatomic, retain) UILabel *trafficType;
 @property (nonatomic, retain) UILabel *price;
@@ -40,7 +40,7 @@
 
 @synthesize object = _object;
 
-@synthesize providerLogo = _providerLogo;
+//@synthesize providerLogo = _providerLogo;
 @synthesize providerName = _providerName;
 @synthesize trafficType = _trafficType;
 @synthesize price = _price;
@@ -57,12 +57,14 @@
     CGFloat contentHeight = contentRect.size.height;
     
     //Остаток ширины которую необходимо распределить между оставшимися полями
-    CGFloat width = contentWidth - WIDTH_PROVIDER - dx * (count - 2);
+    CGFloat width = contentWidth - dx * (count);
         
-    CGRect rect0 = CGRectMake(0.0f, 0.0f, WIDTH_PROVIDER, contentHeight);
+    CGFloat x = dx;
+    CGFloat w = width * WIDTH_PROVIDER / 100;
+    CGRect rect0 = CGRectMake(x, 0.0f, w, contentHeight);
     
-    CGFloat x = rect0.origin.x + rect0.size.width;
-    CGFloat w = width * WIDTH_TRAFFIC_TYPE / 100;
+    x = rect0.origin.x + rect0.size.width + dx;
+    w = width * WIDTH_TRAFFIC_TYPE / 100;
     CGRect rect1 = CGRectMake(x, 0.0f, w, contentHeight);
     
     x = rect1.origin.x + rect1.size.width + dx;
@@ -97,38 +99,33 @@
         UIFont *fontForDetalData = [UIFont systemFontOfSize:(isIPhone ? 10.0f : 12.0f)];
         UIColor *colorForDetailData = [UIColor darkGrayColor];       
         
-        _providerLogo = [[UIImageView alloc] init];
-        _providerLogo.contentMode = UIViewContentModeCenter; //UIViewContentModeScaleAspectFit;
-        [self addSubview:_providerLogo];
-        
         _providerName = [[UILabel alloc] init];
-        _providerName.font = fontForDetalData;
-        _providerName.textColor = colorForDetailData;
+        _providerName.font = fontForCommonData;
         _providerName.textAlignment = UITextAlignmentCenter;
-        _providerName.backgroundColor = [UIColor clearColor];
+        _providerName.backgroundColor = [UIColor clearColor];//redColor];_providerName.alpha = 0.5f;
         [self addSubview:_providerName];        
                 
         _trafficType = [[UILabel alloc] init];
         _trafficType.font = fontForCommonData;
         _trafficType.textAlignment = UITextAlignmentCenter;
-        _trafficType.backgroundColor = [UIColor clearColor];
+        _trafficType.backgroundColor = [UIColor clearColor];//blueColor];_trafficType.alpha = 0.5f;
         [self addSubview:_trafficType];
         
         _price = [[UILabel alloc] init];
         _price.font = fontForCommonData;
         _price.textAlignment = UITextAlignmentCenter;
-        _price.backgroundColor = [UIColor clearColor];
+        _price.backgroundColor = [UIColor clearColor];//yellowColor];_price.alpha = 0.5f;
         [self addSubview:_price];
         
         _speed = [[UILabel alloc] init];
         _speed.font = fontForCommonData;
         _speed.textAlignment = UITextAlignmentCenter;
-        _speed.backgroundColor = [UIColor clearColor];
+        _speed.backgroundColor = [UIColor clearColor];//greenColor];_speed.alpha = 0.5f;
         [self addSubview:_speed];
         
         _limit = [[UILabel alloc] init];
         _limit.font = fontForCommonData;
-        _limit.backgroundColor = [UIColor clearColor];
+        _limit.backgroundColor = [UIColor clearColor];//brownColor]; _limit.alpha = 0.5f;
         [self addSubview:_limit];
         
         _detail = [[UILabel alloc] init];
@@ -144,7 +141,6 @@
 
 - (void)dealloc 
 {
-    [_providerLogo release];
     [_providerName release];
     [_trafficType release];
     [_price release];
@@ -159,7 +155,6 @@
     [_object release];
     _object = [object retain];
     
-    self.providerLogo.image = [UIImage imageNamed:@"provider.png"];    
     self.providerName.text = object.provaderName;
     self.trafficType.text = object.trafficType;
     self.price.text = object.price;
@@ -172,16 +167,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
         
-    //Размещаем логотип и название провайдера
-    CGRect rect = [PSTariffsTableViewCell getFrameForColumn:0 withRowContentFrame:self.contentView.frame];
-    CGRect rectLogo = rect;
-    rectLogo.size.height -= HEIGHT_DETAIL;
-    self.providerLogo.frame = rectLogo;
-    CGRect rectName = rect;
-    rectName.origin.y = rectLogo.size.height;
-    rectName.size.height = HEIGHT_DETAIL;
-    self.providerName.frame = rectName;
-    
+    //Размещаем название провайдера
+    self.providerName.frame = [PSTariffsTableViewCell getFrameForColumn:0 withRowContentFrame:self.contentView.frame];
     //Размещаем тип трафика
     self.trafficType.frame = [PSTariffsTableViewCell getFrameForColumn:1 withRowContentFrame:self.contentView.frame];    
     //Размещаем стоимость 
@@ -200,10 +187,7 @@
         //rect.size.width = self.limit.frame.origin.x + self.limit.frame.size.width - rect.origin.x;
         //rect.size.height = HEIGHT_DETAIL;
         
-        rect = self.limit.frame;
-        //rect.size.height -= HEIGHT_DETAIL;
-        //self.limit.frame = rect;
-        
+        CGRect rect = self.limit.frame;
         rect.origin.y = rect.size.height - HEIGHT_DETAIL;
         rect.size.height = HEIGHT_DETAIL;
         self.detail.frame = rect;
