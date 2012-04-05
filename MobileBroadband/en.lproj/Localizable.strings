@@ -6,15 +6,30 @@ EUR = "€";
 USD = "$";
 RUR = "RUR";
 
+/* Заголовки на кнопках */
+button.ok = "OK";
 button.cancel = "Close";
+
+/* Заголоовк сообщений*/
+alert.title.info = "Information";
+alert.title.error = "Error";
+alert.title.warning = "Warning";
+
+/* Сообщение при попытке загрузить обновления когда нет подключения к Интернету*/
+alert.message.network_not_connected = "No connection to Internet";
+//Сообщение при загрузке обновлений когда новых обновлений нет
+alert.message.is_no_update = "No update";
+//Обновление прошло успешно
+alert.message.successfull = "Update succesfull";
 
 PSCountryController.title = "Menu";
 /* Дата последнего обновления (загрузки данных с сервера) */
-PSCountryController.lastUpdateLabel.text = "Last update %@";
+PSCountryController.lastUpdateLabel.text = "Last update %@ (%@)";
 /* Комментарии */
 PSCountryController.commentLabel.text = "Pltcm ytrfz byajhvfwbjyyfz cnhjrf bkb ytcrjkmrj cnhjr^ gjrf njxyj ytbpdtcnyj^ yj vtcnj yflj jcnfdbnm";
 /* Название кнопки для загрузки с сервера */
 PSCountryController.downloadButton.title = "Download update";
+
 
 
 /* Заголовок */

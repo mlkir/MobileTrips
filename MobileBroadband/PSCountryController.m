@@ -8,9 +8,12 @@
 
 #import "PSCountryController.h"
 #import "PSCountryModel.h"
+#import "PSParamModel.h"
 #import "Utils.h"
 #import "PSHtmlDialog.h"
 #import "PSTariffsController.h"
+#import "Reachability.h"
+#import "ASIHTTPRequest.h"
 
 
 @interface PSCountryController () {
@@ -50,6 +53,15 @@
     [super dealloc];
 }
 
+//Указываем дату последнего обновления
+- (void)refreshlastUpdateLabel {
+    //Указываем дату последнего обновления        
+    NSString *ver = [PSParamModel getValueByKey:PARAM_VERSION];
+    NSString *lastUpdate = [PSParamModel getValueByKey:PARAM_LAST_UPDATE];
+    NSString *str = NSLocalizedString(@"PSCountryController.lastUpdateLabel.text", nil);
+    self.lastUpdateLabel.text = [NSString stringWithFormat:str, lastUpdate, ver];
+}
+
 
 - (void)viewDidLoad
 {
@@ -62,11 +74,10 @@
     self.objects = [PSCountryModel newList];
     
     //Указываем дату последнего обновления
-    NSString *str = NSLocalizedString(@"PSCountryController.lastUpdateLabel.text", nil);
-    self.lastUpdateLabel.text = [NSString stringWithFormat:str,  @"10.10.2010"];
+    [self refreshlastUpdateLabel];    
     
     //Название кнопки загрузки данных с сервера
-    str = NSLocalizedString(@"PSCountryController.downloadButton.title", nil);
+    NSString *str = NSLocalizedString(@"PSCountryController.downloadButton.title", nil);
     [self.downloadButton setTitle:str forState:UIControlStateNormal];
     //[self.downloadButton setTitle:str forState:UIControlState];
     [self.downloadButton.titleLabel setTextAlignment:UITextAlignmentCenter];
@@ -97,26 +108,123 @@
 }
 
 - (IBAction)onDownload:(UIButton *)sender {
-    NSString *lang = [Utils getCurrentLanguage];
-    //TODO: закачка базы с сервера
-    NSLog(@"Надо загрузить базу на языке %@", lang);
+    //Проверяем наличие соединение с Интернетом
+    Reachability *r = [Reachability  reachabilityWithHostName:@"www.apple.com"];
+    NetworkStatus internetStatus = [r currentReachabilityStatus];
+    if (internetStatus != ReachableViaWiFi && internetStatus != ReachableViaWWAN) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.warning", nil) message:NSLocalizedString(@"alert.message.network_not_connected", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+    
+    //Получаем папку куда закачаем наш файл
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/database_new.db"];    
+    
+    //Определяем строку запроса    
+    NSString *lang = [Utils getCurrentLanguage];        
+    NSString *ver = [PSParamModel getValueByKey:PARAM_VERSION];
+    NSString *str = [NSString stringWithFormat:@"http://tricks4trips.com/price_data/get_archive?locale=%@&version=%@", lang, ver];
+    NSURL *url = [NSURL URLWithString:str];    
+    
+    //Отправляем запрос на сервер    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setDownloadDestinationPath:path];    
+    [request startSynchronous];
+    NSError *error = [request error];    
+    if (error) {
+        //int statusCode = [request responseStatusCode];
+        NSString *statusMessage = [request responseStatusMessage];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.error", nil) message:statusMessage delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release];  
+        return;
+    }
+    
+    //Проверяем что скачали    
+    NSFileManager *fileManager = [NSFileManager defaultManager];    
+    //Если файл существует
+    BOOL isDownloaded = [fileManager fileExistsAtPath:path];
+    //Проверяем размер
+    if (isDownloaded) {
+        error = nil;
+        NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:path error:&error];
+        if (error) {
+            printf("Error: %s\n", [[Utils getErrorMessage:@"Неудалось получить атибуты загруженного файла." withError:error] UTF8String]);														
+            isDownloaded = NO;
+        } else if (fileAttributes.fileSize < 10) { //меньше 10 байт
+            isDownloaded = NO;
+        }
+        //Если размер слишком мал - считает что база не была получена
+        if (!isDownloaded) {
+            [Utils deleteFile:path];
+        }
+    }
+    
+    //Если файл не был получен - сообщаем что база самая новая
+    if (!isDownloaded) {        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.info", nil) message:NSLocalizedString(@"alert.message.is_no_update", nil) delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release]; 
+        return;
+    }
+    
+    //Заменяем старую базу новой
+    DBManager *dbManager = [DBManager getInstance];
+    NSString *databasePath = dbManager.databasePath;
+    [dbManager closeDB];
+    [Utils deleteFile:databasePath];					
+    error = nil;
+    BOOL isMoved = [fileManager moveItemAtPath:path toPath:databasePath error:&error];
+    if (!isMoved) {                
+        //Выводим сообщение
+        NSString *message = [error description];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.error", nil) message:message delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release]; 
+        //Удаляем за собой скаченную базу
+        [Utils deleteFile:path];        
+        return;
+    }
+    
+    //Записываем дату скачивания
+    NSString *currentDate = [Utils stringFromDate:[NSDate date]];
+    [PSParamModel insertValue:currentDate withKey:PARAM_LAST_UPDATE];
+    
+    //Обновляем отображаемые данные
+    [self refreshlastUpdateLabel];
+    self.objects = [PSCountryModel newList];
+    [self.countryTableView reloadData];    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self.detailViewController.navigationController popToRootViewControllerAnimated:NO];
+        self.detailViewController.country = nil;
+        [self.detailViewController refreshTableView];
+    }  
+    
+    //Выводим сообщение об успешном обновлении
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.info", nil) message:NSLocalizedString(@"alert.message.successfull", nil) delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+    [alert show];
+    [alert release]; 
+    
 }
 
 
 - (void)onShowCountryInfo:(UIButton *)sender {
     int index = sender.superview.tag;
-    /*NSIndexPath *selIndexPath = _countryTableView.indexPathForSelectedRow;
+    /*
+    NSIndexPath *selIndexPath = _countryTableView.indexPathForSelectedRow;
     if (index != selIndexPath.row) {
         [_countryTableView deselectRowAtIndexPath:selIndexPath animated:YES];
         //[_countryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-    }*/
+    }
+    */
             
     PSCountryModel *object = [_objects objectAtIndex:index];    
     //if (object.isPageExists) {        
         //Отображаем описание     
         PSHtmlDialog *dialog = [[PSHtmlDialog alloc] initWithTitle:object.name];
         //dialog.text = object.page;
-        dialog.text = (object.page) ? object.page : @"<html><body style='text-align: center;'>Нет данных</body></html>"; //TODO: убрать после того как будет заполнена база
+        dialog.text = (object.page) ? object.page : @"<html><body style='text-align: center;'>no data</body></html>"; //TODO: убрать после того как будет заполнена база
         //Если вьюха отображена как Popover
         if (self.detailViewController.masterPopoverController) {
             //Чтобы не валилась ошибка нужно отображать не из поповера

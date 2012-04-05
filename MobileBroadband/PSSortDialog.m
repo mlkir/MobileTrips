@@ -77,11 +77,19 @@
     
     //Определяем размеры для вывода WebView    
     CGRect rect = btnFirst.frame;
-    rect.origin.x = -10;
-    rect.origin.y = 1;
-    rect.size.width += 20;
-    rect.size.height = btnLast.frame.origin.y + btnLast.frame.size.height - btnFirst.frame.origin.y; 
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        rect.origin.x -= 6;
+        rect.origin.y += 10;
+        rect.size.width += 12;
+        rect.size.height = btnLast.frame.origin.y + btnLast.frame.size.height - btnFirst.frame.origin.y; 
+    } else {
+        rect.origin.x -= 10;
+        rect.origin.y = 1;
+        rect.size.width += 20;
+        rect.size.height = btnLast.frame.origin.y + btnLast.frame.size.height - btnFirst.frame.origin.y; 
+    }
     
+    //Удаляем кнопки
     for (int i = lastIndex; i >= firstIndex; i--) {
         UIView *btn = [self.subviews objectAtIndex:firstIndex];   
         [btn removeFromSuperview];
