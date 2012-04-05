@@ -26,7 +26,14 @@ NSString *CURRENCY_NAME;
 @synthesize speed = _speed;
 @synthesize speedForSort = _speedForSort;
 @synthesize dataLimit = _dataLimit;
+@synthesize tariffOption = _tariffOption;
+@synthesize connectionFee = _connectionFee;
+@synthesize initialPayment = _initialPayment;
+@synthesize equipment = _equipment;
+@synthesize whatAfter = _whatAfter;
 @synthesize bonus = _bonus;
+@synthesize linkToTarif = _linkToTarif;
+@synthesize coverage = _coverage;
 
 /* Конструктор */
 - (id)init {
@@ -57,8 +64,15 @@ NSString *CURRENCY_NAME;
     [_price release];
     [_speed release];
     [_dataLimit release];
+    [_tariffOption release];
+    [_connectionFee release];
+    [_initialPayment release];
+    [_equipment release];
+    [_whatAfter release];
     [_bonus release];
-	
+	[_linkToTarif release];
+    [_coverage release];
+    
     [super dealloc];
 }
 
@@ -102,7 +116,14 @@ NSString *CURRENCY_NAME;
 	self.speedForSort = [self convertSpeed:speedDouble withUnitId:speedUnitId];
     self.speed = [NSString stringWithFormat:@"%@ %@", speed, speedUnit];
 
+    self.tariffOption = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.connectionFee = [NSNumber numberWithDouble:sqlite3_column_double(stmt, ++pos)];
+    self.initialPayment = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.equipment = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.whatAfter = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     self.bonus = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];    
+    self.linkToTarif = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];    
+    self.coverage = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];    
 }
 
 
@@ -110,7 +131,28 @@ NSString *CURRENCY_NAME;
 /* Получить список */
 + (NSMutableArray *)newListByCountry:(PSCountryModel *)country {
     CURRENCY_NAME = country.currencyName;
-    NSString *query = [[NSString alloc] initWithFormat:@"SELECT id, traf_type_name, tariff, provider_id, TRIM(provider_name), price, price_unit_id, price_unit_name, data_limit, speed, speed_unit_id, speed_unit_name, TRIM(bonus) FROM price_data WHERE country_id = %d", country.ID]; 
+    NSString *query = [[NSString alloc] initWithFormat:@"SELECT "
+                                                            "  id"
+                                                            ", traf_type_name"
+                                                            ", tariff"
+                                                            ", provider_id"
+                                                            ", TRIM(provider_name)"
+                                                            ", price, price_unit_id"
+                                                            ", price_unit_name"
+                                                            ", data_limit"
+                                                            ", speed"
+                                                            ", speed_unit_id"
+                                                            ", speed_unit_name"                                                            
+                                                            ", tariff_option"
+                                                            ", connection_fee"
+                                                            ", initial_payment"
+                                                            ", equipment"
+                                                            ", what_after"
+                                                            ", TRIM(bonus)"
+                                                            ", link_to_tarif"
+                                                            ", coverage "
+                                                       "FROM price_data "
+                                                       "WHERE country_id = %d", country.ID]; 
     NSMutableArray *list = [[DBManager getInstance] newListEntiteClass:[self class] query:[query UTF8String]];
     [query release];
     return list;

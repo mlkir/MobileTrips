@@ -30,7 +30,16 @@
 
 @property (nonatomic, retain) NSString *dataLimit;      //Ограничение
 
-@property (nonatomic, retain) NSString *bonus;      //Бонус
+
+
+@property (nonatomic, retain) NSString *tariffOption;
+@property (nonatomic, retain) NSNumber *connectionFee;
+@property (nonatomic, retain) NSString *initialPayment;
+@property (nonatomic, retain) NSString *equipment;
+@property (nonatomic, retain) NSString *whatAfter;
+@property (nonatomic, retain) NSString *bonus;          //Бонус
+@property (nonatomic, retain) NSString *linkToTarif;    //Cсылка на сайт
+@property (nonatomic, retain) NSString *coverage;       //Зона покрытия
 
 
 + (NSMutableArray *)newListByCountry:(PSCountryModel *)country;
@@ -38,3 +47,4 @@
 - (id)initById:(int)Id;
 
 @end
+
