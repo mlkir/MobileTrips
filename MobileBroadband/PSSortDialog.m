@@ -98,7 +98,7 @@
     
     //Создаем список
     UITableView *tableView = [[UITableView alloc] initWithFrame:rect style:UITableViewStyleGrouped];
-    tableView.rowHeight = 37.0f;
+    tableView.rowHeight = 38.f;
     tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [tableView setSectionHeaderHeight:0.0f];
     [tableView setSectionFooterHeight:0.0f];     

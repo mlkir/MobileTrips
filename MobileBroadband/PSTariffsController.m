@@ -12,7 +12,7 @@
 #import "PSTariffDetailController.h"
 #import "PSTariffsHederSectionView.h"
 #import "PSSortDialog.h"
-
+#import "PSCountryController.h"
 
 @interface PSTariffsController () {
     
@@ -79,11 +79,19 @@
     //Подгружаем данные со странами    
     self.objects = [PSTariffModel newListByCountry:self.country];
     
-    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UIBarButtonItem *btnMenu = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"PSCountryController.title", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onTouchButtonMenu:)];
+        self.navigationItem.leftBarButtonItem = btnMenu;
+        
+        [self performSelector:btnMenu.action withObject:btnMenu];
+         
+        [btnMenu release];
+    }
 
     UIBarButtonItem *btnSort = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"PSTariffsController.sortButton.title", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onTouchButtonSort:)];
     self.navigationItem.rightBarButtonItem = btnSort;
     [btnSort release];
+    
     
 }
 
@@ -104,6 +112,14 @@
     }
 }
 
+- (void)onTouchButtonMenu:(UIBarButtonItem *)sender {
+    PSCountryController *menuController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];    
+    menuController.detailViewController = self;    
+    UINavigationController *navigationController = [[[UINavigationController alloc] initWithRootViewController:menuController] autorelease];    
+    UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
+    self.masterPopoverController = popoverController;
+    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
 
 - (void)onTouchButtonSort:(UIBarButtonItem *)sender {
     PSSortDialog *dialog = [[PSSortDialog alloc] initWithTitle:sender.title];   
@@ -225,23 +241,6 @@
     [controller setTariff:object];
     [self.navigationController pushViewController:controller animated:YES];
     
-}
-
-#pragma mark - Split view
-
-
-- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
-{
-    barButtonItem.title = NSLocalizedString(@"PSCountryController.title", nil);
-    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
-    self.masterPopoverController = popoverController;
-}
-
-- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    self.masterPopoverController = nil;
 }
 
 @end
