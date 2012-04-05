@@ -37,6 +37,7 @@ PSTariffsController.title = "Tariffs";
 
 PSTariffsController.sortButton.title = "Sort";
 
+PSTariffsController.tableHeader.providerName = "Provider";
 PSTariffsController.tableHeader.trafficType = "Type";
 PSTariffsController.tableHeader.price = "Price";
 PSTariffsController.tableHeader.speed = "Speed";

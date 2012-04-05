@@ -26,6 +26,7 @@ NSString *CURRENCY_NAME;
 @synthesize speed = _speed;
 @synthesize speedForSort = _speedForSort;
 @synthesize dataLimit = _dataLimit;
+@synthesize bonus = _bonus;
 
 /* Конструктор */
 - (id)init {
@@ -56,6 +57,7 @@ NSString *CURRENCY_NAME;
     [_price release];
     [_speed release];
     [_dataLimit release];
+    [_bonus release];
 	
     [super dealloc];
 }
@@ -91,7 +93,6 @@ NSString *CURRENCY_NAME;
     self.priceForSort = [self convertPrice:priceDouble withUnitId:priceUnitId];
     self.price = [NSString stringWithFormat:@"%@%@/%@", price, CURRENCY_NAME, priceUnit];
     
-    
 	self.dataLimit = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     
     double speedDouble = sqlite3_column_double(stmt, ++pos);
@@ -100,7 +101,8 @@ NSString *CURRENCY_NAME;
     NSString *speedUnit = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];    
 	self.speedForSort = [self convertSpeed:speedDouble withUnitId:speedUnitId];
     self.speed = [NSString stringWithFormat:@"%@ %@", speed, speedUnit];
-                  
+
+    self.bonus = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];    
 }
 
 
@@ -108,7 +110,7 @@ NSString *CURRENCY_NAME;
 /* Получить список */
 + (NSMutableArray *)newListByCountry:(PSCountryModel *)country {
     CURRENCY_NAME = country.currencyName;
-    NSString *query = [[NSString alloc] initWithFormat:@"SELECT id, traf_type_name, tariff, provider_id, provider_name, price, price_unit_id, price_unit_name, data_limit, speed, speed_unit_id, speed_unit_name FROM price_data WHERE country_id = %d", country.ID]; 
+    NSString *query = [[NSString alloc] initWithFormat:@"SELECT id, traf_type_name, tariff, provider_id, TRIM(provider_name), price, price_unit_id, price_unit_name, data_limit, speed, speed_unit_id, speed_unit_name, TRIM(bonus) FROM price_data WHERE country_id = %d", country.ID]; 
     NSMutableArray *list = [[DBManager getInstance] newListEntiteClass:[self class] query:[query UTF8String]];
     [query release];
     return list;

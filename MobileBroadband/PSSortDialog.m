@@ -34,6 +34,7 @@
         [self setActionSheetStyle:UIActionSheetStyleAutomatic];    
         
         self.objects = [[NSArray alloc] initWithObjects:
+                        NSLocalizedString(@"PSTariffsController.tableHeader.providerName", nil),
                         NSLocalizedString(@"PSTariffsController.tableHeader.trafficType", nil),
                         NSLocalizedString(@"PSTariffsController.tableHeader.price", nil),
                         NSLocalizedString(@"PSTariffsController.tableHeader.speed", nil),
@@ -97,7 +98,7 @@
     
     //Создаем список
     UITableView *tableView = [[UITableView alloc] initWithFrame:rect style:UITableViewStyleGrouped];
-    tableView.rowHeight = 47.0f;
+    tableView.rowHeight = 37.0f;
     tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [tableView setSectionHeaderHeight:0.0f];
     [tableView setSectionFooterHeight:0.0f];     

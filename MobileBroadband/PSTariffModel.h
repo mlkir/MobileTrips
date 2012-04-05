@@ -30,6 +30,8 @@
 
 @property (nonatomic, retain) NSString *dataLimit;      //Ограничение
 
+@property (nonatomic, retain) NSString *bonus;      //Бонус
+
 
 + (NSMutableArray *)newListByCountry:(PSCountryModel *)country;
 

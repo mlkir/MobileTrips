@@ -134,18 +134,21 @@
         
         NSComparisonResult result = NSOrderedSame;
         switch (column) {
-            case 1: //По тарифу 
+            case 1: //По наименованию провайдера
+                result = [model1.provaderName compare:model2.provaderName options:NSCaseInsensitiveSearch];
+                break;
+            case 2: //По тарифу 
                 result = [model1.trafficType compare:model2.trafficType options:NSCaseInsensitiveSearch];
                 break;
-            case 2: //По стоимости 
+            case 3: //По стоимости 
                 if (model1.priceForSort < model2.priceForSort) result = NSOrderedAscending;
                 else if (model1.priceForSort > model2.priceForSort) result = NSOrderedDescending;
                 break;
-            case 3: //По скорости
+            case 4: //По скорости
                 if (model1.speedForSort > model2.speedForSort) result = NSOrderedAscending;
                 else if (model1.speedForSort < model2.speedForSort) result = NSOrderedDescending;
                 break;  
-            case 4: //По лимиту
+            case 5: //По лимиту
                 result = [model1.dataLimit compare:model2.dataLimit options:NSCaseInsensitiveSearch];
                 break;
             default:

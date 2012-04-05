@@ -7,9 +7,12 @@
 //
 
 #import "PSTariffsTableViewCell.h"
+#import "Utils.h"
 
 
-#define WIDTH_PROVIDER      35.0f 
+#define HEIGHT_DETAIL       14.0f
+
+#define WIDTH_PROVIDER      60.0f 
 #define WIDTH_TRAFFIC_TYPE  25  
 #define WIDTH_PRICE         30
 #define WIDTH_SPEED         20
@@ -22,11 +25,12 @@
 }
 
 @property (nonatomic, retain) UIImageView *providerLogo;
-//@property (nonatomic, retain) UILabel *providerName;
+@property (nonatomic, retain) UILabel *providerName;
 @property (nonatomic, retain) UILabel *trafficType;
 @property (nonatomic, retain) UILabel *price;
 @property (nonatomic, retain) UILabel *speed;
 @property (nonatomic, retain) UILabel *limit;
+@property (nonatomic, retain) UILabel *detail;
 
 @end
 
@@ -37,10 +41,12 @@
 @synthesize object = _object;
 
 @synthesize providerLogo = _providerLogo;
+@synthesize providerName = _providerName;
 @synthesize trafficType = _trafficType;
 @synthesize price = _price;
 @synthesize speed = _speed;
 @synthesize limit = _limit;
+@synthesize detail = _detail;
 
 
 + (CGRect)getFrameForColumn:(int)column withRowContentFrame:(CGRect)contentRect {
@@ -85,35 +91,53 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
+        //Определяем размеры шрифтов
+        BOOL isIPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
+        UIFont *fontForCommonData = [UIFont systemFontOfSize:(isIPhone ? 12.0f : 14.0f)];
+        UIFont *fontForDetalData = [UIFont systemFontOfSize:(isIPhone ? 10.0f : 12.0f)];
+        UIColor *colorForDetailData = [UIColor darkGrayColor];       
+        
         _providerLogo = [[UIImageView alloc] init];
         _providerLogo.contentMode = UIViewContentModeCenter; //UIViewContentModeScaleAspectFit;
         [self addSubview:_providerLogo];
         
-        BOOL isIPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
-        UIFont *font = [UIFont systemFontOfSize:(isIPhone ? 12.0f : 14.0f)];
-        
+        _providerName = [[UILabel alloc] init];
+        _providerName.font = fontForDetalData;
+        _providerName.textColor = colorForDetailData;
+        _providerName.textAlignment = UITextAlignmentCenter;
+        _providerName.backgroundColor = [UIColor clearColor];
+        [self addSubview:_providerName];        
+                
         _trafficType = [[UILabel alloc] init];
-        _trafficType.font = font;
+        _trafficType.font = fontForCommonData;
         _trafficType.textAlignment = UITextAlignmentCenter;
         _trafficType.backgroundColor = [UIColor clearColor];
         [self addSubview:_trafficType];
         
         _price = [[UILabel alloc] init];
-        _price.font = font;
+        _price.font = fontForCommonData;
         _price.textAlignment = UITextAlignmentCenter;
         _price.backgroundColor = [UIColor clearColor];
         [self addSubview:_price];
         
         _speed = [[UILabel alloc] init];
-        _speed.font = font;
+        _speed.font = fontForCommonData;
         _speed.textAlignment = UITextAlignmentCenter;
         _speed.backgroundColor = [UIColor clearColor];
         [self addSubview:_speed];
         
         _limit = [[UILabel alloc] init];
-        _limit.font = font;
+        _limit.font = fontForCommonData;
         _limit.backgroundColor = [UIColor clearColor];
         [self addSubview:_limit];
+        
+        _detail = [[UILabel alloc] init];
+        _detail.font = fontForDetalData;
+        _detail.textColor = colorForDetailData;
+        //_detail.textAlignment = UITextAlignmentRight;
+        _detail.backgroundColor = [UIColor clearColor];
+        [self addSubview:_detail];  
+        
     }
     return self;
 }
@@ -121,10 +145,12 @@
 - (void)dealloc 
 {
     [_providerLogo release];
+    [_providerName release];
     [_trafficType release];
     [_price release];
     [_speed release];
     [_limit release];
+    [_detail release];
         
     [super dealloc];
 }
@@ -134,19 +160,28 @@
     _object = [object retain];
     
     self.providerLogo.image = [UIImage imageNamed:@"provider.png"];    
+    self.providerName.text = object.provaderName;
     self.trafficType.text = object.trafficType;
     self.price.text = object.price;
     self.speed.text = object.speed;
     self.limit.text = object.dataLimit;
-    
+    self.detail.text = object.bonus; 
 }
 
 
 - (void)layoutSubviews {
     [super layoutSubviews];
         
-    //Размещаем логотип провайдера
-    self.providerLogo.frame = [PSTariffsTableViewCell getFrameForColumn:0 withRowContentFrame:self.contentView.frame];    
+    //Размещаем логотип и название провайдера
+    CGRect rect = [PSTariffsTableViewCell getFrameForColumn:0 withRowContentFrame:self.contentView.frame];
+    CGRect rectLogo = rect;
+    rectLogo.size.height -= HEIGHT_DETAIL;
+    self.providerLogo.frame = rectLogo;
+    CGRect rectName = rect;
+    rectName.origin.y = rectLogo.size.height;
+    rectName.size.height = HEIGHT_DETAIL;
+    self.providerName.frame = rectName;
+    
     //Размещаем тип трафика
     self.trafficType.frame = [PSTariffsTableViewCell getFrameForColumn:1 withRowContentFrame:self.contentView.frame];    
     //Размещаем стоимость 
@@ -155,6 +190,24 @@
     self.speed.frame = [PSTariffsTableViewCell getFrameForColumn:3 withRowContentFrame:self.contentView.frame];    
     //Размещаем лимит
     self.limit.frame = [PSTariffsTableViewCell getFrameForColumn:4 withRowContentFrame:self.contentView.frame];    
+    
+    //Если поле с деталями не заполнено
+    if ([Utils isEmptyString:self.detail.text]) {         
+        self.detail.frame = CGRectZero;
+    } else {
+        //rect.origin.x = self.trafficType.frame.origin.x;
+        //rect.origin.y = self.trafficType.frame.size.height - HEIGHT_DETAIL;
+        //rect.size.width = self.limit.frame.origin.x + self.limit.frame.size.width - rect.origin.x;
+        //rect.size.height = HEIGHT_DETAIL;
+        
+        rect = self.limit.frame;
+        //rect.size.height -= HEIGHT_DETAIL;
+        //self.limit.frame = rect;
+        
+        rect.origin.y = rect.size.height - HEIGHT_DETAIL;
+        rect.size.height = HEIGHT_DETAIL;
+        self.detail.frame = rect;
+    }
 }
 
 @end
