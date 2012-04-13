@@ -7,6 +7,7 @@
 //
 
 #import "PSCountryController.h"
+#import "PSCountryInfoController.h"
 #import "PSCountryModel.h"
 #import "PSParamModel.h"
 #import "Utils.h"
@@ -27,6 +28,8 @@
 
 @implementation PSCountryController
 
+
+
 @synthesize objects = _objects;
 @synthesize countryTableView = _countryTableView;   
 @synthesize lastUpdateLabel = _lastUpdateLabel;
@@ -34,6 +37,9 @@
 @synthesize downloadButton = _downloadButton;
 @synthesize downloadSegmentedControl = _downloadSegmentedControl;
 @synthesize detailNavigationController = _detailNavigationController;
+
+static UIPopoverController *_popoverController = nil;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -223,6 +229,14 @@
     
 }
 
++ (void)setPopoverController:(UIPopoverController *)popover {
+    _popoverController = popover;
+}
+
++ (UIPopoverController *)getPopoverController {
+    return _popoverController;
+}
+
 - (void)onShowTariffsList:(UISegmentedControl *)sender {
     
     PSCountryModel *object = [_objects objectAtIndex:sender.tag];
@@ -240,24 +254,15 @@
 }
 
 - (void)onShowCountryInfo:(PSCountryModel *)country {
+    PSCountryInfoController *controller = [[[PSCountryInfoController alloc] initWithNibName:@"PSCountryInfoController" bundle:nil] autorelease];
+    controller.country = country;    
     
-   
-    //if (object.isPageExists) {        
-        //Отображаем описание     
-        PSHtmlDialog *dialog = [[PSHtmlDialog alloc] initWithTitle:country.name];
-        //dialog.text = object.page;
-        dialog.text = (country.page) ? country.page : @"<html><body style='text-align: center;'>no data</body></html>"; //TODO: убрать после того как будет заполнена база
-        //Если вьюха отображена как Popover
-        /*if (self.detailViewController.masterPopoverController) {
-            //Чтобы не валилась ошибка нужно отображать не из поповера
-            UIView *tmp = [self.view.window.subviews objectAtIndex:0];
-            [dialog showInView:tmp];
-        } else {*/
-            [dialog showInView:self.view];
-        //}    
-        
-        [dialog release];    
-    //}
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {	    
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        self.detailNavigationController.viewControllers = [NSArray arrayWithObject:controller];
+        [controller reloadInputViews];
+    }    
 }
 
 #pragma mark - Table View

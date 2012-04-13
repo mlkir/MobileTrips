@@ -27,7 +27,6 @@
 @implementation PSTariffsController
 
 BOOL isNeedShowPopover = YES;
-UIPopoverController *_masterPopoverController = nil;
 
 @synthesize country = _country;
 @synthesize objects = _objects;
@@ -61,9 +60,9 @@ UIPopoverController *_masterPopoverController = nil;
     self.objects = [PSTariffModel newListByCountry:self.country];
     [self.tableView reloadData];
     
-    if (_masterPopoverController != nil) {
-        [_masterPopoverController dismissPopoverAnimated:YES];
-    }
+    //Если вызов обновление списка идет из попапа - скрываем его
+    UIPopoverController *popover = [PSCountryController getPopoverController];
+    if (popover != nil) [popover dismissPopoverAnimated:YES];
 }
 
 - (void)viewDidLoad
@@ -117,8 +116,8 @@ UIPopoverController *_masterPopoverController = nil;
     menuController.detailNavigationController = self.navigationController;    
     UINavigationController *navigationController = [[[UINavigationController alloc] initWithRootViewController:menuController] autorelease];    
     UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
-    popoverController.popoverContentSize = CGSizeMake(popoverController.popoverContentSize.width, 500.0f);
-    _masterPopoverController = popoverController;
+    popoverController.popoverContentSize = CGSizeMake(popoverController.popoverContentSize.width, COUNTRY_VIEW_HEIGHT);
+    [PSCountryController setPopoverController:popoverController];
     [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 

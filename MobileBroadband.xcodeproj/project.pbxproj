@@ -22,6 +22,8 @@
 		AA008DDD151CC69B001FD906 /* MobileBroadbandTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */; };
 		AA26C06715223DAB00556790 /* btn_russia.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C06615223DAB00556790 /* btn_russia.png */; };
 		AA26C06A1522405A00556790 /* btn_download.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C0691522405A00556790 /* btn_download.png */; };
+		AA34C29815388B2F00FB389B /* PSCountryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34C29615388B2F00FB389B /* PSCountryInfoController.m */; };
+		AA34C29B15388B6A00FB389B /* PSCountryInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA34C29A15388B6A00FB389B /* PSCountryInfoController.xib */; };
 		AA5989D21525CE55007704DC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5989D11525CE55007704DC /* Reachability.m */; };
 		AA5989D41525CF20007704DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5989D31525CF20007704DC /* CFNetwork.framework */; };
 		AA5989D61525CF2F007704DC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5989D51525CF2F007704DC /* SystemConfiguration.framework */; };
@@ -90,6 +92,9 @@
 		AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileBroadbandTests.m; sourceTree = "<group>"; };
 		AA26C06615223DAB00556790 /* btn_russia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_russia.png; path = Resources/Images/btn_russia.png; sourceTree = "<group>"; };
 		AA26C0691522405A00556790 /* btn_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_download.png; path = Resources/Images/btn_download.png; sourceTree = "<group>"; };
+		AA34C29515388B2F00FB389B /* PSCountryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryInfoController.h; sourceTree = "<group>"; };
+		AA34C29615388B2F00FB389B /* PSCountryInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryInfoController.m; sourceTree = "<group>"; };
+		AA34C29A15388B6A00FB389B /* PSCountryInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSCountryInfoController.xib; path = Views/PSCountryInfoController.xib; sourceTree = "<group>"; };
 		AA5989D01525CE55007704DC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
 		AA5989D11525CE55007704DC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
 		AA5989D31525CF20007704DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -294,6 +299,9 @@
 		AA5B457B1538606F004AE516 /* CountryInfo */ = {
 			isa = PBXGroup;
 			children = (
+				AA34C29515388B2F00FB389B /* PSCountryInfoController.h */,
+				AA34C29615388B2F00FB389B /* PSCountryInfoController.m */,
+				AA34C29A15388B6A00FB389B /* PSCountryInfoController.xib */,
 			);
 			name = CountryInfo;
 			sourceTree = "<group>";
@@ -465,6 +473,7 @@
 				AA26C06A1522405A00556790 /* btn_download.png in Resources */,
 				AA9A79301524C710004DCE2A /* provider.png in Resources */,
 				AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */,
+				AA34C29B15388B6A00FB389B /* PSCountryInfoController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +533,7 @@
 				AA5989F51525CF74007704DC /* ASIInputStream.m in Sources */,
 				AA5989F61525CF74007704DC /* ASINetworkQueue.m in Sources */,
 				AA8717EF1526C0B400EEF145 /* PSParamModel.m in Sources */,
+				AA34C29815388B2F00FB389B /* PSCountryInfoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

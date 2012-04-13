@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
+#define COUNTRY_VIEW_HEIGHT 500.0f
 
 @interface PSCountryController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -21,5 +21,8 @@
 @property (strong, nonatomic) UINavigationController *detailNavigationController;
 
 - (IBAction)onDownload:(id)sender;
+
++ (void)setPopoverController:(UIPopoverController *)popover;
++ (UIPopoverController *)getPopoverController;
 
 @end
