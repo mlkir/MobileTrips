@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PSTariffsController.h"
 
 
 
@@ -19,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *downloadButton;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *downloadSegmentedControl;
 
-@property (strong, nonatomic) PSTariffsController *detailViewController;
+@property (strong, nonatomic) UINavigationController *detailNavigationController;
 
 - (IBAction)onDownload:(id)sender;
 

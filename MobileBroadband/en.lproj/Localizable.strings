@@ -41,6 +41,9 @@ PSCountryController.commentLabel.text = "Pltcm ytrfz byajhvfwbjyyfz cnhjrf bkb y
 /* Название кнопки для загрузки с сервера */
 PSCountryController.downloadButton.title = "Download update";
 
+/* Название кнопки для перехода к списку тарифов */
+PSCountryController.gotoTariffsListButton.title = "Tariffs  >";
+
 /************************* Вид со списком тарифов *************************/
 
 /* Заголовок */

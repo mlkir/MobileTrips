@@ -26,9 +26,11 @@
 
 @implementation PSTariffsController
 
+BOOL isNeedShowPopover = YES;
+UIPopoverController *_masterPopoverController = nil;
+
 @synthesize country = _country;
 @synthesize objects = _objects;
-@synthesize masterPopoverController = _masterPopoverController;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,24 +51,19 @@
 - (void)dealloc
 {
     [_objects release];
-    [_masterPopoverController release];
-    
+       
     [super dealloc];
 }
 
-- (void)setCountry:(PSCountryModel *)country {
-    [_country release];
-    _country = [country retain];
-    
-    if (self.masterPopoverController != nil) {
-        [self.masterPopoverController dismissPopoverAnimated:YES];
-    }
-}
 
 - (void)refreshTableView {
     //Подгружаем данные со странами    
     self.objects = [PSTariffModel newListByCountry:self.country];
     [self.tableView reloadData];
+    
+    if (_masterPopoverController != nil) {
+        [_masterPopoverController dismissPopoverAnimated:YES];
+    }
 }
 
 - (void)viewDidLoad
@@ -83,7 +80,10 @@
         UIBarButtonItem *btnMenu = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"PSCountryController.title", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onTouchButtonMenu:)];
         self.navigationItem.leftBarButtonItem = btnMenu;
         
-        [self performSelector:btnMenu.action withObject:btnMenu];
+        if (isNeedShowPopover) {
+            [self performSelector:btnMenu.action withObject:btnMenu];
+            isNeedShowPopover = NO;
+        }
          
         [btnMenu release];
     }
@@ -114,11 +114,11 @@
 
 - (void)onTouchButtonMenu:(UIBarButtonItem *)sender {
     PSCountryController *menuController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];    
-    menuController.detailViewController = self;    
+    menuController.detailNavigationController = self.navigationController;    
     UINavigationController *navigationController = [[[UINavigationController alloc] initWithRootViewController:menuController] autorelease];    
     UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
     popoverController.popoverContentSize = CGSizeMake(popoverController.popoverContentSize.width, 500.0f);
-    self.masterPopoverController = popoverController;
+    _masterPopoverController = popoverController;
     [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 

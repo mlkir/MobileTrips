@@ -33,7 +33,7 @@
 @synthesize commentLabel = _commentLabel;
 @synthesize downloadButton = _downloadButton;
 @synthesize downloadSegmentedControl = _downloadSegmentedControl;
-@synthesize detailViewController = _detailViewController;
+@synthesize detailNavigationController = _detailNavigationController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,7 +48,7 @@
 - (void)dealloc
 {
     [_objects release];
-    [_detailViewController release];
+    [_detailNavigationController release];
     
     [super dealloc];
 }
@@ -210,9 +210,10 @@
     self.objects = [PSCountryModel newList];
     [self.countryTableView reloadData];    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.detailViewController.navigationController popToRootViewControllerAnimated:NO];
-        self.detailViewController.country = nil;
-        [self.detailViewController refreshTableView];
+        PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];          
+        self.detailNavigationController.viewControllers = [NSArray arrayWithObject:controller];
+        controller.country = nil;
+        [controller refreshTableView];
     }  
     
     //Выводим сообщение об успешном обновлении
@@ -222,31 +223,38 @@
     
 }
 
-
-- (void)onShowCountryInfo:(UIButton *)sender {
-    int index = sender.superview.tag;
-    /*
-    NSIndexPath *selIndexPath = _countryTableView.indexPathForSelectedRow;
-    if (index != selIndexPath.row) {
-        [_countryTableView deselectRowAtIndexPath:selIndexPath animated:YES];
-        //[_countryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+- (void)onShowTariffsList:(UISegmentedControl *)sender {
+    
+    PSCountryModel *object = [_objects objectAtIndex:sender.tag];
+        
+    PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
+    controller.country = object;    
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {	    
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        self.detailNavigationController.viewControllers = [NSArray arrayWithObject:controller];
+        [controller refreshTableView];
     }
-    */
-            
-    PSCountryModel *object = [_objects objectAtIndex:index];    
+    
+}
+
+- (void)onShowCountryInfo:(PSCountryModel *)country {
+    
+   
     //if (object.isPageExists) {        
         //Отображаем описание     
-        PSHtmlDialog *dialog = [[PSHtmlDialog alloc] initWithTitle:object.name];
+        PSHtmlDialog *dialog = [[PSHtmlDialog alloc] initWithTitle:country.name];
         //dialog.text = object.page;
-        dialog.text = (object.page) ? object.page : @"<html><body style='text-align: center;'>no data</body></html>"; //TODO: убрать после того как будет заполнена база
+        dialog.text = (country.page) ? country.page : @"<html><body style='text-align: center;'>no data</body></html>"; //TODO: убрать после того как будет заполнена база
         //Если вьюха отображена как Popover
-        if (self.detailViewController.masterPopoverController) {
+        /*if (self.detailViewController.masterPopoverController) {
             //Чтобы не валилась ошибка нужно отображать не из поповера
             UIView *tmp = [self.view.window.subviews objectAtIndex:0];
             [dialog showInView:tmp];
-        } else {
+        } else {*/
             [dialog showInView:self.view];
-        }    
+        //}    
         
         [dialog release];    
     //}
@@ -276,62 +284,45 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-                
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-
-        cell.indentationLevel = 1;
-        cell.indentationWidth = 50;
-        CGSize size = cell.frame.size;
-        
-        UISegmentedControl *btn = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"info"]];
-        btn.frame = CGRectMake(20, (size.height - 20)/ 2 , 40, 20);
+    }
+    
+    BOOL isShowButton = (cell.accessoryView != nil);
+    if (isShowButton && !object.isTariffsExists) {
+        cell.accessoryView = nil;
+    } else if (!isShowButton && object.isTariffsExists) {            
+        UISegmentedControl *btn = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:NSLocalizedString(@"PSCountryController.gotoTariffsListButton.title", nil)]];
+        btn.frame = CGRectMake(0, 0, 90, 26);
+        btn.tag = indexPath.row;
         btn.segmentedControlStyle = UISegmentedControlStyleBar;
         btn.momentary = YES;        
         //btn.tintColor = [UIColor darkGrayColor];
-        [btn addTarget:self action:@selector(onShowCountryInfo:) forControlEvents:UIControlEventValueChanged];
-        [cell addSubview:btn];
+        [btn addTarget:self action:@selector(onShowTariffsList:) forControlEvents:UIControlEventValueChanged];
+        cell.accessoryView = btn;
         [btn release];
-        
-        btn.alpha = 1.0f;
-        cell.imageView.alpha = 1.0f;
-        
     }
     
     cell.tag = indexPath.row;
     cell.textLabel.text = object.name;
-    //cell.imageView.image = [UIImage imageNamed:@"btn_russia.png"];
+    cell.imageView.image = [UIImage imageNamed:@"provider.png"];
 
     
     return cell;
 }
 
-
+/*
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath 
 {
 	[tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];	
 	[tableView.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
-
+*/
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PSCountryModel *object = [_objects objectAtIndex:indexPath.row];
+    [self onShowCountryInfo:object];
         
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
-        controller.country = object;    
-        [self.navigationController pushViewController:controller animated:YES];
-    } else {
-        [self.detailViewController.navigationController popToRootViewControllerAnimated:NO];
-        self.detailViewController.country = object;
-        [self.detailViewController refreshTableView];
-    }
-
-    
-    
 }
 
 @end
