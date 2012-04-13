@@ -10,6 +10,7 @@
 
 #define PARAM_VERSION @"VERSION"
 #define PARAM_LAST_UPDATE @"DOWNLOAD_DATE"
+#define PARAM_LANGUAGE @"LANG"
 
 @interface PSParamModel : AbstractModel
 
@@ -18,6 +19,10 @@
 
 
 + (NSString *)getValueByKey:(NSString *)key;
+
 + (void)insertValue:(NSString *)value withKey:(NSString *)key;
++ (void)updateValue:(NSString *)value withKey:(NSString *)key;
+
++ (void)deleteValueWithKey:(NSString *)key;
 
 @end

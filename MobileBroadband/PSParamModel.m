@@ -71,6 +71,47 @@
     }  
 }
 
+/* Обновить значение */
++ (void)updateValue:(NSString *)value withKey:(NSString *)key {
+    DBManager *dbManager = [DBManager getInstance];
+	sqlite3_stmt *stmt = [dbManager prepareStatement:"UPDATE params SET value = ? WHERE key = ?"];
+    
+    @try {
+        //Указываем параметры
+        int pos = 0;        
+        [dbManager sqlite3BindText:value forStatement:stmt withPosition:++pos];        
+		[dbManager sqlite3BindText:key forStatement:stmt withPosition:++pos];
+                
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            printf("Failed to execute query with message '%s'.\n", [dbManager getErrorMessage]);
+        }
+        
+    } @finally {
+        sqlite3_reset(stmt);
+        sqlite3_finalize(stmt);    
+    }  
+}
+
+/* Обновить значение */
++ (void)deleteValueWithKey:(NSString *)key {
+    DBManager *dbManager = [DBManager getInstance];
+	sqlite3_stmt *stmt = [dbManager prepareStatement:"DELETE FROM params WHERE key = ?"];
+    
+    @try {
+        //Указываем параметры
+        int pos = 0;        
+		[dbManager sqlite3BindText:key forStatement:stmt withPosition:++pos];
+        
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            printf("Failed to execute query with message '%s'.\n", [dbManager getErrorMessage]);
+        }
+        
+    } @finally {
+        sqlite3_reset(stmt);
+        sqlite3_finalize(stmt);    
+    }  
+}
+
 
 @end
 

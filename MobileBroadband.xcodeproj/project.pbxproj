@@ -222,6 +222,7 @@
 				AA59898C1525C806007704DC /* Network */,
 				AA6E72DC152370FC00B70DFF /* Database */,
 				AA63B3C81521BA120039AC5E /* StartScreen */,
+				AA5B457B1538606F004AE516 /* CountryInfo */,
 				AA9EB3D81520A00B0042F799 /* TariffsList */,
 				AABBF0D415219A96007BE589 /* TariffDetail */,
 				AA008DAC151CC69B001FD906 /* Supporting Files */,
@@ -288,6 +289,13 @@
 				AA5989EE1525CF74007704DC /* ASIProgressDelegate.h */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		AA5B457B1538606F004AE516 /* CountryInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CountryInfo;
 			sourceTree = "<group>";
 		};
 		AA63B3C01521B9400039AC5E /* Resources */ = {

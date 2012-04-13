@@ -6,36 +6,50 @@ EUR = "€";
 USD = "$";
 RUR = "руб";
 
-/* Заголовки на кнопках */
+/* Кнопки в диалоговых окнах */
 button.ok = "ОК";
 button.cancel = "Закрыть";
 
-/* Заголоовк сообщений*/
+/* Заголовки сообщений */
 alert.title.info = "Информация";
 alert.title.error = "Ошибка";
-alert.title.warning = "предупреждение";
+alert.title.warning = "Предупреждение";
 
 /* Сообщение при попытке загрузить обновления когда нет подключения к Интернету*/
 alert.message.network_not_connected = "Нет подключения к интернету";
+
 //Сообщение при загрузке обновлений когда новых обновлений нет
 alert.message.is_no_update = "Нет обновлений";
+
 //Обновление прошло успешно
 alert.message.successfull = "Обновление прошло успешно";
 
+//Сообщение при попытке отобразить данные из базы на языке отличном от текущего
+alert.message.lang_not_found = "Язык базы данных не соответсвует текущему языку. Необходимо обновить с сервера.";
+
+/************************* Вид с выбором страны и кнопкой загрузки данных *************************/
+
 /* Заголовок */
 PSCountryController.title = "Меню";
+
 /* Дата последнего обновления (загрузки данных с сервера) */
 PSCountryController.lastUpdateLabel.text = "Последнее обновление: %@ г. (%@)";
+
 /* Комментарии */
 PSCountryController.commentLabel.text = "Здесь некая информационная строка или несколько строк, пока точно неизвестно, но место надо оставить";
+
 /* Название кнопки для загрузки с сервера */
 PSCountryController.downloadButton.title = "Загрузить обновления";
+
+/************************* Вид со списком тарифов *************************/
 
 /* Заголовок */
 PSTariffsController.title = "Тарифы";
 
+/* Кнопка сортировать */
 PSTariffsController.sortButton.title = "Сортировать";
 
+/* Заголовки столбцов */
 PSTariffsController.tableHeader.providerName = "Провайдер";
 PSTariffsController.tableHeader.trafficType = "Тип";
 PSTariffsController.tableHeader.price = "Стоимость";

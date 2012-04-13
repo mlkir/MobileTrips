@@ -24,6 +24,9 @@ alert.message.is_no_update = "No update";
 //Обновление прошло успешно
 alert.message.successfull = "Update succesfull";
 
+//Сообщение при попытке отобразить данные из базы на языке отличном от текущего
+alert.message.lang_not_found = "Язык базы данных не соответсвует текущему языку. Необходимо обновить с сервера.";
+
 /************************* Вид с выбором страны и кнопкой загрузки данных *************************/
 
 /* Заголовок */
@@ -54,6 +57,7 @@ PSTariffsController.tableHeader.speed = "Speed";
 PSTariffsController.tableHeader.limit = "Limit";
 
 
+/************************* Вид с детальным описанием тарифа *************************/
 
 /* Заголовок */
 PSTariffDetailController.title = "Tariff";
