@@ -36,9 +36,6 @@
 @synthesize commentLabel = _commentLabel;
 @synthesize downloadButton = _downloadButton;
 @synthesize downloadSegmentedControl = _downloadSegmentedControl;
-@synthesize detailNavigationController = _detailNavigationController;
-
-static UIPopoverController *_popoverController = nil;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -54,7 +51,6 @@ static UIPopoverController *_popoverController = nil;
 - (void)dealloc
 {
     [_objects release];
-    [_detailNavigationController release];
     
     [super dealloc];
 }
@@ -105,6 +101,14 @@ static UIPopoverController *_popoverController = nil;
     //Доп информация 
     self.commentLabel.text = NSLocalizedString(@"PSCountryController.commentLabel.text", nil);
     
+    //Только для iPad
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        self.countryTableView.frame = CGRectInset(self.view.frame, -100.0f, 0.0f);
+        self.countryTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        UIImageView *v = (UIImageView *)self.countryTableView.backgroundView;
+        self.view.backgroundColor = [UIColor colorWithPatternImage:v.image];
+        self.countryTableView.backgroundView = nil;
+    }
 }
 
 - (void)viewDidUnload
@@ -215,12 +219,6 @@ static UIPopoverController *_popoverController = nil;
     [self refreshlastUpdateLabel];
     self.objects = [PSCountryModel newList];
     [self.countryTableView reloadData];    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];          
-        self.detailNavigationController.viewControllers = [NSArray arrayWithObject:controller];
-        controller.country = nil;
-        [controller refreshTableView];
-    }  
     
     //Выводим сообщение об успешном обновлении
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.info", nil) message:NSLocalizedString(@"alert.message.successfull", nil) delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
@@ -229,40 +227,19 @@ static UIPopoverController *_popoverController = nil;
     
 }
 
-+ (void)setPopoverController:(UIPopoverController *)popover {
-    _popoverController = popover;
-}
-
-+ (UIPopoverController *)getPopoverController {
-    return _popoverController;
-}
-
 - (void)onShowTariffsList:(UISegmentedControl *)sender {
     
     PSCountryModel *object = [_objects objectAtIndex:sender.tag];
         
     PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
     controller.country = object;    
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {	    
-        [self.navigationController pushViewController:controller animated:YES];
-    } else {
-        self.detailNavigationController.viewControllers = [NSArray arrayWithObject:controller];
-        [controller refreshTableView];
-    }
-    
+    [self.navigationController pushViewController:controller animated:YES];    
 }
 
 - (void)onShowCountryInfo:(PSCountryModel *)country {
     PSCountryInfoController *controller = [[[PSCountryInfoController alloc] initWithNibName:@"PSCountryInfoController" bundle:nil] autorelease];
     controller.country = country;    
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {	    
-        [self.navigationController pushViewController:controller animated:YES];
-    } else {
-        self.detailNavigationController.viewControllers = [NSArray arrayWithObject:controller];
-        [controller reloadInputViews];
-    }    
+    [self.navigationController pushViewController:controller animated:YES];    
 }
 
 #pragma mark - Table View

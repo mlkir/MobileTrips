@@ -36,13 +36,7 @@ BOOL isNeedShowPopover = YES;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        /*
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            self.clearsSelectionOnViewWillAppear = NO;
-            self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-        }
-         */
+     
     }
     return self;
 }
@@ -59,10 +53,6 @@ BOOL isNeedShowPopover = YES;
     //Подгружаем данные со странами    
     self.objects = [PSTariffModel newListByCountry:self.country];
     [self.tableView reloadData];
-    
-    //Если вызов обновление списка идет из попапа - скрываем его
-    UIPopoverController *popover = [PSCountryController getPopoverController];
-    if (popover != nil) [popover dismissPopoverAnimated:YES];
 }
 
 - (void)viewDidLoad
@@ -74,19 +64,7 @@ BOOL isNeedShowPopover = YES;
     
     //Подгружаем данные со странами    
     self.objects = [PSTariffModel newListByCountry:self.country];
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UIBarButtonItem *btnMenu = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"PSCountryController.title", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onTouchButtonMenu:)];
-        self.navigationItem.leftBarButtonItem = btnMenu;
         
-        if (isNeedShowPopover) {
-            [self performSelector:btnMenu.action withObject:btnMenu];
-            isNeedShowPopover = NO;
-        }
-         
-        [btnMenu release];
-    }
-
     UIBarButtonItem *btnSort = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"PSTariffsController.sortButton.title", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onTouchButtonSort:)];
     self.navigationItem.rightBarButtonItem = btnSort;
     [btnSort release];
@@ -109,16 +87,6 @@ BOOL isNeedShowPopover = YES;
     } else {
         return YES;
     }
-}
-
-- (void)onTouchButtonMenu:(UIBarButtonItem *)sender {
-    PSCountryController *menuController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];    
-    menuController.detailNavigationController = self.navigationController;    
-    UINavigationController *navigationController = [[[UINavigationController alloc] initWithRootViewController:menuController] autorelease];    
-    UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
-    popoverController.popoverContentSize = CGSizeMake(popoverController.popoverContentSize.width, COUNTRY_VIEW_HEIGHT);
-    [PSCountryController setPopoverController:popoverController];
-    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 - (void)onTouchButtonSort:(UIBarButtonItem *)sender {

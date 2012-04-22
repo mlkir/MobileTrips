@@ -20,6 +20,12 @@
 		AA008DD2151CC69B001FD906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA008DA7151CC69A001FD906 /* Foundation.framework */; };
 		AA008DDA151CC69B001FD906 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA008DD8151CC69B001FD906 /* InfoPlist.strings */; };
 		AA008DDD151CC69B001FD906 /* MobileBroadbandTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */; };
+		AA026C3C1543E5240023CC57 /* homepage_elipse_border.png in Resources */ = {isa = PBXBuildFile; fileRef = AA026C3A1543E5240023CC57 /* homepage_elipse_border.png */; };
+		AA026C3D1543E5240023CC57 /* homepage_rect_border.png in Resources */ = {isa = PBXBuildFile; fileRef = AA026C3B1543E5240023CC57 /* homepage_rect_border.png */; };
+		AA026C401543E8C60023CC57 /* PSHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA026C3F1543E8C60023CC57 /* PSHomePageController.m */; };
+		AA026C421543E8FB0023CC57 /* PSHomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA026C411543E8FB0023CC57 /* PSHomePageController.xib */; };
+		AA026C47154435FE0023CC57 /* PSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA026C45154435FE0023CC57 /* PSWebViewController.m */; };
+		AA026C48154435FE0023CC57 /* PSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA026C46154435FE0023CC57 /* PSWebViewController.xib */; };
 		AA26C06715223DAB00556790 /* btn_russia.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C06615223DAB00556790 /* btn_russia.png */; };
 		AA26C06A1522405A00556790 /* btn_download.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C0691522405A00556790 /* btn_download.png */; };
 		AA34C29815388B2F00FB389B /* PSCountryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34C29615388B2F00FB389B /* PSCountryInfoController.m */; };
@@ -90,6 +96,14 @@
 		AA008DD9151CC69B001FD906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA008DDB151CC69B001FD906 /* MobileBroadbandTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileBroadbandTests.h; sourceTree = "<group>"; };
 		AA008DDC151CC69B001FD906 /* MobileBroadbandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileBroadbandTests.m; sourceTree = "<group>"; };
+		AA026C3A1543E5240023CC57 /* homepage_elipse_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepage_elipse_border.png; path = Resources/Images/homepage_elipse_border.png; sourceTree = "<group>"; };
+		AA026C3B1543E5240023CC57 /* homepage_rect_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepage_rect_border.png; path = Resources/Images/homepage_rect_border.png; sourceTree = "<group>"; };
+		AA026C3E1543E8C60023CC57 /* PSHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHomePageController.h; sourceTree = "<group>"; };
+		AA026C3F1543E8C60023CC57 /* PSHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHomePageController.m; sourceTree = "<group>"; };
+		AA026C411543E8FB0023CC57 /* PSHomePageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSHomePageController.xib; path = Views/PSHomePageController.xib; sourceTree = "<group>"; };
+		AA026C44154435FE0023CC57 /* PSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebViewController.h; sourceTree = "<group>"; };
+		AA026C45154435FE0023CC57 /* PSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebViewController.m; sourceTree = "<group>"; };
+		AA026C46154435FE0023CC57 /* PSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSWebViewController.xib; sourceTree = "<group>"; };
 		AA26C06615223DAB00556790 /* btn_russia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_russia.png; path = Resources/Images/btn_russia.png; sourceTree = "<group>"; };
 		AA26C0691522405A00556790 /* btn_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_download.png; path = Resources/Images/btn_download.png; sourceTree = "<group>"; };
 		AA34C29515388B2F00FB389B /* PSCountryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryInfoController.h; sourceTree = "<group>"; };
@@ -226,7 +240,9 @@
 				AABBF0D515219AB0007BE589 /* Common */,
 				AA59898C1525C806007704DC /* Network */,
 				AA6E72DC152370FC00B70DFF /* Database */,
-				AA63B3C81521BA120039AC5E /* StartScreen */,
+				AA026C371543E3140023CC57 /* HomePage */,
+				AA026C43154435C90023CC57 /* WebView */,
+				AA63B3C81521BA120039AC5E /* Countries */,
 				AA5B457B1538606F004AE516 /* CountryInfo */,
 				AA9EB3D81520A00B0042F799 /* TariffsList */,
 				AABBF0D415219A96007BE589 /* TariffDetail */,
@@ -265,6 +281,26 @@
 				AA008DD8151CC69B001FD906 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA026C371543E3140023CC57 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				AA026C3E1543E8C60023CC57 /* PSHomePageController.h */,
+				AA026C3F1543E8C60023CC57 /* PSHomePageController.m */,
+				AA026C411543E8FB0023CC57 /* PSHomePageController.xib */,
+			);
+			name = HomePage;
+			sourceTree = "<group>";
+		};
+		AA026C43154435C90023CC57 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				AA026C44154435FE0023CC57 /* PSWebViewController.h */,
+				AA026C45154435FE0023CC57 /* PSWebViewController.m */,
+				AA026C46154435FE0023CC57 /* PSWebViewController.xib */,
+			);
+			name = WebView;
 			sourceTree = "<group>";
 		};
 		AA59898C1525C806007704DC /* Network */ = {
@@ -321,11 +357,13 @@
 				AA9A792F1524C710004DCE2A /* provider.png */,
 				AA26C0691522405A00556790 /* btn_download.png */,
 				AA26C06615223DAB00556790 /* btn_russia.png */,
+				AA026C3A1543E5240023CC57 /* homepage_elipse_border.png */,
+				AA026C3B1543E5240023CC57 /* homepage_rect_border.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
 		};
-		AA63B3C81521BA120039AC5E /* StartScreen */ = {
+		AA63B3C81521BA120039AC5E /* Countries */ = {
 			isa = PBXGroup;
 			children = (
 				AA63B3D51521BAA50039AC5E /* PSCountryModel.h */,
@@ -334,7 +372,7 @@
 				AA63B3BB1521A6F70039AC5E /* PSCountryController.m */,
 				AABBF0D615219E76007BE589 /* PSCountryController.xib */,
 			);
-			name = StartScreen;
+			name = Countries;
 			sourceTree = "<group>";
 		};
 		AA6E72DC152370FC00B70DFF /* Database */ = {
@@ -474,6 +512,10 @@
 				AA9A79301524C710004DCE2A /* provider.png in Resources */,
 				AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */,
 				AA34C29B15388B6A00FB389B /* PSCountryInfoController.xib in Resources */,
+				AA026C3C1543E5240023CC57 /* homepage_elipse_border.png in Resources */,
+				AA026C3D1543E5240023CC57 /* homepage_rect_border.png in Resources */,
+				AA026C421543E8FB0023CC57 /* PSHomePageController.xib in Resources */,
+				AA026C48154435FE0023CC57 /* PSWebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +576,8 @@
 				AA5989F61525CF74007704DC /* ASINetworkQueue.m in Sources */,
 				AA8717EF1526C0B400EEF145 /* PSParamModel.m in Sources */,
 				AA34C29815388B2F00FB389B /* PSCountryInfoController.m in Sources */,
+				AA026C401543E8C60023CC57 /* PSHomePageController.m in Sources */,
+				AA026C47154435FE0023CC57 /* PSWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

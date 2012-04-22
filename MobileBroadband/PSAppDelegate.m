@@ -8,9 +8,7 @@
 
 #import "PSAppDelegate.h"
 
-#import "PSCountryController.h"
-#import "PSTariffsController.h"
-#import "PSTariffDetailController.h"
+#import "PSHomePageController.h"
 
 
 @implementation PSAppDelegate
@@ -29,18 +27,11 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {                
-        PSCountryController *rootController = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
-        UINavigationController *rootNavigationController = [[[UINavigationController alloc] initWithRootViewController:rootController] autorelease];
-        self.navigationController = rootNavigationController;
-        self.window.rootViewController = self.navigationController;
-    } else {        
-        PSTariffsController *rootController = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
-        UINavigationController *rootNavigationController = [[[UINavigationController alloc] initWithRootViewController:rootController] autorelease];        
-        self.navigationController = rootNavigationController;
-        self.window.rootViewController = self.navigationController;
-    }
-    
+    PSHomePageController *rootController = [[[PSHomePageController alloc] initWithNibName:@"PSHomePageController" bundle:nil] autorelease];
+    UINavigationController *rootNavigationController = [[[UINavigationController alloc] initWithRootViewController:rootController] autorelease];
+    self.navigationController = rootNavigationController;
+    self.window.rootViewController = self.navigationController;
+        
     [self.window makeKeyAndVisible];
     return YES;
 }
