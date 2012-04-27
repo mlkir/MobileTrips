@@ -50,13 +50,17 @@ PSHomePageController.button3.title = "Help";
 PSHomePageController.button4.title = "Find us on\nsocial media";
 PSHomePageController.button5.title = "Join us";
 
-/* Links to HTML,e.g about.html */
-homepage.button1.link = "country";
-homepage.button2.link = "about";
-homepage.button3.link = "settings";
-homepage.button4.link = "help";
-homepage.button5.link = "find_us";
-homepage.button6.link = "join_us";
+
+/************************* Настройки *************************/
+
+/* Размер шрифта */
+PSSettingsController.table.section0 = "Size";
+PSSettingsController.table.row00 = "Small";
+PSSettingsController.table.row01 = "Normal";
+PSSettingsController.table.row02 = "Large";
+
+/* Название шрифта */
+PSSettingsController.table.section1 = "Font";
 
 
 /************************* Вид с выбором страны и кнопкой загрузки данных *************************/

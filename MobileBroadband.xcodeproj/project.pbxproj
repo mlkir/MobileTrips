@@ -60,6 +60,8 @@
 		AAA964C1152515260070DAC9 /* PSSortDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA964C0152515260070DAC9 /* PSSortDialog.m */; };
 		AABBF0D31521994D007BE589 /* PSTariffsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D21521994D007BE589 /* PSTariffsController.xib */; };
 		AABBF0D715219E76007BE589 /* PSCountryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D615219E76007BE589 /* PSCountryController.xib */; };
+		AAC17ADB154AE7F100765507 /* PSSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC17AD9154AE7F100765507 /* PSSettingsController.m */; };
+		AAC17ADE154AE88A00765507 /* PSSettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC17ADD154AE88A00765507 /* PSSettingsController.xib */; };
 		AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC503C91524E9C20035ACB0 /* table-header.png */; };
 		AAC503CE1524F95D0035ACB0 /* PSTariffsHederSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */; };
 		AAD85C5C1521DAE900FF5E40 /* database_en.db in Resources */ = {isa = PBXBuildFile; fileRef = AA63B3C21521B9540039AC5E /* database_en.db */; };
@@ -165,6 +167,9 @@
 		AAA964C0152515260070DAC9 /* PSSortDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSortDialog.m; sourceTree = "<group>"; };
 		AABBF0D21521994D007BE589 /* PSTariffsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffsController.xib; path = Views/PSTariffsController.xib; sourceTree = "<group>"; };
 		AABBF0D615219E76007BE589 /* PSCountryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSCountryController.xib; path = Views/PSCountryController.xib; sourceTree = "<group>"; };
+		AAC17AD8154AE7F100765507 /* PSSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSettingsController.h; sourceTree = "<group>"; };
+		AAC17AD9154AE7F100765507 /* PSSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSettingsController.m; sourceTree = "<group>"; };
+		AAC17ADD154AE88A00765507 /* PSSettingsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSSettingsController.xib; path = Views/PSSettingsController.xib; sourceTree = "<group>"; };
 		AAC503C91524E9C20035ACB0 /* table-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-header.png"; path = "Resources/Images/table-header.png"; sourceTree = "<group>"; };
 		AAC503CC1524F95D0035ACB0 /* PSTariffsHederSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTariffsHederSectionView.h; sourceTree = "<group>"; };
 		AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTariffsHederSectionView.m; sourceTree = "<group>"; };
@@ -241,6 +246,7 @@
 				AA59898C1525C806007704DC /* Network */,
 				AA6E72DC152370FC00B70DFF /* Database */,
 				AA026C371543E3140023CC57 /* HomePage */,
+				AAC17AD6154AE79B00765507 /* Settings */,
 				AA026C43154435C90023CC57 /* WebView */,
 				AA63B3C81521BA120039AC5E /* Countries */,
 				AA5B457B1538606F004AE516 /* CountryInfo */,
@@ -430,6 +436,16 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		AAC17AD6154AE79B00765507 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AAC17AD8154AE7F100765507 /* PSSettingsController.h */,
+				AAC17AD9154AE7F100765507 /* PSSettingsController.m */,
+				AAC17ADD154AE88A00765507 /* PSSettingsController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -516,6 +532,7 @@
 				AA026C3D1543E5240023CC57 /* homepage_rect_border.png in Resources */,
 				AA026C421543E8FB0023CC57 /* PSHomePageController.xib in Resources */,
 				AA026C48154435FE0023CC57 /* PSWebViewController.xib in Resources */,
+				AAC17ADE154AE88A00765507 /* PSSettingsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +595,7 @@
 				AA34C29815388B2F00FB389B /* PSCountryInfoController.m in Sources */,
 				AA026C401543E8C60023CC57 /* PSHomePageController.m in Sources */,
 				AA026C47154435FE0023CC57 /* PSWebViewController.m in Sources */,
+				AAC17ADB154AE7F100765507 /* PSSettingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

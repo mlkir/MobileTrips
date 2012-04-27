@@ -36,4 +36,12 @@
 + (NSString *)getCurrentLanguage;
 
 + (NSURL *)getBaseURL;
+
++ (UIFont *)getFont;
+
++ (int)getFontSizeIndex;
++ (int)getFontNameIndex;
++ (void)setFontSizeIndex:(int)idx;
++ (void)setFontNameIndex:(int)idx;
+
 @end

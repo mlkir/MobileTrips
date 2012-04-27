@@ -7,6 +7,8 @@
 //
 
 #import "Utils.h"
+#import <sys/xattr.h>
+
 
 #define EMPTY_STRING @""						//Пустая строка
 #define LIST_SEPARATORS_FOR_TEXT @",. ;:"		//Разделители текста на слова
@@ -16,6 +18,9 @@
 
 @implementation Utils
 
+static UIFont *font = nil;
+static int fontSizeIndex = 1;
+static int fontNameIndex = 7;
 
 #pragma mark -
 #pragma mark Утилиты для работы со строками
@@ -69,12 +74,34 @@
 #pragma mark Утилиты для работы c файловой системой
 
 
-/* Получить полный путь к файлу в папке документов */
+/* Получить полный путь к файлу в папке документов (Library) */
 + (NSString *)getPathInDocumentWithFileName:(NSString *)fileName {
     static NSString *docsDir = nil;
     if (docsDir == nil) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        docsDir = [[paths objectAtIndex:0] retain];   
+        //Получаем путь к папке Documents
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+        docsDir = [paths objectAtIndex:0];   
+        //Проверяем, есть ли там папка в которой будут храниться данные не требующие бэкапирования через iCloud
+        NSString *path = [docsDir stringByAppendingPathComponent:@"PrivateData"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if (![fileManager fileExistsAtPath:path]) {
+            //Создаем папку
+            NSError *err;
+            BOOL isSuccessfully = [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&err];            
+            if (isSuccessfully) {
+                //Выставляем на папку маркер для исключения из бэкапирования iCloud
+                const char* attrName = "com.apple.MobileBackup";
+                u_int8_t attrValue = 1;                
+                int result = setxattr([path UTF8String], attrName, &attrValue, sizeof(attrValue), 0, 0);
+                if (result != 0) {
+                    NSLog(@"Не удалось установить атрибут '%s' на папку '%@'", attrName, path);
+                }                
+            } else {
+                NSLog(@"Не удалось создать папку:\n%@", err);											
+            }             
+        }
+        docsDir = path;            
+        [docsDir retain]; //чтобы не удалился
     }
     return [docsDir stringByAppendingPathComponent:fileName];
 }
@@ -181,6 +208,56 @@
 /* Получить строку d.m.yyyy по дате  (01.01.2000 или 1.1.2000) */
 + (NSString *)stringFromDate:(NSDate *)date {
 	return [[self getDateFormatter] stringFromDate:date];
+}
+
+#pragma mark -
+#pragma mark Настройки
+
++ (void)setFontWithNameByIndex:(int)indexName andSizeByIndex:(int)indexSize  {    
+    [font release];
+    
+    NSString *name = [[UIFont familyNames] objectAtIndex:indexName];
+    
+    CGFloat size = 0.0f;
+    switch (indexSize) {
+        case 0: 
+            size = [UIFont smallSystemFontSize];            
+            break;
+        case 1: 
+            size = [UIFont systemFontSize];
+            break;   
+        default:
+            size = [UIFont systemFontSize] + 4.0f;
+            break;
+    }
+    
+    font = [[UIFont fontWithName:name size:size] retain];
+}
+
++ (UIFont *)getFont {    
+    if (!font) {
+        fontNameIndex = [[UIFont familyNames] indexOfObject:@"Helvetica"];
+        [self setFontWithNameByIndex:fontNameIndex andSizeByIndex:fontSizeIndex];
+    }
+    return  font;
+}
+
++ (int)getFontSizeIndex {
+    return fontSizeIndex;
+}
+
++ (int)getFontNameIndex {
+    return fontNameIndex;
+}
+
++ (void)setFontSizeIndex:(int)idx {
+    fontSizeIndex = idx;
+    [self setFontWithNameByIndex:fontNameIndex andSizeByIndex:fontSizeIndex];
+}
+
++ (void)setFontNameIndex:(int)idx {
+    fontNameIndex = idx;
+    [self setFontWithNameByIndex:fontNameIndex andSizeByIndex:fontSizeIndex];
 }
 
 

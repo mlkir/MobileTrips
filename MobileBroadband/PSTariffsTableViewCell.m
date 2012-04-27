@@ -95,7 +95,7 @@
         
         //Определяем размеры шрифтов
         BOOL isIPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
-        UIFont *fontForCommonData = [UIFont systemFontOfSize:(isIPhone ? 12.0f : 14.0f)];
+        UIFont *fontForCommonData = [Utils getFont];
         UIFont *fontForDetalData = [UIFont systemFontOfSize:(isIPhone ? 10.0f : 12.0f)];
         UIColor *colorForDetailData = [UIColor darkGrayColor];       
         

@@ -9,6 +9,7 @@
 #import "PSHomePageController.h"
 
 #import "PSCountryController.h"
+#import "PSSettingsController.h"
 #import "PSWebViewController.h"
 
 
@@ -51,6 +52,15 @@
     //Указываем заголовок
 	self.title = NSLocalizedString(@"PSHomePageController.title", nil);
     
+    //Регистрируем жест Swipe для перехода к выбору стран
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didGesture:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    [swipeLeft release];  
+    
+    //Создаю жест касания
+    UITapGestureRecognizer *gestureTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didGesture:)];    
+    
     //Определяем на каком девайсе запустили
     BOOL isIPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
        
@@ -81,7 +91,7 @@
     CGFloat y = rect.size.height - (BTN_ROWS * rectButton.size.height + offsetLeftRight + (BTN_ROWS - 1) * offset);
     CGFloat bottomSteps = y - offsetLeftRight;
     int tag = 0;
-    for (int row = 0; row < BTN_ROWS; row++) {
+    for (int row = 0; row < BTN_ROWS - 1; row++) {
         CGFloat x = offsetLeftRight;
         for (int col = 0; col < BTN_COLS; col++) {
             //Выводим кнопку
@@ -158,9 +168,19 @@
         [stepView addSubview:lbl];
         [lbl release];
         
+        //Для первого шага регистрируем касание
+        if (i == 0) {
+            [stepView setUserInteractionEnabled:YES];
+            [stepView addGestureRecognizer:gestureTap];            
+        }
+        
         //Пересчитываем следующее положение по оси Х
         x += rectStep.size.width + offset;
-    }        
+    } 
+    
+    //Чистим жест
+    [gestureTap release];
+        
 }
 
 - (void)viewDidUnload
@@ -194,6 +214,14 @@
             controller.title = NSLocalizedString(key, nil);   
             [self.navigationController pushViewController:controller animated:YES];
         } break;  
+        //Переход к Settings
+        case 2: {
+            PSSettingsController *controller = [[[PSSettingsController alloc] initWithNibName:@"PSSettingsController" bundle:nil] autorelease];
+            NSString *key = [NSString stringWithFormat:@"PSHomePageController.button%d.title", btn.tag];
+            controller.title = NSLocalizedString(key, nil);   
+            [self.navigationController pushViewController:controller animated:YES];
+        } break;  
+            
         //Переход к Help    
         case 3: {
             PSWebViewController *controller = [[[PSWebViewController alloc] initWithNibName:@"PSWebViewController" bundle:nil] autorelease];
@@ -205,6 +233,12 @@
         default:
             break;
     }
+}
+
+/* Переход к списку стран */
+-(void)didGesture:(UIGestureRecognizer*)gesture {
+    PSCountryController *controller = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

@@ -58,8 +58,9 @@
     [html appendString:@"   </style>"];
     [html appendString:@"</head>"];
     [html appendString:@"<body>"];
-    [html appendFormat:@"<p>recordId: <font color='red'>%d</font>",self.tariff.ID];
+    //[html appendFormat:@"<p>recordId: <font color='red'>%d</font>",self.tariff.ID];
     [html appendFormat:@"<p>provaderName: <font color='blue'>%@</font>",self.tariff.provaderName];
+    [html appendFormat:@"<p>provaderPage: <font color='red'><i>%@</i></font>", @"not found table with data"];
     [html appendFormat:@"<p>trafficType: <font color='blue'>%@</font>",self.tariff.trafficType];
     [html appendFormat:@"<p>tariffName: <font color='blue'>%@</font>",self.tariff.tariffName];    
     [html appendFormat:@"<p>tariffOption: <font color='blue'>%@</font>",self.tariff.tariffOption];

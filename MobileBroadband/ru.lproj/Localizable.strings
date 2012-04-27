@@ -27,6 +27,42 @@ alert.message.successfull = "Обновление прошло успешно";
 //Сообщение при попытке отобразить данные из базы на языке отличном от текущего
 alert.message.lang_not_found = "Язык базы данных не соответсвует текущему языку. Необходимо обновить с сервера.";
 
+
+/************************* Homepage *************************/
+
+/* Заголовок */
+PSHomePageController.title = "Homepage";
+
+/* Заголовок для описания действия по работе с прогой */
+PSHomePageController.steps.header = "Find mobile internet, when you travel abroad"; 
+
+/* Steps description */
+PSHomePageController.step0.text = "1.Select destination";
+PSHomePageController.step1.text = "2.Read hints";
+PSHomePageController.step2.text = "3.Select your profile";
+PSHomePageController.step3.text = "4.Pick you plan";
+
+/* Buttons */
+PSHomePageController.button0.title = "Destination\nCountry";
+PSHomePageController.button1.title = "About";
+PSHomePageController.button2.title = "Settings";
+PSHomePageController.button3.title = "Help";
+PSHomePageController.button4.title = "Find us on\nsocial media";
+PSHomePageController.button5.title = "Join us";
+
+
+/************************* Настройки *************************/
+
+/* Размер шрифта */
+PSSettingsController.table.section0 = "Размер шрифта";
+PSSettingsController.table.row00 = "Мелкий";
+PSSettingsController.table.row01 = "Стандартный";
+PSSettingsController.table.row02 = "Крупный";
+
+/* Название шрифта */
+PSSettingsController.table.section1 = "Шрифт";
+
+
 /************************* Вид с выбором страны и кнопкой загрузки данных *************************/
 
 /* Заголовок */
@@ -58,6 +94,9 @@ PSTariffsController.tableHeader.trafficType = "Тип";
 PSTariffsController.tableHeader.price = "Стоимость";
 PSTariffsController.tableHeader.speed = "Скорость";
 PSTariffsController.tableHeader.limit = "Ограничения";
+
+
+/************************* Вид с детальным описанием тарифа *************************/
 
 /* Заголовок */
 PSTariffDetailController.title = "Тариф";
