@@ -10,7 +10,6 @@
 #import "Utils.h"
 #import "AbstractModel.h"
 
-#define DATABASE_FILENAME @"database_en.db"
 
 @implementation DBManager
 
@@ -40,28 +39,8 @@
 
 /* Конструктор */
 - (id)initWithDatabaseName:(NSString *)databaseName  {
-	//Получаем путь к файлу с БД
-	NSString *databasePath = [Utils getPathInDocumentWithFileName:databaseName];
-	
+	NSString *databasePath = [[Utils getPathInDocument:PATH_RESOURCE] stringByAppendingPathComponent:databaseName];
 	self = [self initWithDatabasePath:databasePath];
-		
-	NSError *error = nil;
-		
-	//Проверяем есть ли файл с БД
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	BOOL isExists = [fileManager fileExistsAtPath:databasePath];
-	//Если файл с БД не найден
-	if (!isExists) {
-		//*TODO: Копируем базу
-		NSString *defaultDB = [Utils getPathInBundleWithFileName:databaseName];            
-		error = nil;		
-		BOOL isCopyed = [fileManager copyItemAtPath:defaultDB toPath:databasePath error:&error];
-		if (!isCopyed) {
-			printf("Error: %s\n", [[Utils getErrorMessage:@"Неудалось скопировать предзаполненную БД." withError:error] UTF8String]);														
-		}//*/ 
-	}
-                
-	  
 	return self;
 }
 
@@ -215,6 +194,26 @@
     
 }
 
+/* Получить сущность */
+- (id)newEntite:(Class)clazz query:(const char *)sql {
+    //Выполняем запрос
+    sqlite3_stmt *stmt = [self prepareStatement:sql];
+    if (stmt == nil) return nil;
+    
+    //Получаем запись
+    @try {
+        if (sqlite3_step(stmt) == SQLITE_ROW) {                       
+            AbstractModel *entity = [[clazz alloc] init];
+            [entity fillAttributes:stmt manager:self];
+            return [entity autorelease];
+        }
+    } @finally {        
+        sqlite3_reset(stmt);
+        sqlite3_finalize(stmt);
+    }
+    
+    return nil;
+}
 
 /* Получить список сущностей */
 - (NSMutableArray *)newListEntiteClass:(Class)clazz query:(const char *)sql {

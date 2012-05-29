@@ -6,9 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PSAppDelegate.h"
 
+#import "PSAppDelegate.h"
+#import "Utils.h"
+#import "DBManager.h"
 #import "PSHomePageController.h"
+#import "SSZipArchive.h"
 
 
 @implementation PSAppDelegate
@@ -23,16 +26,33 @@
     [super dealloc];
 }
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    //Получаем менеджера файловой системы
+    NSFileManager *fileManager = [NSFileManager defaultManager];
     
+    //Проверяем распокованы ресурсы или нет
+    NSString *pathWithResources = [Utils getPathInDocument:PATH_RESOURCE];    
+    if (![fileManager fileExistsAtPath:pathWithResources]) {                
+        //Распаковываем ресурсы для работы
+        NSString *lang = [Utils getCurrentLanguage];
+        NSString *fileZip = [NSString stringWithFormat:FILENAME_ZIP, lang];
+        fileZip = [Utils getPathInBundle:fileZip];
+        if (![fileManager fileExistsAtPath:fileZip]) fileZip = [Utils getPathInBundle:FILENAME_ZIP_DEFAULT];                
+        [SSZipArchive unzipFileAtPath:fileZip toDestination:pathWithResources];        
+    }
+
+    //Создаем window
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    //Создаем контроллер
     PSHomePageController *rootController = [[[PSHomePageController alloc] initWithNibName:@"PSHomePageController" bundle:nil] autorelease];
     UINavigationController *rootNavigationController = [[[UINavigationController alloc] initWithRootViewController:rootController] autorelease];
     self.navigationController = rootNavigationController;
     self.window.rootViewController = self.navigationController;
-        
+    //Выводим
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

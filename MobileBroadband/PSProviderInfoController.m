@@ -1,29 +1,24 @@
 //
-//  PSCountryInfoController.m
+//  PSProviderInfoController.m
 //  MobileBroadband
 //
-//  Created by Медведь on 13.04.12.
+//  Created by Медведь on 30.05.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PSCountryInfoController.h"
-#import "Utils.h"
-#import "PSCountryController.h"
-#import "PSTariffsController.h"
-#import "PSProviderModel.h"
 #import "PSProviderInfoController.h"
+#import "Utils.h"
 
 
-@interface PSCountryInfoController ()
+@interface PSProviderInfoController ()
 
 @end
 
-
-
-@implementation PSCountryInfoController
+@implementation PSProviderInfoController
 
 @synthesize webView = _webView;
-@synthesize country = _country;
+
+@synthesize provider = _provider;
 @synthesize isLoadFromString = _isLoadFromString;
 
 
@@ -39,6 +34,7 @@
 - (void)dealloc
 {
     
+    [_provider release];
     [super dealloc];
 }
 
@@ -46,15 +42,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     //Указываем заголовок
-    self.title = _country.name;
+    self.title = _provider.name;
     
     //Загружаем страницу
     _isLoadFromString = YES;
-    NSString *html = [Utils getHtmlWithBody:_country.page];
+    NSString *html = [Utils getHtmlWithBody:_provider.page];
     [self.webView loadHTMLString:html baseURL:[Utils getBaseURL]];
-                         
+    
 }
 
 - (void)viewDidUnload
@@ -108,31 +104,10 @@
     //Проверяем не является ли данная гиперссылка callback от JavaScript
     NSString *callback = [self getCallbackFromURLString:urlString];
     if (callback != nil) {
-        //NSLog(@"CALLBACK: %@", callback);
-        //Если иребуется переход к списку тарифов
-        if ([@"gotoTariffs" isEqualToString:callback]) {
-            //Переходим к списку тарифов
-            PSTariffsController *controller = [[[PSTariffsController alloc] initWithNibName:@"PSTariffsController" bundle:nil] autorelease];
-            [controller setCountry:_country];
-            [self.navigationController pushViewController:controller animated:YES];
-            return NO;
-        } 
-        
-        //Получаем ключ значение через разделитель ':'
-        NSArray *arr = [Utils getComponentsSeparated:callback separator:@":"];
-        NSString *key = [arr objectAtIndex:0];
-        NSString *value = (arr.count > 1) ? [arr objectAtIndex:1] : @"-1";
-        //Если требуется переход к провайдеру
-        if ([@"provider" isEqualToString:key]) {
-            int ID = [value intValue];
-            PSProviderModel *provider = [PSProviderModel newEntityByID:ID];
-            //Переходим к описанию провайдера
-            PSProviderInfoController *controller = [[[PSProviderInfoController alloc] initWithNibName:@"PSProviderInfoController" bundle:nil] autorelease];
-            [controller setProvider:provider];
-            [self.navigationController pushViewController:controller animated:YES];
-        }
+        NSLog(@"CALLBACK: %@", callback);        
         return NO;
     }
+    
 
     if (!_isLoadFromString) {
         [[UIApplication sharedApplication] openURL:[request URL]];
@@ -153,6 +128,5 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {			
     
 }
-
 
 @end

@@ -15,6 +15,7 @@
 #import "PSTariffsController.h"
 #import "Reachability.h"
 #import "ASIHTTPRequest.h"
+#import "SSZipArchive.h"
 
 
 @interface PSCountryController () {
@@ -140,12 +141,13 @@
     }
     
     //Получаем папку куда закачаем наш файл
-    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/database_new.db"];    
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/data.zip"];    
     
     //Определяем строку запроса    
     NSString *lang = [Utils getCurrentLanguage];        
-    NSString *ver = [PSParamModel getValueByKey:PARAM_VERSION];
-    NSString *str = [NSString stringWithFormat:@"http://tricks4trips.com/price_data/get_archive?locale=%@&version=%@", lang, ver];
+    //NSString *ver = [PSParamModel getValueByKey:PARAM_VERSION];
+    //NSString *str = [NSString stringWithFormat:@"http://tricks4trips.com/price_data/get_archive?locale=%@&version=%@", lang, ver];
+    NSString *str = [NSString stringWithFormat:@"http://tricks4trips.com/current_%@.zip", lang];
     NSURL *url = [NSURL URLWithString:str];    
     
     //Отправляем запрос на сервер    
@@ -178,7 +180,7 @@
         }
         //Если размер слишком мал - считает что база не была получена
         if (!isDownloaded) {
-            [Utils deleteFile:path];
+            [Utils deletePath:path];
         }
     }
     
@@ -190,24 +192,20 @@
         return;
     }
     
-    //Заменяем старую базу новой
+    //Закрывем соединение
     DBManager *dbManager = [DBManager getInstance];
-    NSString *databasePath = dbManager.databasePath;
     [dbManager closeDB];
-    [Utils deleteFile:databasePath];					
-    error = nil;
-    BOOL isMoved = [fileManager moveItemAtPath:path toPath:databasePath error:&error];
-    if (!isMoved) {                
-        //Выводим сообщение
-        NSString *message = [error description];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.error", nil) message:message delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
-        [alert show];
-        [alert release]; 
-        //Удаляем за собой скаченную базу
-        [Utils deleteFile:path];        
-        return;
-    }
     
+    //Удаляем старые данные
+    NSString *pathWithResources = [Utils getPathInDocument:PATH_RESOURCE];
+    [Utils deletePath:pathWithResources];
+    
+    //Распаковываем ресурсы для работы
+    [SSZipArchive unzipFileAtPath:path toDestination:pathWithResources];        
+    
+    //Удаляем за собой скаченную базу
+    [Utils deletePath:path];        
+      
     //Записываем дату скачивания
     NSString *currentDate = [Utils stringFromDate:[NSDate date]];
     [PSParamModel insertValue:currentDate withKey:PARAM_LAST_UPDATE];

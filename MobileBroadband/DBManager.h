@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 
+#define DATABASE_FILENAME @"data.sqli"
+
 
 @interface DBManager : NSObject {
     sqlite3 *database;
@@ -33,7 +35,10 @@
 - (sqlite3_value *)getFieldValueByQuery:(const char *)sql;
 - (NSString *)getFieldStringByQuery:(const char *)sql;
 - (sqlite3_stmt *)prepareStatement:(const char *)sql;
+
+- (id)newEntite:(Class)clazz query:(const char *)sql;
 - (NSMutableArray *)newListEntiteClass:(Class)clazz query:(const char *)sql;
+
 //- (BOOL)fillAttributesEntity:(AbstractModel *)entity query:(const char *)sql;
 
 

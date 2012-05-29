@@ -28,8 +28,12 @@
 		AA026C48154435FE0023CC57 /* PSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA026C46154435FE0023CC57 /* PSWebViewController.xib */; };
 		AA26C06715223DAB00556790 /* btn_russia.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C06615223DAB00556790 /* btn_russia.png */; };
 		AA26C06A1522405A00556790 /* btn_download.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C0691522405A00556790 /* btn_download.png */; };
+		AA2D67FC15751FD900962CC3 /* default_ru.zip in Resources */ = {isa = PBXBuildFile; fileRef = AA2D67FB15751FD900962CC3 /* default_ru.zip */; };
 		AA34C29815388B2F00FB389B /* PSCountryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34C29615388B2F00FB389B /* PSCountryInfoController.m */; };
 		AA34C29B15388B6A00FB389B /* PSCountryInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA34C29A15388B6A00FB389B /* PSCountryInfoController.xib */; };
+		AA51E12F1575860500F58F22 /* PSProviderInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA51E12D1575860500F58F22 /* PSProviderInfoController.m */; };
+		AA51E1341575866100F58F22 /* PSProviderInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA51E1331575866100F58F22 /* PSProviderInfoController.xib */; };
+		AA51E1371575872500F58F22 /* PSProviderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA51E1361575872500F58F22 /* PSProviderModel.m */; };
 		AA5989D21525CE55007704DC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5989D11525CE55007704DC /* Reachability.m */; };
 		AA5989D41525CF20007704DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5989D31525CF20007704DC /* CFNetwork.framework */; };
 		AA5989D61525CF2F007704DC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5989D51525CF2F007704DC /* SystemConfiguration.framework */; };
@@ -45,7 +49,6 @@
 		AA5989F61525CF74007704DC /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5989ED1525CF74007704DC /* ASINetworkQueue.m */; };
 		AA63B3BC1521A6F70039AC5E /* PSCountryController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3BB1521A6F70039AC5E /* PSCountryController.m */; };
 		AA63B3BF1521AC970039AC5E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3BE1521AC970039AC5E /* Utils.m */; };
-		AA63B3C31521B9540039AC5E /* database_en.db in Resources */ = {isa = PBXBuildFile; fileRef = AA63B3C21521B9540039AC5E /* database_en.db */; };
 		AA63B3D71521BAA50039AC5E /* PSCountryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3D61521BAA50039AC5E /* PSCountryModel.m */; };
 		AA63B3D91521C7BF0039AC5E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA63B3D81521C7BF0039AC5E /* libsqlite3.dylib */; };
 		AA63B3DF1521D1CD0039AC5E /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63B3DE1521D1CD0039AC5E /* DBManager.m */; };
@@ -58,13 +61,17 @@
 		AA9A79301524C710004DCE2A /* provider.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9A792F1524C710004DCE2A /* provider.png */; };
 		AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */; };
 		AAA964C1152515260070DAC9 /* PSSortDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA964C0152515260070DAC9 /* PSSortDialog.m */; };
+		AAADA6901575573000A83D60 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = AAADA68F1575573000A83D60 /* SSZipArchive.m */; };
+		AAADA69B1575576900A83D60 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = AAADA6971575576900A83D60 /* ioapi.c */; };
+		AAADA69C1575576900A83D60 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = AAADA6981575576900A83D60 /* mztools.c */; };
+		AAADA69D1575576900A83D60 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = AAADA6991575576900A83D60 /* unzip.c */; };
+		AAADA69E1575576900A83D60 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = AAADA69A1575576900A83D60 /* zip.c */; };
 		AABBF0D31521994D007BE589 /* PSTariffsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D21521994D007BE589 /* PSTariffsController.xib */; };
 		AABBF0D715219E76007BE589 /* PSCountryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABBF0D615219E76007BE589 /* PSCountryController.xib */; };
 		AAC17ADB154AE7F100765507 /* PSSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC17AD9154AE7F100765507 /* PSSettingsController.m */; };
 		AAC17ADE154AE88A00765507 /* PSSettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC17ADD154AE88A00765507 /* PSSettingsController.xib */; };
 		AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC503C91524E9C20035ACB0 /* table-header.png */; };
 		AAC503CE1524F95D0035ACB0 /* PSTariffsHederSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */; };
-		AAD85C5C1521DAE900FF5E40 /* database_en.db in Resources */ = {isa = PBXBuildFile; fileRef = AA63B3C21521B9540039AC5E /* database_en.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,9 +115,15 @@
 		AA026C46154435FE0023CC57 /* PSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSWebViewController.xib; sourceTree = "<group>"; };
 		AA26C06615223DAB00556790 /* btn_russia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_russia.png; path = Resources/Images/btn_russia.png; sourceTree = "<group>"; };
 		AA26C0691522405A00556790 /* btn_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_download.png; path = Resources/Images/btn_download.png; sourceTree = "<group>"; };
+		AA2D67FB15751FD900962CC3 /* default_ru.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = default_ru.zip; path = Resources/default_ru.zip; sourceTree = "<group>"; };
 		AA34C29515388B2F00FB389B /* PSCountryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryInfoController.h; sourceTree = "<group>"; };
 		AA34C29615388B2F00FB389B /* PSCountryInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryInfoController.m; sourceTree = "<group>"; };
 		AA34C29A15388B6A00FB389B /* PSCountryInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSCountryInfoController.xib; path = Views/PSCountryInfoController.xib; sourceTree = "<group>"; };
+		AA51E12C1575860500F58F22 /* PSProviderInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSProviderInfoController.h; sourceTree = "<group>"; };
+		AA51E12D1575860500F58F22 /* PSProviderInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSProviderInfoController.m; sourceTree = "<group>"; };
+		AA51E1331575866100F58F22 /* PSProviderInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSProviderInfoController.xib; path = Views/PSProviderInfoController.xib; sourceTree = "<group>"; };
+		AA51E1351575872500F58F22 /* PSProviderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSProviderModel.h; sourceTree = "<group>"; };
+		AA51E1361575872500F58F22 /* PSProviderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSProviderModel.m; sourceTree = "<group>"; };
 		AA5989D01525CE55007704DC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
 		AA5989D11525CE55007704DC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
 		AA5989D31525CF20007704DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -141,7 +154,6 @@
 		AA63B3BB1521A6F70039AC5E /* PSCountryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryController.m; sourceTree = "<group>"; };
 		AA63B3BD1521AC970039AC5E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		AA63B3BE1521AC970039AC5E /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		AA63B3C21521B9540039AC5E /* database_en.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = database_en.db; path = Resources/database_en.db; sourceTree = "<group>"; };
 		AA63B3D51521BAA50039AC5E /* PSCountryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryModel.h; sourceTree = "<group>"; };
 		AA63B3D61521BAA50039AC5E /* PSCountryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryModel.m; sourceTree = "<group>"; };
 		AA63B3D81521C7BF0039AC5E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -165,6 +177,17 @@
 		AA9EB3D91520A04F0042F799 /* PSTariffDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffDetailController.xib; path = Views/PSTariffDetailController.xib; sourceTree = "<group>"; };
 		AAA964BF152515260070DAC9 /* PSSortDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSortDialog.h; sourceTree = "<group>"; };
 		AAA964C0152515260070DAC9 /* PSSortDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSortDialog.m; sourceTree = "<group>"; };
+		AAADA68E1575573000A83D60 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = ZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
+		AAADA68F1575573000A83D60 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = ZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
+		AAADA6921575576900A83D60 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = ZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
+		AAADA6931575576900A83D60 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = ZipArchive/minizip/ioapi.h; sourceTree = "<group>"; };
+		AAADA6941575576900A83D60 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = ZipArchive/minizip/mztools.h; sourceTree = "<group>"; };
+		AAADA6951575576900A83D60 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = ZipArchive/minizip/unzip.h; sourceTree = "<group>"; };
+		AAADA6961575576900A83D60 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = ZipArchive/minizip/zip.h; sourceTree = "<group>"; };
+		AAADA6971575576900A83D60 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = ZipArchive/minizip/ioapi.c; sourceTree = "<group>"; };
+		AAADA6981575576900A83D60 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mztools.c; path = ZipArchive/minizip/mztools.c; sourceTree = "<group>"; };
+		AAADA6991575576900A83D60 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = ZipArchive/minizip/unzip.c; sourceTree = "<group>"; };
+		AAADA69A1575576900A83D60 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = ZipArchive/minizip/zip.c; sourceTree = "<group>"; };
 		AABBF0D21521994D007BE589 /* PSTariffsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSTariffsController.xib; path = Views/PSTariffsController.xib; sourceTree = "<group>"; };
 		AABBF0D615219E76007BE589 /* PSCountryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSCountryController.xib; path = Views/PSCountryController.xib; sourceTree = "<group>"; };
 		AAC17AD8154AE7F100765507 /* PSSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSettingsController.h; sourceTree = "<group>"; };
@@ -180,14 +203,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA5989DA1525CF4C007704DC /* libz.dylib in Frameworks */,
 				AA5989D81525CF3A007704DC /* MobileCoreServices.framework in Frameworks */,
 				AA5989D61525CF2F007704DC /* SystemConfiguration.framework in Frameworks */,
-				AA5989D41525CF20007704DC /* CFNetwork.framework in Frameworks */,
-				AA63B3D91521C7BF0039AC5E /* libsqlite3.dylib in Frameworks */,
 				AA008DA6151CC69A001FD906 /* UIKit.framework in Frameworks */,
 				AA008DA8151CC69A001FD906 /* Foundation.framework in Frameworks */,
 				AA008DAA151CC69A001FD906 /* CoreGraphics.framework in Frameworks */,
+				AA5989D41525CF20007704DC /* CFNetwork.framework in Frameworks */,
+				AA63B3D91521C7BF0039AC5E /* libsqlite3.dylib in Frameworks */,
+				AA5989DA1525CF4C007704DC /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +267,7 @@
 			children = (
 				AABBF0D515219AB0007BE589 /* Common */,
 				AA59898C1525C806007704DC /* Network */,
+				AAADA64F1575500300A83D60 /* ZipArchive */,
 				AA6E72DC152370FC00B70DFF /* Database */,
 				AA026C371543E3140023CC57 /* HomePage */,
 				AAC17AD6154AE79B00765507 /* Settings */,
@@ -252,6 +276,7 @@
 				AA5B457B1538606F004AE516 /* CountryInfo */,
 				AA9EB3D81520A00B0042F799 /* TariffsList */,
 				AABBF0D415219A96007BE589 /* TariffDetail */,
+				AA51E1321575861000F58F22 /* ProviderInfo */,
 				AA008DAC151CC69B001FD906 /* Supporting Files */,
 			);
 			path = MobileBroadband;
@@ -309,6 +334,18 @@
 			name = WebView;
 			sourceTree = "<group>";
 		};
+		AA51E1321575861000F58F22 /* ProviderInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AA51E1351575872500F58F22 /* PSProviderModel.h */,
+				AA51E1361575872500F58F22 /* PSProviderModel.m */,
+				AA51E12C1575860500F58F22 /* PSProviderInfoController.h */,
+				AA51E12D1575860500F58F22 /* PSProviderInfoController.m */,
+				AA51E1331575866100F58F22 /* PSProviderInfoController.xib */,
+			);
+			name = ProviderInfo;
+			sourceTree = "<group>";
+		};
 		AA59898C1525C806007704DC /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,7 +388,7 @@
 		AA63B3C01521B9400039AC5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA63B3C21521B9540039AC5E /* database_en.db */,
+				AA2D67FB15751FD900962CC3 /* default_ru.zip */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -408,6 +445,32 @@
 				AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */,
 			);
 			name = TariffsList;
+			sourceTree = "<group>";
+		};
+		AAADA64F1575500300A83D60 /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				AAADA6911575575C00A83D60 /* minizip */,
+				AAADA68E1575573000A83D60 /* SSZipArchive.h */,
+				AAADA68F1575573000A83D60 /* SSZipArchive.m */,
+			);
+			name = ZipArchive;
+			sourceTree = "<group>";
+		};
+		AAADA6911575575C00A83D60 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				AAADA6921575576900A83D60 /* crypt.h */,
+				AAADA6931575576900A83D60 /* ioapi.h */,
+				AAADA6941575576900A83D60 /* mztools.h */,
+				AAADA6951575576900A83D60 /* unzip.h */,
+				AAADA6961575576900A83D60 /* zip.h */,
+				AAADA6971575576900A83D60 /* ioapi.c */,
+				AAADA6981575576900A83D60 /* mztools.c */,
+				AAADA6991575576900A83D60 /* unzip.c */,
+				AAADA69A1575576900A83D60 /* zip.c */,
+			);
+			name = minizip;
 			sourceTree = "<group>";
 		};
 		AABBF0D415219A96007BE589 /* TariffDetail */ = {
@@ -517,7 +580,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD85C5C1521DAE900FF5E40 /* database_en.db in Resources */,
 				AA008DB0151CC69B001FD906 /* InfoPlist.strings in Resources */,
 				AA8BF0DD15209E77004521D4 /* Localizable.strings in Resources */,
 				AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */,
@@ -533,6 +595,8 @@
 				AA026C421543E8FB0023CC57 /* PSHomePageController.xib in Resources */,
 				AA026C48154435FE0023CC57 /* PSWebViewController.xib in Resources */,
 				AAC17ADE154AE88A00765507 /* PSSettingsController.xib in Resources */,
+				AA2D67FC15751FD900962CC3 /* default_ru.zip in Resources */,
+				AA51E1341575866100F58F22 /* PSProviderInfoController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +605,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA008DDA151CC69B001FD906 /* InfoPlist.strings in Resources */,
-				AA63B3C31521B9540039AC5E /* database_en.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +659,13 @@
 				AA026C401543E8C60023CC57 /* PSHomePageController.m in Sources */,
 				AA026C47154435FE0023CC57 /* PSWebViewController.m in Sources */,
 				AAC17ADB154AE7F100765507 /* PSSettingsController.m in Sources */,
+				AAADA6901575573000A83D60 /* SSZipArchive.m in Sources */,
+				AAADA69B1575576900A83D60 /* ioapi.c in Sources */,
+				AAADA69C1575576900A83D60 /* mztools.c in Sources */,
+				AAADA69D1575576900A83D60 /* unzip.c in Sources */,
+				AAADA69E1575576900A83D60 /* zip.c in Sources */,
+				AA51E12F1575860500F58F22 /* PSProviderInfoController.m in Sources */,
+				AA51E1371575872500F58F22 /* PSProviderModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

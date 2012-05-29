@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+#define PATH_RESOURCE           @"resources"
+#define FILENAME_ZIP            @"default_%@.zip"
+#define FILENAME_ZIP_DEFAULT    @"default_ru.zip"
+
+//Начало гиперссылки при возврате колбэка из JavaScript
+#define LINK_JS_CALLBACK_START_WITH @"callback:"
+
 
 @interface Utils : NSObject
 
 + (NSString *)trim:(NSString *)str;	
 + (BOOL)isEmptyString:(NSString *) str; 
 + (BOOL)isDigitCString:(char *)str;
++ (NSString *)getHtmlWithBody:(NSString *)body;
 
 + (NSArray *)getComponentsSeparated:(NSString *)string separator:(NSString *)separator;
 
@@ -21,11 +29,11 @@
 + (NSString *)getErrorMessage:(NSString *)errorMessage withException:(NSException *)exception;
 
 
-+ (NSString *)getPathInBundleWithFileName:(NSString *)fileName;
-+ (NSString *)getPathInDocumentWithFileName:(NSString *)fileName;
-+ (NSString *)getPathInTempWithFileName:(NSString *)fileName;
++ (NSString *)getPathInBundle:(NSString *)pathComponent;
++ (NSString *)getPathInDocument:(NSString *)pathComponent;
++ (NSString *)getPathInTemp:(NSString *)pathComponent;
 
-+ (BOOL)deleteFile:(NSString *)path;
++ (BOOL)deletePath:(NSString *)path;
 + (NSString *)loadFromFile:(NSString *)path;  
 + (BOOL)saveToFile:(NSString *)path dataString:(NSString *)stringWithData;
 

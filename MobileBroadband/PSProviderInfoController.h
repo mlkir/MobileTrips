@@ -1,20 +1,21 @@
 //
-//  PSCountryInfoController.h
+//  PSProviderInfoController.h
 //  MobileBroadband
 //
-//  Created by Медведь on 13.04.12.
+//  Created by Медведь on 30.05.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "PSCountryModel.h"
+#import "PSProviderModel.h"
+
+@interface PSProviderInfoController : UIViewController <UIWebViewDelegate>
 
 
-@interface PSCountryInfoController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @property (nonatomic, readwrite) BOOL isLoadFromString;
-@property (nonatomic, retain) PSCountryModel *country;
+@property (nonatomic, retain) PSProviderModel *provider;
 
 @end

@@ -49,6 +49,13 @@ static int fontNameIndex = 7;
 	return [string componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:separator]];  
 }
 
++ (NSString *)getHtmlWithBody:(NSString *)body {
+    if ([self isEmptyString:body]) {
+        return @"<html><body style='text-align: center;'>no data</body></html>";
+    } else {
+        return [NSString stringWithFormat:@"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\"><html><head> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf8\"><link rel=\"stylesheet\" type=\"text/css\" href=\"common.css\" /></head><body>%@</body></html>", body];
+    }
+}
 
 /* Получаем текст ошибки для вывода */
 + (NSString *)getErrorMessage:(NSString *)errorMessage withError:(NSError *)error {
@@ -73,9 +80,8 @@ static int fontNameIndex = 7;
 #pragma mark -
 #pragma mark Утилиты для работы c файловой системой
 
-
-/* Получить полный путь к файлу в папке документов (Library) */
-+ (NSString *)getPathInDocumentWithFileName:(NSString *)fileName {
+/* Получить полный путь к папке документов (Library) */
++ (NSString *)getPathInDocument:(NSString *)pathComponent {
     static NSString *docsDir = nil;
     if (docsDir == nil) {
         //Получаем путь к папке Documents
@@ -103,23 +109,24 @@ static int fontNameIndex = 7;
         docsDir = path;            
         [docsDir retain]; //чтобы не удалился
     }
-    return [docsDir stringByAppendingPathComponent:fileName];
+    
+    return (pathComponent) ? [docsDir stringByAppendingPathComponent:pathComponent] : docsDir;
 }
 
-/* Получить полный путь к файлу в папке документов */
-+ (NSString *)getPathInBundleWithFileName:(NSString *)fileName { 
+/* Получить полный путь к папке самого приложения */
++ (NSString *)getPathInBundle:(NSString *)pathComponent { 
     NSString *pathMainBundle = [[NSBundle mainBundle] resourcePath];
-    return [pathMainBundle stringByAppendingPathComponent:fileName];    
+    return (pathComponent) ? [pathMainBundle stringByAppendingPathComponent:pathComponent] : pathMainBundle;    
 }
 
 /* Получить полный путь к файлу во временной папке */
-+ (NSString *)getPathInTempWithFileName:(NSString *)fileName {
++ (NSString *)getPathInTemp:(NSString *)pathComponent {
     static NSString *tmpDir = nil;
     if (tmpDir == nil) tmpDir = [[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"] retain];    
-    return [tmpDir stringByAppendingPathComponent:fileName];
+    return (pathComponent) ? [tmpDir stringByAppendingPathComponent:pathComponent] : tmpDir;
 }
 
-+ (BOOL)deleteFile:(NSString *)path {
++ (BOOL)deletePath:(NSString *)path {
     BOOL isSuccessfully = YES;
     
     //Получаем файлового менеджера
@@ -273,6 +280,11 @@ static int fontNameIndex = 7;
 
 
 + (NSURL *)getBaseURL {
-    return nil;
+    static NSURL *baseUrl = nil;
+    if (!baseUrl) {
+        NSString *resourcePath = [[Utils getPathInDocument:PATH_RESOURCE] stringByAppendingPathComponent:@"content"];
+        baseUrl = [[NSURL alloc] initFileURLWithPath:resourcePath isDirectory:YES];
+    }
+    return baseUrl;
 }
 @end
