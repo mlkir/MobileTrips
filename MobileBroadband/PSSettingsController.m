@@ -7,7 +7,6 @@
 //
 
 #import "PSSettingsController.h"
-#import "Utils.h"
 
 
 
@@ -50,9 +49,9 @@
     
     //Создаем список названий шрифтов
     _listOfSizes = [[NSArray alloc] initWithObjects:
-                    NSLocalizedString(@"PSSettingsController.table.row00", nil), 
-                    NSLocalizedString(@"PSSettingsController.table.row01", nil), 
-                    NSLocalizedString(@"PSSettingsController.table.row02", nil), 
+                    LocalizedString(@"PSSettingsController.table.row00"), 
+                    LocalizedString(@"PSSettingsController.table.row01"), 
+                    LocalizedString(@"PSSettingsController.table.row02"), 
                     nil];
     
     //Создаем список размеров шрифтов
@@ -101,8 +100,8 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     switch (section) {
-        case 0: return NSLocalizedString(@"PSSettingsController.table.section0", nil); 
-        case 1: return NSLocalizedString(@"PSSettingsController.table.section1", nil); 
+        case 0: return LocalizedString(@"PSSettingsController.table.section0"); 
+        case 1: return LocalizedString(@"PSSettingsController.table.section1"); 
         default:return nil;
     }
 }

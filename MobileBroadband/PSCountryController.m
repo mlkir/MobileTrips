@@ -10,7 +10,6 @@
 #import "PSCountryInfoController.h"
 #import "PSCountryModel.h"
 #import "PSParamModel.h"
-#import "Utils.h"
 #import "PSHtmlDialog.h"
 #import "PSTariffsController.h"
 #import "Reachability.h"
@@ -62,7 +61,7 @@
     //Указываем дату последнего обновления        
     NSString *ver = [PSParamModel getValueByKey:PARAM_VERSION];
     NSString *lastUpdate = [PSParamModel getValueByKey:PARAM_LAST_UPDATE];
-    NSString *str = NSLocalizedString(@"PSCountryController.lastUpdateLabel.text", nil);
+    NSString *str = LocalizedString(@"PSCountryController.lastUpdateLabel.text");
     self.lastUpdateLabel.text = [NSString stringWithFormat:str, lastUpdate, ver];
 }
 
@@ -74,7 +73,7 @@
     BOOL isIPhone = [Utils isIPhone];
     
     //Указываем заголовок
-	self.title = NSLocalizedString(@"PSCountryController.title", nil);
+	self.title = LocalizedString(@"PSCountryController.title");
     
     //Добавляем фон
     UIImageView *bg = [Utils newBackgroundView];
@@ -89,7 +88,7 @@
     [self refreshlastUpdateLabel];    
     
     //Название кнопки загрузки данных с сервера
-    NSString *str = NSLocalizedString(@"PSCountryController.downloadButton.title", nil);
+    NSString *str = LocalizedString(@"PSCountryController.downloadButton.title");
     [self.downloadButton setTitle:str forState:UIControlStateNormal];
     //[self.downloadButton setTitle:str forState:UIControlState];
     [self.downloadButton.titleLabel setTextAlignment:UITextAlignmentCenter];
@@ -102,7 +101,7 @@
     self.hintImageView.image = img;
     
     //Доп информация 
-    self.hintLabel.text = NSLocalizedString(@"PSCountryController.commentLabel.text", nil);
+    self.hintLabel.text = LocalizedString(@"PSCountryController.commentLabel.text");
     self.hintLabel.font = [UIFont systemFontOfSize:(isIPhone ? 10.0f : 12.0f)];
     
     //Делаем прозрачным фон таблицы
@@ -143,7 +142,7 @@
     Reachability *r = [Reachability  reachabilityWithHostName:@"www.apple.com"];
     NetworkStatus internetStatus = [r currentReachabilityStatus];
     if (internetStatus != ReachableViaWiFi && internetStatus != ReachableViaWWAN) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.warning", nil) message:NSLocalizedString(@"alert.message.network_not_connected", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.warning") message:LocalizedString(@"alert.message.network_not_connected") delegate:nil cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
         [alert show];
         [alert release];
         return;
@@ -167,7 +166,7 @@
     if (error) {
         //int statusCode = [request responseStatusCode];
         NSString *statusMessage = [request responseStatusMessage];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.error", nil) message:statusMessage delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.error") message:statusMessage delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
         [alert show];
         [alert release];  
         return;
@@ -195,7 +194,7 @@
     
     //Если файл не был получен - сообщаем что база самая новая
     if (!isDownloaded) {        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.info", nil) message:NSLocalizedString(@"alert.message.is_no_update", nil) delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.info") message:LocalizedString(@"alert.message.is_no_update") delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
         [alert show];
         [alert release]; 
         return;
@@ -222,13 +221,16 @@
     //Запоминаем на каком языке база
     [PSParamModel insertValue:lang withKey:PARAM_LANGUAGE];
     
+    //Перегружаем файл локализации
+    [Utils loadLocalizableStrings];
+    
     //Обновляем отображаемые данные
     [self refreshlastUpdateLabel];
     self.objects = [PSCountryModel newList];
     [self.countryTableView reloadData];    
     
     //Выводим сообщение об успешном обновлении
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.info", nil) message:NSLocalizedString(@"alert.message.successfull", nil) delegate:nil  cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.info") message:LocalizedString(@"alert.message.successfull") delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
     [alert show];
     [alert release]; 
     
@@ -279,7 +281,7 @@
     if (isShowButton && !object.isTariffsExists) {
         cell.accessoryView = nil;
     } else if (!isShowButton && object.isTariffsExists) {            
-        UISegmentedControl *btn = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:NSLocalizedString(@"PSCountryController.gotoTariffsListButton.title", nil)]];
+        UISegmentedControl *btn = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:LocalizedString(@"PSCountryController.gotoTariffsListButton.title")]];
         btn.frame = CGRectMake(0, 0, 90, 26);
         btn.tag = indexPath.row;
         btn.segmentedControlStyle = UISegmentedControlStyleBar;

@@ -7,7 +7,6 @@
 //
 
 #import "PSProviderInfoController.h"
-#import "Utils.h"
 
 
 @interface PSProviderInfoController ()

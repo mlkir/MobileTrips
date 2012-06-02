@@ -16,6 +16,8 @@
 //Начало гиперссылки при возврате колбэка из JavaScript
 #define LINK_JS_CALLBACK_START_WITH @"callback:"
 
+//Локализация
+#define LocalizedString(key) [Utils getLocalizedStringForKey:(key)]
 
 @interface Utils : NSObject
 
@@ -46,6 +48,8 @@
 + (BOOL)isIPhone;
 
 + (NSString *)getCurrentLanguage;
++ (void)loadLocalizableStrings;
++ (NSString *)getLocalizedStringForKey:(NSString *)key;
 
 + (UIColor *)getColorWithRed:(int)red green:(int)green blue:(int)blue;
 + (UIFont *)getFont;

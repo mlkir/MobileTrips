@@ -11,7 +11,6 @@
 #import "PSCountryController.h"
 #import "PSSettingsController.h"
 #import "PSWebViewController.h"
-#import "Utils.h"
 
 
 //Количество шагов по работе с приложением
@@ -56,7 +55,7 @@
     BOOL isIPhone = [Utils isIPhone];
     
     //Указываем заголовок
-	self.title = NSLocalizedString(@"PSHomePageController.title", nil);
+	self.title = LocalizedString(@"PSHomePageController.title");
     
     //Создаем фон
     UIImageView *bg = [Utils newBackgroundView];
@@ -106,7 +105,7 @@
             
             //Получаем название кнопки
             NSString *keyButton = [NSString stringWithFormat:@"PSHomePageController.button%d.title", tag];
-            NSString *titleButton = NSLocalizedString(keyButton, nil);
+            NSString *titleButton = LocalizedString(keyButton);
                         
             //Выводим кнопку
             rectButton.origin = CGPointMake(x, y);
@@ -153,7 +152,7 @@
     lbl.backgroundColor = [UIColor clearColor];
     lbl.textColor = [Utils getColorWithRed:225 green:227 blue:224];
     lbl.font = [UIFont boldSystemFontOfSize:(isIPhone ? 20.0f : 40.0f)];
-    lbl.text = NSLocalizedString(@"PSHomePageController.view.title", nil);    
+    lbl.text = LocalizedString(@"PSHomePageController.view.title");    
     lbl.numberOfLines = 0;
     [bgView addSubview:lbl];
     [lbl release];
@@ -179,7 +178,7 @@
     CGFloat widthTextWithAllSteps = 0.0f;
     for (int i = 0; i < STEP_COUNT; i++) {
         NSString *keyStep = [NSString stringWithFormat:@"PSHomePageController.step%d.text", i];
-        NSString *title = NSLocalizedString(keyStep, nil);    
+        NSString *title = LocalizedString(keyStep);    
         [arrTitleSteps addObject:title];
         CGSize s = [title sizeWithFont:font];
         widthTextWithAllSteps += s.width;
@@ -256,7 +255,7 @@
         case 1: {
             PSWebViewController *controller = [[[PSWebViewController alloc] initWithNibName:@"PSWebViewController" bundle:nil] autorelease];
             NSString *key = [NSString stringWithFormat:@"PSHomePageController.button%d.title", btn.tag];
-            controller.title = NSLocalizedString(key, nil);               
+            controller.title = LocalizedString(key);               
             [self.navigationController pushViewController:controller animated:YES];
             [Utils loadWebView:controller.webView loadContentFile:@"about.html"];
         } break;  
@@ -264,7 +263,7 @@
         case 2: {
             PSSettingsController *controller = [[[PSSettingsController alloc] initWithNibName:@"PSSettingsController" bundle:nil] autorelease];
             NSString *key = [NSString stringWithFormat:@"PSHomePageController.button%d.title", btn.tag];
-            controller.title = NSLocalizedString(key, nil);   
+            controller.title = LocalizedString(key);   
             [self.navigationController pushViewController:controller animated:YES];
         } break;  
             
@@ -272,7 +271,7 @@
         case 3: {
             PSWebViewController *controller = [[[PSWebViewController alloc] initWithNibName:@"PSWebViewController" bundle:nil] autorelease];
             NSString *key = [NSString stringWithFormat:@"PSHomePageController.button%d.title", btn.tag];
-            controller.title = NSLocalizedString(key, nil);   
+            controller.title = LocalizedString(key);   
             [self.navigationController pushViewController:controller animated:YES];
         } break;  
             

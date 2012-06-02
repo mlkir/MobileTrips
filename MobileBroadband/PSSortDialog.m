@@ -7,7 +7,6 @@
 //
 
 #import "PSSortDialog.h"
-#import "Utils.h"
 
 
 @interface PSSortDialog ()  {
@@ -30,16 +29,16 @@
 
 - (id)initWithTitle:(NSString *)title 
 {
-    self = [super initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"button.cancel", @"") destructiveButtonTitle:nil otherButtonTitles:@"A", @"B", @"C", nil];
+    self = [super initWithTitle:nil delegate:self cancelButtonTitle:LocalizedString(@"button.cancel") destructiveButtonTitle:nil otherButtonTitles:@"A", @"B", @"C", nil];
     if (self) {
         [self setActionSheetStyle:UIActionSheetStyleAutomatic];    
         
         self.objects = [[NSArray alloc] initWithObjects:
-                        NSLocalizedString(@"PSTariffsController.tableHeader.providerName", nil),
-                        NSLocalizedString(@"PSTariffsController.tableHeader.trafficType", nil),
-                        NSLocalizedString(@"PSTariffsController.tableHeader.price", nil),
-                        //NSLocalizedString(@"PSTariffsController.tableHeader.speed", nil),
-                        NSLocalizedString(@"PSTariffsController.tableHeader.limit", nil),
+                        LocalizedString(@"PSTariffsController.tableHeader.providerName"),
+                        LocalizedString(@"PSTariffsController.tableHeader.trafficType"),
+                        LocalizedString(@"PSTariffsController.tableHeader.price"),
+                        //LocalizedString(@"PSTariffsController.tableHeader.speed"),
+                        LocalizedString(@"PSTariffsController.tableHeader.limit"),
                         nil];
         
     }

@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Utils.h"
 #import <sys/xattr.h>
 
 
@@ -18,9 +17,12 @@
 
 @implementation Utils
 
+
 static UIFont *font = nil;
 static int fontSizeIndex = 1;
 static int fontNameIndex = 7;
+static NSDictionary *localizableStrings = nil;
+
 
 #pragma mark -
 #pragma mark Утилиты для работы со строками
@@ -213,6 +215,11 @@ static int fontNameIndex = 7;
 #pragma mark -
 #pragma mark Настройки
 
++ (BOOL)isIPhone {
+    return (UIUserInterfaceIdiomPhone == [[UIDevice currentDevice] userInterfaceIdiom]);
+    return (UIUserInterfaceIdiomPhone == UI_USER_INTERFACE_IDIOM());
+}
+
 + (UIColor *)getColorWithRed:(int)red green:(int)green blue:(int)blue {
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
 }
@@ -287,11 +294,23 @@ static int fontNameIndex = 7;
     return  [languages objectAtIndex:0];
 }
 
-+ (BOOL)isIPhone {
-    return (UIUserInterfaceIdiomPhone == [[UIDevice currentDevice] userInterfaceIdiom]);
-    return (UIUserInterfaceIdiomPhone == UI_USER_INTERFACE_IDIOM());
+/* Перегружаем файл локализации */
++ (void)loadLocalizableStrings {
+    NSString *lang = [[self getCurrentLanguage] uppercaseString];
+    NSString *fileName = [NSString stringWithFormat:@"Locale_%@.txt", lang];
+    NSString *path = [self getPathContent:fileName];
+    
+    if (localizableStrings) [localizableStrings release];
+    localizableStrings = [NSDictionary dictionaryWithContentsOfFile:path];
+    [localizableStrings retain];    
 }
 
+/* Получить локализованную строку по ключу */
++ (NSString *)getLocalizedStringForKey:(NSString *)key {
+    NSString *value = [localizableStrings objectForKey:key];
+    if (value == nil) value = key;
+    return value;
+}
 
 #pragma mark -
 #pragma mark Загрузка  HTML

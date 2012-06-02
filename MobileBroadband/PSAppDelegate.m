@@ -8,7 +8,6 @@
 
 
 #import "PSAppDelegate.h"
-#import "Utils.h"
 #import "DBManager.h"
 #import "PSHomePageController.h"
 #import "SSZipArchive.h"
@@ -42,6 +41,9 @@
         [SSZipArchive unzipFileAtPath:fileZip toDestination:pathWithResources];        
     }
 
+    //Перегружаем файл локализации
+    [Utils loadLocalizableStrings];
+    
     //Создаем window
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     //Создаем контроллер
@@ -79,7 +81,7 @@
     NSString *lang = [PSParamModel getValueByKey:PARAM_LANGUAGE];
     if (lang && ![lang isEqualToString:[Utils getCurrentLanguage]]) {
         //Выводим сообщение что нужно обновить базу чтобы получить ее на текущем языке
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.warning", nil) message:NSLocalizedString(@"alert.message.lang_not_found", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.warning") message:LocalizedString(@"alert.message.lang_not_found") delegate:nil cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
         [alert show];
         [alert release];
         //Удаляем чтобы больше не сообщать пользователю о необходимости обновиться

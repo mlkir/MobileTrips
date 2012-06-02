@@ -59,7 +59,7 @@
     _ID = sqlite3_column_int(stmt, ++pos);
 	self.name = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     self.flag = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:nil];
-    self.currencyName = NSLocalizedString([dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""], nil);
+    self.currencyName = LocalizedString([dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""]);
     int len = sqlite3_column_int(stmt, ++pos);    
 	_isPageExists = (len > 0); //если длина текста больше 0 - описание существует
     self.page = nil;

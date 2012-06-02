@@ -60,12 +60,12 @@ BOOL isNeedShowPopover = YES;
     [super viewDidLoad];
     
     //Указываем заголовок
-    self.title = NSLocalizedString(@"PSTariffsController.title", nil);;
+    self.title = LocalizedString(@"PSTariffsController.title");
     
     //Подгружаем данные со странами    
     self.objects = [PSTariffModel newListByCountry:self.country];
         
-    UIBarButtonItem *btnSort = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"PSTariffsController.sortButton.title", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onTouchButtonSort:)];
+    UIBarButtonItem *btnSort = [[UIBarButtonItem alloc] initWithTitle:LocalizedString(@"PSTariffsController.sortButton.title") style:UIBarButtonItemStyleBordered target:self action:@selector(onTouchButtonSort:)];
     self.navigationItem.rightBarButtonItem = btnSort;
     [btnSort release];
     

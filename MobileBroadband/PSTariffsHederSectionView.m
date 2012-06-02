@@ -53,35 +53,35 @@
         _providerName.font = font;
         _providerName.textAlignment = UITextAlignmentLeft;
         _providerName.backgroundColor = [UIColor clearColor];
-        _providerName.text =  NSLocalizedString(@"PSTariffsController.tableHeader.providerName", nil);   
+        _providerName.text =  LocalizedString(@"PSTariffsController.tableHeader.providerName");   
         [self addSubview:_providerName];
         
         _trafficType = [[UILabel alloc] init];
         _trafficType.font = font;
         _trafficType.textAlignment = UITextAlignmentLeft;
         _trafficType.backgroundColor = [UIColor clearColor];
-        _trafficType.text =  NSLocalizedString(@"PSTariffsController.tableHeader.trafficType", nil);   
+        _trafficType.text =  LocalizedString(@"PSTariffsController.tableHeader.trafficType");   
         [self addSubview:_trafficType];
         
         _price = [[UILabel alloc] init];
         _price.font = font;
         _price.textAlignment = UITextAlignmentLeft;
         _price.backgroundColor = [UIColor clearColor];
-        _price.text =  NSLocalizedString(@"PSTariffsController.tableHeader.price", nil);
+        _price.text =  LocalizedString(@"PSTariffsController.tableHeader.price");
         [self addSubview:_price];
         
         /*_speed = [[UILabel alloc] init];
         _speed.font = font;
         _speed.textAlignment = UITextAlignmentLeft;
         _speed.backgroundColor = [UIColor clearColor];
-        _speed.text =  NSLocalizedString(@"PSTariffsController.tableHeader.speed", nil);
+        _speed.text =  LocalizedString(@"PSTariffsController.tableHeader.speed");
         [self addSubview:_speed];*/
         
         _limit = [[UILabel alloc] init];
         _limit.font = font;
         _limit.textAlignment = UITextAlignmentLeft;
         _limit.backgroundColor = [UIColor clearColor];
-        _limit.text =  NSLocalizedString(@"PSTariffsController.tableHeader.limit", nil);
+        _limit.text =  LocalizedString(@"PSTariffsController.tableHeader.limit");
         [self addSubview:_limit];
     }
     return self;

@@ -105,7 +105,7 @@
 		AA008DB1151CC69B001FD906 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA008DB3151CC69B001FD906 /* MobileBroadband-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobileBroadband-Prefix.pch"; sourceTree = "<group>"; };
 		AA008DB4151CC69B001FD906 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
-		AA008DB5151CC69B001FD906 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
+		AA008DB5151CC69B001FD906 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PSAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AA008DB7151CC69B001FD906 /* PSTariffsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSTariffsController.h; sourceTree = "<group>"; };
 		AA008DB8151CC69B001FD906 /* PSTariffsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSTariffsController.m; sourceTree = "<group>"; };
 		AA008DBA151CC69B001FD906 /* PSTariffDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSTariffDetailController.h; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		AA5989ED1525CF74007704DC /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASINetworkQueue.m; path = ASI/ASINetworkQueue.m; sourceTree = "<group>"; };
 		AA5989EE1525CF74007704DC /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = ASI/ASIProgressDelegate.h; sourceTree = "<group>"; };
 		AA63B3BA1521A6F70039AC5E /* PSCountryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryController.h; sourceTree = "<group>"; };
-		AA63B3BB1521A6F70039AC5E /* PSCountryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryController.m; sourceTree = "<group>"; };
+		AA63B3BB1521A6F70039AC5E /* PSCountryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PSCountryController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AA63B3BD1521AC970039AC5E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		AA63B3BE1521AC970039AC5E /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		AA63B3D51521BAA50039AC5E /* PSCountryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryModel.h; sourceTree = "<group>"; };

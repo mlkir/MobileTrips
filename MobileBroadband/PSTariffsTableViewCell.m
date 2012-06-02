@@ -7,7 +7,6 @@
 //
 
 #import "PSTariffsTableViewCell.h"
-#import "Utils.h"
 
 
 #define HEIGHT_DETAIL       14.0f
