@@ -7,6 +7,7 @@
 //
 
 #import <sys/xattr.h>
+#import "PSParamModel.h"
 
 
 #define EMPTY_STRING @""						//Пустая строка
@@ -289,14 +290,20 @@ static NSDictionary *localizableStrings = nil;
 
 
 /* Получить текущий язык (en, ru и т.д.) */
-+ (NSString *)getCurrentLanguage {
++ (NSString *)getSystemLanguage {
     NSArray* languages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     return  [languages objectAtIndex:0];
 }
 
+/* Код локали текущей базы */
++ (NSString *)getCurrentLocale {
+    return [PSParamModel getValueByKey:PARAM_LANGUAGE];
+}
+
+
 /* Перегружаем файл локализации */
 + (void)loadLocalizableStrings {
-    NSString *lang = [[self getCurrentLanguage] uppercaseString];
+    NSString *lang = [[self getCurrentLocale] uppercaseString];
     NSString *fileName = [NSString stringWithFormat:@"Locale_%@.txt", lang];
     NSString *path = [self getPathContent:fileName];
     

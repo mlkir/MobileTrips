@@ -11,7 +11,7 @@
 #define PATH_RESOURCE           @"resources"
 #define PATH_CONTENT            @"content"
 #define FILENAME_ZIP            @"default_%@.zip"
-#define FILENAME_ZIP_DEFAULT    @"default_ru.zip"
+#define FILENAME_ZIP_DEFAULT    @"default_en.zip"
 
 //Начало гиперссылки при возврате колбэка из JavaScript
 #define LINK_JS_CALLBACK_START_WITH @"callback:"
@@ -47,7 +47,8 @@
 
 + (BOOL)isIPhone;
 
-+ (NSString *)getCurrentLanguage;
++ (NSString *)getSystemLanguage;
++ (NSString *)getCurrentLocale;
 + (void)loadLocalizableStrings;
 + (NSString *)getLocalizedStringForKey:(NSString *)key;
 

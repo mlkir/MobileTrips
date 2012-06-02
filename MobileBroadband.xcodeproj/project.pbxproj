@@ -25,7 +25,6 @@
 		AA026C47154435FE0023CC57 /* PSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA026C45154435FE0023CC57 /* PSWebViewController.m */; };
 		AA026C48154435FE0023CC57 /* PSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA026C46154435FE0023CC57 /* PSWebViewController.xib */; };
 		AA26C06A1522405A00556790 /* btn_download.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C0691522405A00556790 /* btn_download.png */; };
-		AA2D67FC15751FD900962CC3 /* default_ru.zip in Resources */ = {isa = PBXBuildFile; fileRef = AA2D67FB15751FD900962CC3 /* default_ru.zip */; };
 		AA34C29815388B2F00FB389B /* PSCountryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34C29615388B2F00FB389B /* PSCountryInfoController.m */; };
 		AA34C29B15388B6A00FB389B /* PSCountryInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA34C29A15388B6A00FB389B /* PSCountryInfoController.xib */; };
 		AA51E12F1575860500F58F22 /* PSProviderInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA51E12D1575860500F58F22 /* PSProviderInfoController.m */; };
@@ -83,6 +82,7 @@
 		AAC1B3DB157A45FA007B7117 /* country.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC1B3DA157A45F9007B7117 /* country.png */; };
 		AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC503C91524E9C20035ACB0 /* table-header.png */; };
 		AAC503CE1524F95D0035ACB0 /* PSTariffsHederSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */; };
+		AAD66301157AC9B200081770 /* default_en.zip in Resources */ = {isa = PBXBuildFile; fileRef = AAD66300157AC9B200081770 /* default_en.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +123,6 @@
 		AA026C45154435FE0023CC57 /* PSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebViewController.m; sourceTree = "<group>"; };
 		AA026C46154435FE0023CC57 /* PSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSWebViewController.xib; sourceTree = "<group>"; };
 		AA26C0691522405A00556790 /* btn_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_download.png; path = Resources/Images/btn_download.png; sourceTree = "<group>"; };
-		AA2D67FB15751FD900962CC3 /* default_ru.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = default_ru.zip; path = Resources/default_ru.zip; sourceTree = "<group>"; };
 		AA34C29515388B2F00FB389B /* PSCountryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryInfoController.h; sourceTree = "<group>"; };
 		AA34C29615388B2F00FB389B /* PSCountryInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountryInfoController.m; sourceTree = "<group>"; };
 		AA34C29A15388B6A00FB389B /* PSCountryInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PSCountryInfoController.xib; path = Views/PSCountryInfoController.xib; sourceTree = "<group>"; };
@@ -218,6 +217,7 @@
 		AAC503C91524E9C20035ACB0 /* table-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-header.png"; path = "Resources/Images/table-header.png"; sourceTree = "<group>"; };
 		AAC503CC1524F95D0035ACB0 /* PSTariffsHederSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTariffsHederSectionView.h; sourceTree = "<group>"; };
 		AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTariffsHederSectionView.m; sourceTree = "<group>"; };
+		AAD66300157AC9B200081770 /* default_en.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = default_en.zip; path = Resources/default_en.zip; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,7 +410,7 @@
 		AA63B3C01521B9400039AC5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA2D67FB15751FD900962CC3 /* default_ru.zip */,
+				AAD66300157AC9B200081770 /* default_en.zip */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -625,7 +625,6 @@
 				AA026C421543E8FB0023CC57 /* PSHomePageController.xib in Resources */,
 				AA026C48154435FE0023CC57 /* PSWebViewController.xib in Resources */,
 				AAC17ADE154AE88A00765507 /* PSSettingsController.xib in Resources */,
-				AA2D67FC15751FD900962CC3 /* default_ru.zip in Resources */,
 				AA51E1341575866100F58F22 /* PSProviderInfoController.xib in Resources */,
 				AA9B2B601579E0500010E800 /* Icon-72.png in Resources */,
 				AA9B2B611579E0500010E800 /* Icon-144.png in Resources */,
@@ -641,6 +640,7 @@
 				AAC1B3D21579FE60007B7117 /* homepage_btn5.png in Resources */,
 				AAC1B3D4157A0BA2007B7117 /* border_hint.png in Resources */,
 				AAC1B3DB157A45FA007B7117 /* country.png in Resources */,
+				AAD66301157AC9B200081770 /* default_en.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,7 +818,7 @@
 				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
 				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A23E8974-E066-46DD-B1E9-13DDC3B494C3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -832,7 +832,7 @@
 				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
 				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A23E8974-E066-46DD-B1E9-13DDC3B494C3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

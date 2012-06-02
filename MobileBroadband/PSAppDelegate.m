@@ -34,7 +34,7 @@
     NSString *pathWithResources = [Utils getPathInDocument:PATH_RESOURCE];    
     if (![fileManager fileExistsAtPath:pathWithResources]) {                
         //Распаковываем ресурсы для работы
-        NSString *lang = [Utils getCurrentLanguage];
+        NSString *lang = [Utils getSystemLanguage];
         NSString *fileZip = [NSString stringWithFormat:FILENAME_ZIP, lang];
         fileZip = [Utils getPathInBundle:fileZip];
         if (![fileManager fileExistsAtPath:fileZip]) fileZip = [Utils getPathInBundle:FILENAME_ZIP_DEFAULT];                
@@ -77,15 +77,17 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {    
+    //static BOOL isCheckedLanguage = NO;
+    //if (isCheckedLanguage) return;
+    //isCheckedLanguage = YES;
+    
     //Если язык не соответсвует текущему выбранному
     NSString *lang = [PSParamModel getValueByKey:PARAM_LANGUAGE];
-    if (lang && ![lang isEqualToString:[Utils getCurrentLanguage]]) {
+    if (lang && ![lang isEqualToString:[Utils getSystemLanguage]]) {
         //Выводим сообщение что нужно обновить базу чтобы получить ее на текущем языке
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.warning") message:LocalizedString(@"alert.message.lang_not_found") delegate:nil cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
         [alert show];
         [alert release];
-        //Удаляем чтобы больше не сообщать пользователю о необходимости обновиться
-        //[PSParamModel deleteValueWithKey:PARAM_LANGUAGE];
     }
 }
 

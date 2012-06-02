@@ -57,14 +57,20 @@
     //Создаем список размеров шрифтов
     _listOfFontNames = [[UIFont familyNames] retain];
       
-    
+    //Добавляем фон
+    UIImageView *bg = [Utils newBackgroundView];
+    [self.view addSubview:bg];
+    [self.view sendSubviewToBack:bg];
+    [bg release];
+        
+    //Делаем прозрачным фон таблицы
+    _tableView.backgroundView = nil;
+    _tableView.backgroundColor = [UIColor clearColor];
+
     //Только для iPad
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         _tableView.frame = CGRectInset(self.view.frame, -100.0f, 0.0f);
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        UIImageView *v = (UIImageView *)_tableView.backgroundView;
-        self.view.backgroundColor = [UIColor colorWithPatternImage:v.image];
-        _tableView.backgroundView = nil;
     }
   
 }

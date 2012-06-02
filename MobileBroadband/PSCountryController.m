@@ -152,7 +152,7 @@
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/data.zip"];    
     
     //Определяем строку запроса    
-    NSString *lang = [Utils getCurrentLanguage];        
+    NSString *lang = [Utils getSystemLanguage];        
     //NSString *ver = [PSParamModel getValueByKey:PARAM_VERSION];
     //NSString *str = [NSString stringWithFormat:@"http://tricks4trips.com/price_data/get_archive?locale=%@&version=%@", lang, ver];
     NSString *str = [NSString stringWithFormat:@"http://tricks4trips.com/current_%@.zip", lang];
@@ -213,6 +213,15 @@
     
     //Удаляем за собой скаченную базу
     [Utils deletePath:path];        
+    
+    //Если данные не распакованы - приложение дальше будет работать некорректно т.к. старые данные уже удалены
+    if (![fileManager fileExistsAtPath:pathWithResources]) {        
+        NSString *message = [NSString stringWithFormat:LocalizedString(@"alert.message.extract_failed"), url.relativePath]; 
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.error") message:message delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
+        [alert show];
+        [alert release];          
+        return;
+    }    
       
     //Записываем дату скачивания
     NSString *currentDate = [Utils stringFromDate:[NSDate date]];
