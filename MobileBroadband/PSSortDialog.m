@@ -7,6 +7,7 @@
 //
 
 #import "PSSortDialog.h"
+#import "Utils.h"
 
 
 @interface PSSortDialog ()  {
@@ -29,7 +30,7 @@
 
 - (id)initWithTitle:(NSString *)title 
 {
-    self = [super initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"button.cancel", @"") destructiveButtonTitle:nil otherButtonTitles:@"A", @"B", @"C", @"D", nil];
+    self = [super initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"button.cancel", @"") destructiveButtonTitle:nil otherButtonTitles:@"A", @"B", @"C", nil];
     if (self) {
         [self setActionSheetStyle:UIActionSheetStyleAutomatic];    
         
@@ -37,7 +38,7 @@
                         NSLocalizedString(@"PSTariffsController.tableHeader.providerName", nil),
                         NSLocalizedString(@"PSTariffsController.tableHeader.trafficType", nil),
                         NSLocalizedString(@"PSTariffsController.tableHeader.price", nil),
-                        NSLocalizedString(@"PSTariffsController.tableHeader.speed", nil),
+                        //NSLocalizedString(@"PSTariffsController.tableHeader.speed", nil),
                         NSLocalizedString(@"PSTariffsController.tableHeader.limit", nil),
                         nil];
         
@@ -77,13 +78,16 @@
     UIView *btnLast = [self.subviews objectAtIndex:lastIndex];
     
     //Определяем размеры для вывода WebView    
+    CGFloat rowHeight = 10.0f;
     CGRect rect = btnFirst.frame;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    if ([Utils isIPhone]) {
+        rowHeight = 38.0f;
         rect.origin.x -= 6;
         rect.origin.y += 10;
         rect.size.width += 12;
         rect.size.height = btnLast.frame.origin.y + btnLast.frame.size.height - btnFirst.frame.origin.y; 
     } else {
+        rowHeight = 34.0f;
         rect.origin.x -= 10;
         rect.origin.y = 1;
         rect.size.width += 20;
@@ -98,7 +102,7 @@
     
     //Создаем список
     UITableView *tableView = [[UITableView alloc] initWithFrame:rect style:UITableViewStyleGrouped];
-    tableView.rowHeight = 38.f;
+    tableView.rowHeight = rowHeight;
     tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [tableView setSectionHeaderHeight:0.0f];
     [tableView setSectionFooterHeight:0.0f];     

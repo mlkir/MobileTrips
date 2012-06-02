@@ -17,7 +17,7 @@
 @property (nonatomic, retain) UILabel *providerName;
 @property (nonatomic, retain) UILabel *trafficType;
 @property (nonatomic, retain) UILabel *price;
-@property (nonatomic, retain) UILabel *speed;
+//@property (nonatomic, retain) UILabel *speed;
 @property (nonatomic, retain) UILabel *limit;
 
 @end
@@ -30,7 +30,7 @@
 @synthesize providerName = _providerName;
 @synthesize trafficType = _trafficType;
 @synthesize price = _price;
-@synthesize speed = _speed;
+//@synthesize speed = _speed;
 @synthesize limit = _limit;
 
 
@@ -51,35 +51,35 @@
         
         _providerName = [[UILabel alloc] init];
         _providerName.font = font;
-        _providerName.textAlignment = UITextAlignmentCenter;
+        _providerName.textAlignment = UITextAlignmentLeft;
         _providerName.backgroundColor = [UIColor clearColor];
         _providerName.text =  NSLocalizedString(@"PSTariffsController.tableHeader.providerName", nil);   
         [self addSubview:_providerName];
         
         _trafficType = [[UILabel alloc] init];
         _trafficType.font = font;
-        _trafficType.textAlignment = UITextAlignmentCenter;
+        _trafficType.textAlignment = UITextAlignmentLeft;
         _trafficType.backgroundColor = [UIColor clearColor];
         _trafficType.text =  NSLocalizedString(@"PSTariffsController.tableHeader.trafficType", nil);   
         [self addSubview:_trafficType];
         
         _price = [[UILabel alloc] init];
         _price.font = font;
-        _price.textAlignment = UITextAlignmentCenter;
+        _price.textAlignment = UITextAlignmentLeft;
         _price.backgroundColor = [UIColor clearColor];
         _price.text =  NSLocalizedString(@"PSTariffsController.tableHeader.price", nil);
         [self addSubview:_price];
         
-        _speed = [[UILabel alloc] init];
+        /*_speed = [[UILabel alloc] init];
         _speed.font = font;
-        _speed.textAlignment = UITextAlignmentCenter;
+        _speed.textAlignment = UITextAlignmentLeft;
         _speed.backgroundColor = [UIColor clearColor];
         _speed.text =  NSLocalizedString(@"PSTariffsController.tableHeader.speed", nil);
-        [self addSubview:_speed];
+        [self addSubview:_speed];*/
         
         _limit = [[UILabel alloc] init];
         _limit.font = font;
-        _limit.textAlignment = UITextAlignmentCenter;
+        _limit.textAlignment = UITextAlignmentLeft;
         _limit.backgroundColor = [UIColor clearColor];
         _limit.text =  NSLocalizedString(@"PSTariffsController.tableHeader.limit", nil);
         [self addSubview:_limit];
@@ -92,7 +92,7 @@
     [_providerName release];
     [_trafficType release];
     [_price release];
-    [_speed release];
+    //[_speed release];
     [_limit release];
     
     [super dealloc];
@@ -112,9 +112,9 @@
     //Размещаем стоимость 
     self.price.frame = [PSTariffsTableViewCell getFrameForColumn:2 withRowContentFrame:rect];    
     //Размещаем скорость 
-    self.speed.frame = [PSTariffsTableViewCell getFrameForColumn:3 withRowContentFrame:rect];    
+    //self.speed.frame = [PSTariffsTableViewCell getFrameForColumn:3 withRowContentFrame:rect];    
     //Размещаем лимит
-    self.limit.frame = [PSTariffsTableViewCell getFrameForColumn:4 withRowContentFrame:rect];    
+    self.limit.frame = [PSTariffsTableViewCell getFrameForColumn:3 withRowContentFrame:rect];    
 }
 
 @end

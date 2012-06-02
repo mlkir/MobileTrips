@@ -128,11 +128,11 @@ BOOL isNeedShowPopover = YES;
                 if (model1.priceForSort < model2.priceForSort) result = NSOrderedAscending;
                 else if (model1.priceForSort > model2.priceForSort) result = NSOrderedDescending;
                 break;
-            case 4: //По скорости
-                if (model1.speedForSort > model2.speedForSort) result = NSOrderedAscending;
-                else if (model1.speedForSort < model2.speedForSort) result = NSOrderedDescending;
-                break;  
-            case 5: //По лимиту
+            //case 4: //По скорости
+            //    if (model1.speedForSort > model2.speedForSort) result = NSOrderedAscending;
+            //    else if (model1.speedForSort < model2.speedForSort) result = NSOrderedDescending;
+            //    break;  
+            case 4: //По лимиту
                 result = [model1.dataLimit compare:model2.dataLimit options:NSCaseInsensitiveSearch];
                 break;
             default:

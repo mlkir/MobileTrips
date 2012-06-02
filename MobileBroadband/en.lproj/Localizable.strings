@@ -83,7 +83,7 @@ PSCountryController.gotoTariffsListButton.title = "Prices  >";
 /************************* Вид со списком тарифов *************************/
 
 /* Заголовок */
-PSTariffsController.title = "List of Tariffs";
+PSTariffsController.title = "Selected prices";
 
 /* Кнопка сортировать */
 PSTariffsController.sortButton.title = "Sort";
@@ -93,7 +93,7 @@ PSTariffsController.tableHeader.providerName = "Provider";
 PSTariffsController.tableHeader.trafficType = "Type";
 PSTariffsController.tableHeader.price = "Price";
 PSTariffsController.tableHeader.speed = "Speed";
-PSTariffsController.tableHeader.limit = "Allowance and benefits";
+PSTariffsController.tableHeader.limit = "Data Limits / Bonuses";
 
 
 /************************* Вид с детальным описанием тарифа *************************/
