@@ -205,7 +205,7 @@
         if (sqlite3_step(stmt) == SQLITE_ROW) {                       
             AbstractModel *entity = [[clazz alloc] init];
             [entity fillAttributes:stmt manager:self];
-            return [entity autorelease];
+            return entity;
         }
     } @finally {        
         sqlite3_reset(stmt);

@@ -72,7 +72,7 @@ PSCountryController.title = "Выбор страны";
 PSCountryController.lastUpdateLabel.text = "Последнее обновление: %@ г. (%@)";
 
 /* Комментарии */
-PSCountryController.commentLabel.text = "Здесь некая информационная строка или несколько строк.\nПока точно неизвестно, но место надо оставить";
+PSCountryController.commentLabel.text = "Тап по Стране - информация по стране.\nТап по кнопке Тариф - список тарифов.";
 
 /* Название кнопки для загрузки с сервера */
 PSCountryController.downloadButton.title = "Загрузить обновления";
@@ -100,3 +100,27 @@ PSTariffsController.tableHeader.limit = "Ограничения";
 
 /* Заголовок */
 PSTariffDetailController.title = "Тариф";
+/* Поля в HTML */
+PSTariffDetailController.page.about_sel_plan = "Описание выбранного плана";
+
+PSTariffDetailController.page.main_details = "Основная информация";
+PSTariffDetailController.page.plan_name = "Название:";
+PSTariffDetailController.page.option_name = "Название:";
+PSTariffDetailController.page.connection_type = "Тип связи:";
+PSTariffDetailController.page.price = "Стоимость:";
+PSTariffDetailController.page.data_limit = "Ограничение:";
+PSTariffDetailController.page.max_speed = "Максимальная скорость:";
+PSTariffDetailController.page.bonus = "Дополнительно:";
+
+PSTariffDetailController.page.additinonal_details = "Дополнительная информация";
+PSTariffDetailController.page.connection_fee = "Стоимость подключения:";
+PSTariffDetailController.page.init_payment = "Первоначальный платеж:";
+PSTariffDetailController.page.equipment = "Стоимость оборудования:";
+PSTariffDetailController.page.what_after = "После превышения:";
+
+PSTariffDetailController.page.how_order_plan = "Как спросить в салоне-магазине, чтобы преобрести";
+PSTariffDetailController.page.plan_name_local = "Название на местном языке:";
+PSTariffDetailController.page.option_name_loocal = "Название на местном языке:";
+PSTariffDetailController.page.link = "Ссылка на веб-страничку";
+
+PSTariffDetailController.page.about = "";

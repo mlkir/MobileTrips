@@ -100,3 +100,29 @@ PSTariffsController.tableHeader.limit = "Data Limits / Bonuses";
 
 /* Заголовок */
 PSTariffDetailController.title = "Tariff";
+
+/* Поля в HTML */
+PSTariffDetailController.page.about_sel_plan = "About selected plan";
+
+PSTariffDetailController.page.main_details = "Main Details";
+PSTariffDetailController.page.plan_name = "Plan name:";
+PSTariffDetailController.page.option_name = "Option name:";
+PSTariffDetailController.page.connection_type = "Connection type:";
+PSTariffDetailController.page.price = "Price:";
+PSTariffDetailController.page.data_limit = "Data limit:";
+PSTariffDetailController.page.max_speed = "Max Speed:";
+PSTariffDetailController.page.bonus = "Bonus:";
+
+PSTariffDetailController.page.additinonal_details = "Additional details";
+PSTariffDetailController.page.connection_fee = "Connection fee:";
+PSTariffDetailController.page.init_payment = "Initial payment:";
+PSTariffDetailController.page.equipment = "Equipment cost:";
+PSTariffDetailController.page.what_after = "What happens after data limit was exceeded:";
+
+PSTariffDetailController.page.how_order_plan = "Hoew to order this plan in the shop";
+PSTariffDetailController.page.plan_name_local = "Plan name in local language:";
+PSTariffDetailController.page.option_name_loocal = "Option name in local language:";
+PSTariffDetailController.page.link = "Link to Web page";
+
+PSTariffDetailController.page.about = "About";
+

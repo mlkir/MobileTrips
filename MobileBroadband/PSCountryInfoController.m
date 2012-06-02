@@ -129,6 +129,7 @@
             //Переходим к описанию провайдера
             PSProviderInfoController *controller = [[[PSProviderInfoController alloc] initWithNibName:@"PSProviderInfoController" bundle:nil] autorelease];
             [controller setProvider:provider];
+            [provider release];
             [self.navigationController pushViewController:controller animated:YES];
         }
         return NO;
