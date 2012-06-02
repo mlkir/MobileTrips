@@ -16,6 +16,7 @@
 @synthesize ID = _ID;
 @synthesize name = _name;
 @synthesize page = _page;
+@synthesize flag = _flag;
 @synthesize currencyName = _currencyName;
 @synthesize isPageExists = _isPageExists;
 @synthesize isTariffsExists = _isTariffsExists;
@@ -57,6 +58,7 @@
 	int pos = -1;                
     _ID = sqlite3_column_int(stmt, ++pos);
 	self.name = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.flag = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:nil];
     self.currencyName = NSLocalizedString([dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""], nil);
     int len = sqlite3_column_int(stmt, ++pos);    
 	_isPageExists = (len > 0); //если длина текста больше 0 - описание существует
@@ -67,7 +69,7 @@
 
 /* Получить список */
 + (NSArray *)newList {
-    const char *sql = "SELECT id, name, currency, length(page), EXISTS(SELECT id  FROM price_data WHERE price_data.country_id = countries.id )  FROM countries"; 
+    const char *sql = "SELECT id, name, flag, currency, length(page), EXISTS(SELECT id  FROM price_data WHERE price_data.country_id = countries.id )  FROM countries"; 
     NSMutableArray *list = [[DBManager getInstance] newListEntiteClass:[self class] query:sql];
     return list;    
 }

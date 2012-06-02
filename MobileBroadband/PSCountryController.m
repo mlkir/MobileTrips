@@ -34,7 +34,8 @@
 @synthesize objects = _objects;
 @synthesize countryTableView = _countryTableView;   
 @synthesize lastUpdateLabel = _lastUpdateLabel;
-@synthesize commentLabel = _commentLabel;
+@synthesize hintImageView = _hintImageView;  
+@synthesize hintLabel = _hintLabel;
 @synthesize downloadButton = _downloadButton;
 @synthesize downloadSegmentedControl = _downloadSegmentedControl;
 
@@ -70,19 +71,16 @@
 {
     [super viewDidLoad];
     
-    //Если язык не соответсвует текущему выбранному
-    NSString *lang = [PSParamModel getValueByKey:PARAM_LANGUAGE];
-    if (lang && ![lang isEqualToString:[Utils getCurrentLanguage]]) {
-        //Выводим сообщение что нужно обновить базу чтобы получить ее на текущем языке
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.warning", nil) message:NSLocalizedString(@"alert.message.lang_not_found", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-        //Удаляем чтобы больше не сообщать пользователю о необходимости обновиться
-        [PSParamModel deleteValueWithKey:PARAM_LANGUAGE];
-    }
+    BOOL isIPhone = [Utils isIPhone];
     
     //Указываем заголовок
 	self.title = NSLocalizedString(@"PSCountryController.title", nil);
+    
+    //Добавляем фон
+    UIImageView *bg = [Utils newBackgroundView];
+    [self.view addSubview:bg];
+    [self.view sendSubviewToBack:bg];
+    [bg release];
     
     //Подгружаем данные со странами
     self.objects = [PSCountryModel newList];
@@ -95,21 +93,32 @@
     [self.downloadButton setTitle:str forState:UIControlStateNormal];
     //[self.downloadButton setTitle:str forState:UIControlState];
     [self.downloadButton.titleLabel setTextAlignment:UITextAlignmentCenter];
-    
-    UIImage *img = [[UIImage imageNamed:@"btn_download.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 5, 8, 5)];
+    [self.downloadButton setTitleColor:[Utils getColorWithRed:28 green:36 blue:49] forState:UIControlStateNormal];    
+    UIImage *img = [[UIImage imageNamed:@"btn_download.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
     [self.downloadButton setBackgroundImage:img forState:UIControlStateNormal];
+        
+    //Выводим рамку под доп. информацию
+    img = [[UIImage imageNamed:@"border_hint"] resizableImageWithCapInsets:UIEdgeInsetsMake(9.0f, 9.0f, 9.0f, 9.0f)];    
+    self.hintImageView.image = img;
     
     //Доп информация 
-    self.commentLabel.text = NSLocalizedString(@"PSCountryController.commentLabel.text", nil);
+    self.hintLabel.text = NSLocalizedString(@"PSCountryController.commentLabel.text", nil);
+    self.hintLabel.font = [UIFont systemFontOfSize:(isIPhone ? 10.0f : 12.0f)];
+    
+    //Делаем прозрачным фон таблицы
+    self.countryTableView.backgroundView = nil;
+    self.countryTableView.backgroundColor = [UIColor clearColor];
     
     //Только для iPad
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    if (!isIPhone) {        
         self.countryTableView.frame = CGRectInset(self.view.frame, -100.0f, 0.0f);
         self.countryTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        UIImageView *v = (UIImageView *)self.countryTableView.backgroundView;
-        self.view.backgroundColor = [UIColor colorWithPatternImage:v.image];
-        self.countryTableView.backgroundView = nil;
-    }
+        self.hintImageView.frame = CGRectInset(self.hintImageView.frame, 20.0f, 0.0f);
+    }    
+    
+    
+    
+    
 }
 
 - (void)viewDidUnload
@@ -283,9 +292,9 @@
     
     cell.tag = indexPath.row;
     cell.textLabel.text = object.name;
-    NSString *fileName = [[[Utils getPathInDocument:PATH_RESOURCE] stringByAppendingPathComponent:PATH_CONTENT] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.png", object.ID]];
+    NSString *fileName = [Utils getPathContent:object.flag];
     UIImage *image = [UIImage imageWithContentsOfFile:fileName];
-    if (image == nil) image = [UIImage imageNamed:@"provider.png"];
+    if (image == nil) image = [UIImage imageNamed:@"country.png"];
     cell.imageView.image = image;
 
     

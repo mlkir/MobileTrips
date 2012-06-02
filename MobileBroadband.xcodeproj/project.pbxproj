@@ -24,7 +24,6 @@
 		AA026C421543E8FB0023CC57 /* PSHomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA026C411543E8FB0023CC57 /* PSHomePageController.xib */; };
 		AA026C47154435FE0023CC57 /* PSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA026C45154435FE0023CC57 /* PSWebViewController.m */; };
 		AA026C48154435FE0023CC57 /* PSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA026C46154435FE0023CC57 /* PSWebViewController.xib */; };
-		AA26C06715223DAB00556790 /* btn_russia.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C06615223DAB00556790 /* btn_russia.png */; };
 		AA26C06A1522405A00556790 /* btn_download.png in Resources */ = {isa = PBXBuildFile; fileRef = AA26C0691522405A00556790 /* btn_download.png */; };
 		AA2D67FC15751FD900962CC3 /* default_ru.zip in Resources */ = {isa = PBXBuildFile; fileRef = AA2D67FB15751FD900962CC3 /* default_ru.zip */; };
 		AA34C29815388B2F00FB389B /* PSCountryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34C29615388B2F00FB389B /* PSCountryInfoController.m */; };
@@ -80,7 +79,8 @@
 		AAC1B3CD1579FB7B007B7117 /* homepage_btn2.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC1B3C71579FB7B007B7117 /* homepage_btn2.png */; };
 		AAC1B3D11579FE60007B7117 /* homepage_btn4.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC1B3CF1579FE60007B7117 /* homepage_btn4.png */; };
 		AAC1B3D21579FE60007B7117 /* homepage_btn5.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC1B3D01579FE60007B7117 /* homepage_btn5.png */; };
-		AAC1B3D4157A0BA2007B7117 /* homepage_steps.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC1B3D3157A0BA2007B7117 /* homepage_steps.png */; };
+		AAC1B3D4157A0BA2007B7117 /* border_hint.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC1B3D3157A0BA2007B7117 /* border_hint.png */; };
+		AAC1B3DB157A45FA007B7117 /* country.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC1B3DA157A45F9007B7117 /* country.png */; };
 		AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC503C91524E9C20035ACB0 /* table-header.png */; };
 		AAC503CE1524F95D0035ACB0 /* PSTariffsHederSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */; };
 /* End PBXBuildFile section */
@@ -122,7 +122,6 @@
 		AA026C44154435FE0023CC57 /* PSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebViewController.h; sourceTree = "<group>"; };
 		AA026C45154435FE0023CC57 /* PSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebViewController.m; sourceTree = "<group>"; };
 		AA026C46154435FE0023CC57 /* PSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSWebViewController.xib; sourceTree = "<group>"; };
-		AA26C06615223DAB00556790 /* btn_russia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_russia.png; path = Resources/Images/btn_russia.png; sourceTree = "<group>"; };
 		AA26C0691522405A00556790 /* btn_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_download.png; path = Resources/Images/btn_download.png; sourceTree = "<group>"; };
 		AA2D67FB15751FD900962CC3 /* default_ru.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = default_ru.zip; path = Resources/default_ru.zip; sourceTree = "<group>"; };
 		AA34C29515388B2F00FB389B /* PSCountryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountryInfoController.h; sourceTree = "<group>"; };
@@ -214,7 +213,8 @@
 		AAC1B3C71579FB7B007B7117 /* homepage_btn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepage_btn2.png; path = Resources/Images/homepage_btn2.png; sourceTree = "<group>"; };
 		AAC1B3CF1579FE60007B7117 /* homepage_btn4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepage_btn4.png; path = Resources/Images/homepage_btn4.png; sourceTree = "<group>"; };
 		AAC1B3D01579FE60007B7117 /* homepage_btn5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepage_btn5.png; path = Resources/Images/homepage_btn5.png; sourceTree = "<group>"; };
-		AAC1B3D3157A0BA2007B7117 /* homepage_steps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepage_steps.png; path = Resources/Images/homepage_steps.png; sourceTree = "<group>"; };
+		AAC1B3D3157A0BA2007B7117 /* border_hint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = border_hint.png; path = Resources/Images/border_hint.png; sourceTree = "<group>"; };
+		AAC1B3DA157A45F9007B7117 /* country.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = country.png; path = Resources/Images/country.png; sourceTree = "<group>"; };
 		AAC503C91524E9C20035ACB0 /* table-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-header.png"; path = "Resources/Images/table-header.png"; sourceTree = "<group>"; };
 		AAC503CC1524F95D0035ACB0 /* PSTariffsHederSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTariffsHederSectionView.h; sourceTree = "<group>"; };
 		AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTariffsHederSectionView.m; sourceTree = "<group>"; };
@@ -292,8 +292,8 @@
 				AAADA64F1575500300A83D60 /* ZipArchive */,
 				AA6E72DC152370FC00B70DFF /* Database */,
 				AA026C371543E3140023CC57 /* HomePage */,
-				AAC17AD6154AE79B00765507 /* Settings */,
 				AA026C43154435C90023CC57 /* WebView */,
+				AAC17AD6154AE79B00765507 /* Settings */,
 				AA63B3C81521BA120039AC5E /* Countries */,
 				AA5B457B1538606F004AE516 /* CountryInfo */,
 				AA9EB3D81520A00B0042F799 /* TariffsList */,
@@ -424,17 +424,17 @@
 				AA9B2B5D1579E0500010E800 /* Icon-144.png */,
 				AA9B2B6D1579EC900010E800 /* bg-ipad.png */,
 				AA9B2B6E1579EC910010E800 /* bg-iphone.png */,
+				AAC1B3D3157A0BA2007B7117 /* border_hint.png */,
 				AAC503C91524E9C20035ACB0 /* table-header.png */,
+				AAC1B3DA157A45F9007B7117 /* country.png */,
 				AA9A792F1524C710004DCE2A /* provider.png */,
 				AA26C0691522405A00556790 /* btn_download.png */,
-				AA26C06615223DAB00556790 /* btn_russia.png */,
 				AAC1B3C31579FB7B007B7117 /* homepage_btn0.png */,
 				AAC1B3C21579FB7B007B7117 /* homepage_btn1.png */,
 				AAC1B3C71579FB7B007B7117 /* homepage_btn2.png */,
 				AAC1B3C51579FB7B007B7117 /* homepage_btn3.png */,
 				AAC1B3CF1579FE60007B7117 /* homepage_btn4.png */,
 				AAC1B3D01579FE60007B7117 /* homepage_btn5.png */,
-				AAC1B3D3157A0BA2007B7117 /* homepage_steps.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -618,7 +618,6 @@
 				AA9EB3DD1520A04F0042F799 /* PSTariffDetailController.xib in Resources */,
 				AABBF0D31521994D007BE589 /* PSTariffsController.xib in Resources */,
 				AABBF0D715219E76007BE589 /* PSCountryController.xib in Resources */,
-				AA26C06715223DAB00556790 /* btn_russia.png in Resources */,
 				AA26C06A1522405A00556790 /* btn_download.png in Resources */,
 				AA9A79301524C710004DCE2A /* provider.png in Resources */,
 				AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */,
@@ -640,7 +639,8 @@
 				AAC1B3CD1579FB7B007B7117 /* homepage_btn2.png in Resources */,
 				AAC1B3D11579FE60007B7117 /* homepage_btn4.png in Resources */,
 				AAC1B3D21579FE60007B7117 /* homepage_btn5.png in Resources */,
-				AAC1B3D4157A0BA2007B7117 /* homepage_steps.png in Resources */,
+				AAC1B3D4157A0BA2007B7117 /* border_hint.png in Resources */,
+				AAC1B3DB157A45FA007B7117 /* country.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

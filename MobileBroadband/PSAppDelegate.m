@@ -12,8 +12,7 @@
 #import "DBManager.h"
 #import "PSHomePageController.h"
 #import "SSZipArchive.h"
-
-
+#import "PSParamModel.h"
 @implementation PSAppDelegate
 
 @synthesize window = _window;
@@ -75,8 +74,17 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+{    
+    //Если язык не соответсвует текущему выбранному
+    NSString *lang = [PSParamModel getValueByKey:PARAM_LANGUAGE];
+    if (lang && ![lang isEqualToString:[Utils getCurrentLanguage]]) {
+        //Выводим сообщение что нужно обновить базу чтобы получить ее на текущем языке
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert.title.warning", nil) message:NSLocalizedString(@"alert.message.lang_not_found", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"button.ok", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        //Удаляем чтобы больше не сообщать пользователю о необходимости обновиться
+        //[PSParamModel deleteValueWithKey:PARAM_LANGUAGE];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

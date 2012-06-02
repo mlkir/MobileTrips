@@ -159,7 +159,7 @@
     [lbl release];
                 
     //Выводим рамку под описание последовательности действий (основных шагов по работе с прогой)
-    UIImage *img = [[UIImage imageNamed:@"homepage_steps"] resizableImageWithCapInsets:UIEdgeInsetsMake(9.0f, 9.0f, 9.0f, 9.0f)];    
+    UIImage *img = [[UIImage imageNamed:@"border_hint"] resizableImageWithCapInsets:UIEdgeInsetsMake(9.0f, 9.0f, 9.0f, 9.0f)];    
     CGRect rectSteps = rect;
     rectSteps.origin.x = offsetLeftRight;
     rectSteps.size.width -= 2 * rectSteps.origin.x;
@@ -256,8 +256,9 @@
         case 1: {
             PSWebViewController *controller = [[[PSWebViewController alloc] initWithNibName:@"PSWebViewController" bundle:nil] autorelease];
             NSString *key = [NSString stringWithFormat:@"PSHomePageController.button%d.title", btn.tag];
-            controller.title = NSLocalizedString(key, nil);   
+            controller.title = NSLocalizedString(key, nil);               
             [self.navigationController pushViewController:controller animated:YES];
+            [Utils loadWebView:controller.webView loadContentFile:@"about.html"];
         } break;  
         //Переход к Settings
         case 2: {

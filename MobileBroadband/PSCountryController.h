@@ -13,8 +13,9 @@
 @interface PSCountryController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *countryTableView;
+@property (strong, nonatomic) IBOutlet UIImageView *hintImageView;
 @property (strong, nonatomic) IBOutlet UILabel *lastUpdateLabel;
-@property (strong, nonatomic) IBOutlet UILabel *commentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *hintLabel;
 @property (strong, nonatomic) IBOutlet UIButton *downloadButton;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *downloadSegmentedControl;
 

@@ -66,13 +66,13 @@ PSSettingsController.table.section1 = "Шрифт";
 /************************* Вид с выбором страны и кнопкой загрузки данных *************************/
 
 /* Заголовок */
-PSCountryController.title = "Меню";
+PSCountryController.title = "Выбор страны";
 
 /* Дата последнего обновления (загрузки данных с сервера) */
 PSCountryController.lastUpdateLabel.text = "Последнее обновление: %@ г. (%@)";
 
 /* Комментарии */
-PSCountryController.commentLabel.text = "Здесь некая информационная строка или несколько строк, пока точно неизвестно, но место надо оставить";
+PSCountryController.commentLabel.text = "Здесь некая информационная строка или несколько строк.\nПока точно неизвестно, но место надо оставить";
 
 /* Название кнопки для загрузки с сервера */
 PSCountryController.downloadButton.title = "Загрузить обновления";

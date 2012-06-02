@@ -31,12 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    //Загружаем страницу
-    NSString *html = @"<html><body style='text-align: center;'>no data</body></html>";
-    [self.webView loadHTMLString:html baseURL:[Utils getBaseURL]];
-   
       
 }
 
@@ -71,7 +65,11 @@
 
 /* Перед тем как загрузить страницу*/
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {	
-   
+    //Если первая загрузка (не гиперссылка)
+    if (navigationType != UIWebViewNavigationTypeLinkClicked) return YES;
+	
+
+    
     return YES;  	
 }
 

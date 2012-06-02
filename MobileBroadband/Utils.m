@@ -80,6 +80,16 @@ static int fontNameIndex = 7;
 #pragma mark -
 #pragma mark Утилиты для работы c файловой системой
 
+/* Получить полный путь файлу в ресурсах */
++ (NSString *)getPathContent:(NSString *)pathComponent {
+    static NSString *contentsDir = nil;
+    if (contentsDir == nil) {
+        contentsDir = [[self getPathInDocument:PATH_RESOURCE] stringByAppendingPathComponent:PATH_CONTENT];
+        [contentsDir retain];
+    }
+    return (pathComponent) ? [contentsDir stringByAppendingPathComponent:pathComponent] : contentsDir;
+}
+
 /* Получить полный путь к папке документов (Library) */
 + (NSString *)getPathInDocument:(NSString *)pathComponent {
     static NSString *docsDir = nil;
@@ -144,24 +154,7 @@ static int fontNameIndex = 7;
 }
 
 /* Загрузить в строку все данные из файла, кодировка  UTF-8 (если файл не найден вернет nil и в лог запишит ошибку) */
-+ (NSString *)loadFromFile:(NSString *)path  {
-    /*
-     //Получаем файлового менеджера
-     NSFileManager *fileManager = [NSFileManager defaultManager];
-     
-     //Если файл не найден
-     if (![fileManager fileExistsAtPath:path]) {
-     Logger1Error("Файл '%s' - не найден", [path UTF8String]);
-     return nil;
-     }
-     //Получаем данные из файла      
-     NSData *bufferData = [fileManager contentsAtPath:path];
-     //Получаем  ввиде строки с кодировкой UTF-8
-     NSString *resultString = [[NSString alloc] initWithData:bufferData encoding:NSUTF8StringEncoding];
-     
-     //Возвращаем результат
-     return [resultString autorelease];
-     */
++ (NSString *)loadFromFile:(NSString *)path  {   
     NSError *err;
     NSString *stringWithData = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&err];
     if (stringWithData == nil) {
@@ -300,6 +293,9 @@ static int fontNameIndex = 7;
 }
 
 
+#pragma mark -
+#pragma mark Загрузка  HTML
+
 + (NSURL *)getBaseURL {
     static NSURL *baseUrl = nil;
     if (!baseUrl) {
@@ -308,4 +304,17 @@ static int fontNameIndex = 7;
     }
     return baseUrl;
 }
+
+/* Загрузить текст в виде HTML */
++ (void)loadWebView:(UIWebView *)webView loadHtml:(NSString *)html {
+    [webView loadHTMLString:html baseURL:[self getBaseURL]];
+}
+
+/* Загрузить HTML-файл по имени файла который скачен ссервера и расположен в папке со всем ресурсами */
++ (void)loadWebView:(UIWebView *)webView loadContentFile:(NSString *)fileName {
+    NSString *path = [self getPathContent:fileName];
+    NSString *html = [self loadFromFile:path];
+    [self loadWebView:webView loadHtml:html];
+}
+
 @end

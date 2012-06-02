@@ -30,6 +30,7 @@
 + (NSString *)getErrorMessage:(NSString *)errorMessage withException:(NSException *)exception;
 
 
++ (NSString *)getPathContent:(NSString *)pathComponent;
 + (NSString *)getPathInBundle:(NSString *)pathComponent;
 + (NSString *)getPathInDocument:(NSString *)pathComponent;
 + (NSString *)getPathInTemp:(NSString *)pathComponent;
@@ -46,8 +47,6 @@
 
 + (NSString *)getCurrentLanguage;
 
-+ (NSURL *)getBaseURL;
-
 + (UIColor *)getColorWithRed:(int)red green:(int)green blue:(int)blue;
 + (UIFont *)getFont;
 
@@ -57,4 +56,10 @@
 + (void)setFontNameIndex:(int)idx;
 
 + (UIImageView *)newBackgroundView;
+
+
++ (NSURL *)getBaseURL;
++ (void)loadWebView:(UIWebView *)webView loadHtml:(NSString *)html;
++ (void)loadWebView:(UIWebView *)webView loadContentFile:(NSString *)fileName;
+
 @end
