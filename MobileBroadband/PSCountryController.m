@@ -283,7 +283,10 @@
     
     cell.tag = indexPath.row;
     cell.textLabel.text = object.name;
-    cell.imageView.image = [UIImage imageNamed:@"provider.png"];
+    NSString *fileName = [[[Utils getPathInDocument:PATH_RESOURCE] stringByAppendingPathComponent:PATH_CONTENT] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.png", object.ID]];
+    UIImage *image = [UIImage imageWithContentsOfFile:fileName];
+    if (image == nil) image = [UIImage imageNamed:@"provider.png"];
+    cell.imageView.image = image;
 
     
     return cell;

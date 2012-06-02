@@ -33,22 +33,22 @@ alert.message.lang_not_found = "Язык базы данных не соотве
 /* Заголовок */
 PSHomePageController.title = "Homepage";
 
-/* Заголовок для описания действия по работе с прогой */
-PSHomePageController.steps.header = "Find mobile internet, when you travel abroad"; 
+/* Заголовок */
+PSHomePageController.view.title = "Find mobile internet,\nwhen you travel abroad"; 
 
 /* Steps description */
-PSHomePageController.step0.text = "1.Select destination";
-PSHomePageController.step1.text = "2.Read hints";
-PSHomePageController.step2.text = "3.Select your profile";
-PSHomePageController.step3.text = "4.Pick you plan";
+PSHomePageController.step0.text = "Select destination";
+PSHomePageController.step1.text = "Read hints";
+PSHomePageController.step2.text = "Select your profile";
+PSHomePageController.step3.text = "Pick your plan";
 
 /* Buttons */
 PSHomePageController.button0.title = "Destination\nCountry";
 PSHomePageController.button1.title = "About";
 PSHomePageController.button2.title = "Settings";
 PSHomePageController.button3.title = "Help";
-PSHomePageController.button4.title = "Find us on\nsocial media";
-PSHomePageController.button5.title = "Join us";
+PSHomePageController.button4.title = "Find Us on\nSocial Media";
+PSHomePageController.button5.title = "Join Us";
 
 
 /************************* Настройки *************************/

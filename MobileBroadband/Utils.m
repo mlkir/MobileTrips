@@ -220,6 +220,10 @@ static int fontNameIndex = 7;
 #pragma mark -
 #pragma mark Настройки
 
++ (UIColor *)getColorWithRed:(int)red green:(int)green blue:(int)blue {
+    return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
+}
+
 + (void)setFontWithNameByIndex:(int)indexName andSizeByIndex:(int)indexSize  {    
     [font release];
     
@@ -267,6 +271,18 @@ static int fontNameIndex = 7;
     [self setFontWithNameByIndex:fontNameIndex andSizeByIndex:fontSizeIndex];
 }
 
++ (UIImageView *)newBackgroundView {
+    static UIImage *image = nil;
+    if (image == nil) {
+        NSString *imageName = ([self isIPhone]) ? @"bg-iphone" : @"bg-ipad";
+        image = [[UIImage imageNamed:imageName] retain];                         
+    }
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    [imageView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin];
+    [imageView setAutoresizesSubviews:YES];
+    [imageView setUserInteractionEnabled:YES];
+    return imageView;
+}
 
 #pragma mark -
 #pragma mark Локализация
@@ -278,11 +294,16 @@ static int fontNameIndex = 7;
     return  [languages objectAtIndex:0];
 }
 
++ (BOOL)isIPhone {
+    return (UIUserInterfaceIdiomPhone == [[UIDevice currentDevice] userInterfaceIdiom]);
+    return (UIUserInterfaceIdiomPhone == UI_USER_INTERFACE_IDIOM());
+}
+
 
 + (NSURL *)getBaseURL {
     static NSURL *baseUrl = nil;
     if (!baseUrl) {
-        NSString *resourcePath = [[Utils getPathInDocument:PATH_RESOURCE] stringByAppendingPathComponent:@"content"];
+        NSString *resourcePath = [[Utils getPathInDocument:PATH_RESOURCE] stringByAppendingPathComponent:PATH_CONTENT];
         baseUrl = [[NSURL alloc] initFileURLWithPath:resourcePath isDirectory:YES];
     }
     return baseUrl;

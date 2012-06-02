@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define PATH_RESOURCE           @"resources"
+#define PATH_CONTENT            @"content"
 #define FILENAME_ZIP            @"default_%@.zip"
 #define FILENAME_ZIP_DEFAULT    @"default_ru.zip"
 
@@ -41,10 +42,13 @@
 + (NSString *)stringFromDate:(NSDate *)date;
 + (NSDate *)dateFromString:(NSString *)strDate;
 
++ (BOOL)isIPhone;
+
 + (NSString *)getCurrentLanguage;
 
 + (NSURL *)getBaseURL;
 
++ (UIColor *)getColorWithRed:(int)red green:(int)green blue:(int)blue;
 + (UIFont *)getFont;
 
 + (int)getFontSizeIndex;
@@ -52,4 +56,5 @@
 + (void)setFontSizeIndex:(int)idx;
 + (void)setFontNameIndex:(int)idx;
 
++ (UIImageView *)newBackgroundView;
 @end

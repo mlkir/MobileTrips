@@ -48,6 +48,7 @@
     //Создаем контроллер
     PSHomePageController *rootController = [[[PSHomePageController alloc] initWithNibName:@"PSHomePageController" bundle:nil] autorelease];
     UINavigationController *rootNavigationController = [[[UINavigationController alloc] initWithRootViewController:rootController] autorelease];
+    rootNavigationController.navigationBar.tintColor = [Utils getColorWithRed:17 green:29 blue:55];
     self.navigationController = rootNavigationController;
     self.window.rootViewController = self.navigationController;
     //Выводим
