@@ -15,7 +15,7 @@
 
 - (id)initWithTitle:(NSString *)title 
 {
-    self = [super initWithTitle:title delegate:self cancelButtonTitle:LocalizedString(@"button.cancel") destructiveButtonTitle:nil otherButtonTitles:@"A", @"B", @"C", nil];
+    self = [super initWithTitle:title delegate:self cancelButtonTitle:LocalizedString(@"button.close") destructiveButtonTitle:nil otherButtonTitles:@"A", @"B", @"C", nil];
     if (self) {
         [self setActionSheetStyle:UIActionSheetStyleAutomatic];    
                 

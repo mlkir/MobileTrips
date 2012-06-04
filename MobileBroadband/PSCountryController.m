@@ -148,6 +148,9 @@
         return;
     }
     
+    //Блокируем любые касания
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
     //Получаем папку куда закачаем наш файл
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/data.zip"];    
     
@@ -161,88 +164,93 @@
     //Отправляем запрос на сервер    
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request setDownloadDestinationPath:path];    
-    [request startSynchronous];
-    NSError *error = [request error];    
-    if (error) {
-        //int statusCode = [request responseStatusCode];
-        NSString *statusMessage = [request responseStatusMessage];
+    //В случаи возникновения ошибки
+    [request setFailedBlock:^{
+        //Удаляем за собой скаченную базу
+        [Utils deletePath:path];        
+        //Выводим сообщение об ошибке
+        //NSString *statusMessage = [request responseStatusMessage];
+        NSString *statusMessage = request.error.localizedDescription;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.error") message:statusMessage delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
         [alert show];
-        [alert release];  
-        return;
-    }
-    
-    //Проверяем что скачали    
-    NSFileManager *fileManager = [NSFileManager defaultManager];    
-    //Если файл существует
-    BOOL isDownloaded = [fileManager fileExistsAtPath:path];
-    //Проверяем размер
-    if (isDownloaded) {
-        error = nil;
-        NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:path error:&error];
-        if (error) {
-            printf("Error: %s\n", [[Utils getErrorMessage:@"Неудалось получить атибуты загруженного файла." withError:error] UTF8String]);														
-            isDownloaded = NO;
-        } else if (fileAttributes.fileSize < 10) { //меньше 10 байт
-            isDownloaded = NO;
-        }
-        //Если размер слишком мал - считает что база не была получена
-        if (!isDownloaded) {
+        [alert release];           
+        
+        //Снимаем блокировку касаний
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    }];
+    //В случае успешного завершения выполнения
+    [request setCompletionBlock:^{
+        @try {
+            //Проверяем, что получили с серврера
+            NSFileManager *fileManager = [NSFileManager defaultManager];    
+            //Если файл существует
+            BOOL isDownloaded = [fileManager fileExistsAtPath:path];
+            //Проверяем размер
+            if (isDownloaded) {
+                NSError *error = nil;
+                NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:path error:&error];
+                if (error) {
+                    printf("Error: %s\n", [[Utils getErrorMessage:@"Неудалось получить атибуты загруженного файла." withError:error] UTF8String]);														
+                    isDownloaded = NO;
+                } else if (fileAttributes.fileSize < 10) { //меньше 10 байт
+                    //Если размер слишком мал - считает что база не была получена
+                    isDownloaded = NO;
+                }
+            }
+            
+            //Если файл не был получен - база самая новая - выходим
+            if (!isDownloaded) return;
+            
+            //Закрывем соединение со старой базой
+            DBManager *dbManager = [DBManager getInstance];
+            [dbManager closeDB];
+            
+            //Удаляем старые данные
+            NSString *pathWithResources = [Utils getPathInDocument:PATH_RESOURCE];
+            [Utils deletePath:pathWithResources];
+            
+            //Распаковываем полученные ресурсы
+            [SSZipArchive unzipFileAtPath:path toDestination:pathWithResources];        
+            
+            //Если данные не распакованы - приложение дальше будет работать некорректно т.к. старые данные уже удалены
+            if (![fileManager fileExistsAtPath:pathWithResources]) {        
+                NSString *message = [NSString stringWithFormat:LocalizedString(@"alert.message.extract_failed"), url.relativePath]; 
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.error") message:message delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
+                [alert show];
+                [alert release];          
+                return;
+            }    
+            
+            //Записываем дату скачивания
+            NSString *currentDate = [Utils stringFromDate:[NSDate date]];
+            [PSParamModel insertValue:currentDate withKey:PARAM_LAST_UPDATE];
+            
+            //Запоминаем на каком языке база
+            [PSParamModel insertValue:lang withKey:PARAM_LANGUAGE];
+            
+            //Перегружаем файл локализации
+            [Utils loadLocalizableStrings];
+            
+            //Обновляем отображаемые данные
+            self.title = LocalizedString(@"PSCountryController.title");
+            self.hintLabel.text = LocalizedString(@"PSCountryController.commentLabel.text");
+            [self refreshlastUpdateLabel];
+            [self.downloadButton setTitle:LocalizedString(@"PSCountryController.downloadButton.title") forState:UIControlStateNormal];
+            self.objects = [PSCountryModel newList];
+            [self.countryTableView reloadData];    
+            
+            //Выводим сообщение об успешном обновлении
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.info") message:LocalizedString(@"alert.message.successfull") delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        } @finally {
+            //Удаляем за собой скаченную базу
             [Utils deletePath:path];
+            //Снимаем блокировку касаний
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         }
-    }
-    
-    //Если файл не был получен - сообщаем что база самая новая
-    if (!isDownloaded) {        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.info") message:LocalizedString(@"alert.message.is_no_update") delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
-        [alert show];
-        [alert release]; 
-        return;
-    }
-    
-    //Закрывем соединение
-    DBManager *dbManager = [DBManager getInstance];
-    [dbManager closeDB];
-    
-    //Удаляем старые данные
-    NSString *pathWithResources = [Utils getPathInDocument:PATH_RESOURCE];
-    [Utils deletePath:pathWithResources];
-    
-    //Распаковываем ресурсы для работы
-    [SSZipArchive unzipFileAtPath:path toDestination:pathWithResources];        
-    
-    //Удаляем за собой скаченную базу
-    [Utils deletePath:path];        
-    
-    //Если данные не распакованы - приложение дальше будет работать некорректно т.к. старые данные уже удалены
-    if (![fileManager fileExistsAtPath:pathWithResources]) {        
-        NSString *message = [NSString stringWithFormat:LocalizedString(@"alert.message.extract_failed"), url.relativePath]; 
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.error") message:message delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
-        [alert show];
-        [alert release];          
-        return;
-    }    
-      
-    //Записываем дату скачивания
-    NSString *currentDate = [Utils stringFromDate:[NSDate date]];
-    [PSParamModel insertValue:currentDate withKey:PARAM_LAST_UPDATE];
-    
-    //Запоминаем на каком языке база
-    [PSParamModel insertValue:lang withKey:PARAM_LANGUAGE];
-    
-    //Перегружаем файл локализации
-    [Utils loadLocalizableStrings];
-    
-    //Обновляем отображаемые данные
-    [self refreshlastUpdateLabel];
-    self.objects = [PSCountryModel newList];
-    [self.countryTableView reloadData];    
-    
-    //Выводим сообщение об успешном обновлении
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"alert.title.info") message:LocalizedString(@"alert.message.successfull") delegate:nil  cancelButtonTitle:LocalizedString(@"button.ok") otherButtonTitles:nil];
-    [alert show];
-    [alert release]; 
-    
+    }];
+    [request startAsynchronous];    
 }
 
 - (void)onShowTariffsList:(UISegmentedControl *)sender {

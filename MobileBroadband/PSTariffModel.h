@@ -16,30 +16,32 @@
 }
 
 @property (nonatomic, readonly) int ID;
-@property (nonatomic, retain) NSString *trafficType;    //Стандарт (SIM 3G, USB 3G, USB CDMA и т.д.)
-@property (nonatomic, retain) NSString *tariffName;     //Название тарифа
+@property (nonatomic, retain) NSString *trafficType;        //Стандарт (SIM 3G, USB 3G, USB CDMA и т.д.)
+@property (nonatomic, retain) NSString *tariffName;         //Название тарифа
+@property (nonatomic, retain) NSString *tariffOption;       //Дополнительное название тарифа
+@property (nonatomic, retain) NSString *tariffNameNatural;  //Название тарифа на языке страны прибытия
+@property (nonatomic, retain) NSString *tariffOptionNatural;//Доп. название тарифа на языке страны прибытия
 
-@property (nonatomic, readwrite) int provaderId;        //ИД провайдера
-@property (nonatomic, retain) NSString *provaderName;   //Название провайдера
+@property (nonatomic, readwrite) int provaderId;            //ИД провайдера
+@property (nonatomic, retain) NSString *provaderName;       //Название провайдера
 
-@property (nonatomic, retain) NSString *price;          //Стоимости
-@property (nonatomic) double priceForSort;              //Стоимость, привеленнаяч к одним единицам измерения
+@property (nonatomic, retain) NSString *price;              //Стоимости
+@property (nonatomic) double priceForSort;                  //Стоимость, привеленнаяч к одним единицам измерения
 
-@property (nonatomic, retain) NSString *speed;          //Скорость передачи данных 
-@property (nonatomic) double speedForSort;              //Стоимость, привеленнаяч к одним единицам измерения
+@property (nonatomic, retain) NSString *speed;              //Скорость передачи данных 
+@property (nonatomic) double speedForSort;                  //Стоимость, привеленнаяч к одним единицам измерения
 
-@property (nonatomic, retain) NSString *dataLimit;      //Ограничение
+@property (nonatomic, retain) NSString *dataLimit;          //Ограничение
 
 
 
-@property (nonatomic, retain) NSString *tariffOption;
 @property (nonatomic, retain) NSNumber *connectionFee;
 @property (nonatomic, retain) NSString *initialPayment;
 @property (nonatomic, retain) NSString *equipment;
 @property (nonatomic, retain) NSString *whatAfter;
-@property (nonatomic, retain) NSString *bonus;          //Бонус
-@property (nonatomic, retain) NSString *linkToTarif;    //Cсылка на сайт
-@property (nonatomic, retain) NSString *coverage;       //Зона покрытия
+@property (nonatomic, retain) NSString *bonus;              //Бонус
+@property (nonatomic, retain) NSString *linkToTarif;        //Cсылка на сайт
+@property (nonatomic, retain) NSString *coverage;           //Зона покрытия
 
 
 + (NSMutableArray *)newListByCountry:(PSCountryModel *)country;

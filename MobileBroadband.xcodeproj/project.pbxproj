@@ -83,6 +83,7 @@
 		AAC503CA1524E9C20035ACB0 /* table-header.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC503C91524E9C20035ACB0 /* table-header.png */; };
 		AAC503CE1524F95D0035ACB0 /* PSTariffsHederSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */; };
 		AAD66301157AC9B200081770 /* default_en.zip in Resources */ = {isa = PBXBuildFile; fileRef = AAD66300157AC9B200081770 /* default_en.zip */; };
+		AAD6B927157FE2D100ED9E56 /* PSAlertDownloadUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD6B926157FE2D100ED9E56 /* PSAlertDownloadUpdate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,8 @@
 		AAC503CC1524F95D0035ACB0 /* PSTariffsHederSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTariffsHederSectionView.h; sourceTree = "<group>"; };
 		AAC503CD1524F95D0035ACB0 /* PSTariffsHederSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTariffsHederSectionView.m; sourceTree = "<group>"; };
 		AAD66300157AC9B200081770 /* default_en.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = default_en.zip; path = Resources/default_en.zip; sourceTree = "<group>"; };
+		AAD6B925157FE2D100ED9E56 /* PSAlertDownloadUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAlertDownloadUpdate.h; sourceTree = "<group>"; };
+		AAD6B926157FE2D100ED9E56 /* PSAlertDownloadUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlertDownloadUpdate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -528,6 +531,8 @@
 				AA7CDFCF15227FBB00BF3D03 /* PSHtmlDialog.m */,
 				AA008DB4151CC69B001FD906 /* PSAppDelegate.h */,
 				AA008DB5151CC69B001FD906 /* PSAppDelegate.m */,
+				AAD6B925157FE2D100ED9E56 /* PSAlertDownloadUpdate.h */,
+				AAD6B926157FE2D100ED9E56 /* PSAlertDownloadUpdate.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -710,6 +715,7 @@
 				AAADA69E1575576900A83D60 /* zip.c in Sources */,
 				AA51E12F1575860500F58F22 /* PSProviderInfoController.m in Sources */,
 				AA51E1371575872500F58F22 /* PSProviderModel.m in Sources */,
+				AAD6B927157FE2D100ED9E56 /* PSAlertDownloadUpdate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,12 +819,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Maxim Kiryushin (7W36E47YJD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Maxim Kiryushin (7W36E47YJD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
 				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A23E8974-E066-46DD-B1E9-13DDC3B494C3";
+				PROVISIONING_PROFILE = "A24B0883-9EFA-4EA8-9446-C6AED040840E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A24B0883-9EFA-4EA8-9446-C6AED040840E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -827,12 +835,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Maxim Kiryushin (7W36E47YJD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Maxim Kiryushin (7W36E47YJD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
 				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A23E8974-E066-46DD-B1E9-13DDC3B494C3";
+				PROVISIONING_PROFILE = "A24B0883-9EFA-4EA8-9446-C6AED040840E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A24B0883-9EFA-4EA8-9446-C6AED040840E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

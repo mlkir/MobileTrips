@@ -251,14 +251,18 @@
             PSCountryController *controller = [[[PSCountryController alloc] initWithNibName:@"PSCountryController" bundle:nil] autorelease];
             [self.navigationController pushViewController:controller animated:YES];
         } break;  
+
         //Переход к About
         case 1: {
             PSWebViewController *controller = [[[PSWebViewController alloc] initWithNibName:@"PSWebViewController" bundle:nil] autorelease];
             NSString *key = [NSString stringWithFormat:@"PSHomePageController.button%d.title", btn.tag];
             controller.title = LocalizedString(key);               
             [self.navigationController pushViewController:controller animated:YES];
-            [Utils loadWebView:controller.webView loadContentFile:@"about.html"];
+            NSString *lang = [Utils getCurrentLocale];
+            NSString *fileName = [NSString stringWithFormat:@"about_%@.html", lang];
+            [Utils loadWebView:controller.webView loadContentFile:fileName];
         } break;  
+
         //Переход к Settings
         case 2: {
             PSSettingsController *controller = [[[PSSettingsController alloc] initWithNibName:@"PSSettingsController" bundle:nil] autorelease];

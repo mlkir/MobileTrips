@@ -12,6 +12,9 @@
 #import "PSHomePageController.h"
 #import "SSZipArchive.h"
 #import "PSParamModel.h"
+#import "PSAlertDownloadUpdate.h"
+
+
 @implementation PSAppDelegate
 
 @synthesize window = _window;
@@ -38,11 +41,21 @@
         NSString *fileZip = [NSString stringWithFormat:FILENAME_ZIP, lang];
         fileZip = [Utils getPathInBundle:fileZip];
         if (![fileManager fileExistsAtPath:fileZip]) fileZip = [Utils getPathInBundle:FILENAME_ZIP_DEFAULT];                
-        [SSZipArchive unzipFileAtPath:fileZip toDestination:pathWithResources];        
+        [SSZipArchive unzipFileAtPath:fileZip toDestination:pathWithResources];
+        
+        //Перегружаем файл локализации
+        [Utils loadLocalizableStrings];
+        
+        //Определяем язык
+        if ([lang isEqualToString:[PSParamModel getValueByKey:PARAM_LANGUAGE]]) {            
+            [PSAlertDownloadUpdate showWithMessage:LocalizedString(@"alert.message.need_download")];
+        }
+    } else {
+        //Перегружаем файл локализации
+        [Utils loadLocalizableStrings];
     }
 
-    //Перегружаем файл локализации
-    [Utils loadLocalizableStrings];
+    
     
     //Создаем window
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];

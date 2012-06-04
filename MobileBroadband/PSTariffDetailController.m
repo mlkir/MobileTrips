@@ -75,8 +75,8 @@
     //Как спросить в салоне, чтобы купить этот тариф
     [html appendString:@"<tr><td>&nbsp;</td></tr>"];
     [html appendFormat:@"<tr><td><b>%@</b></td></tr>", LocalizedString(@"PSTariffDetailController.page.how_order_plan")];
-    [html appendFormat:@"<tr><td><li>%@</td><td>%@</td></tr>", LocalizedString(@"PSTariffDetailController.page.plan_name_local"), @"<font color='red'>???</font>"];
-    [html appendFormat:@"<tr><td><li>%@</td><td>%@</td></tr>", LocalizedString(@"PSTariffDetailController.page.option_name_loocal"), @"<font color='red'>???</font>"];
+    [html appendFormat:@"<tr><td><li>%@</td><td>%@</td></tr>", LocalizedString(@"PSTariffDetailController.page.plan_name_local"),  self.tariff.tariffNameNatural];
+    [html appendFormat:@"<tr><td><li>%@</td><td>%@</td></tr>", LocalizedString(@"PSTariffDetailController.page.option_name_loocal"),  self.tariff.tariffOptionNatural];
     [html appendFormat:@"<tr><td><li><a href='%@'>%@</a></td></tr>", self.tariff.linkToTarif, LocalizedString(@"PSTariffDetailController.page.link")];
     [html appendString:@"</table>"];
     

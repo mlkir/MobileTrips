@@ -19,6 +19,9 @@ NSString *CURRENCY_NAME;
 @synthesize ID = _ID;
 @synthesize trafficType = _trafficType;
 @synthesize tariffName = _tariffName;
+@synthesize tariffOption = _tariffOption;
+@synthesize tariffNameNatural = _tariffNameNatural;
+@synthesize tariffOptionNatural = _tariffOptionNatural;
 @synthesize provaderId = _provaderId;
 @synthesize provaderName = _provaderName;
 @synthesize price = _price;
@@ -26,7 +29,6 @@ NSString *CURRENCY_NAME;
 @synthesize speed = _speed;
 @synthesize speedForSort = _speedForSort;
 @synthesize dataLimit = _dataLimit;
-@synthesize tariffOption = _tariffOption;
 @synthesize connectionFee = _connectionFee;
 @synthesize initialPayment = _initialPayment;
 @synthesize equipment = _equipment;
@@ -60,11 +62,13 @@ NSString *CURRENCY_NAME;
     
     [_trafficType release];
 	[_tariffName release];
+    [_tariffOption release];
+    [_tariffNameNatural release];
+    [_tariffOptionNatural release];
     [_provaderName release];
     [_price release];
     [_speed release];
     [_dataLimit release];
-    [_tariffOption release];
     [_connectionFee release];
     [_initialPayment release];
     [_equipment release];
@@ -96,6 +100,9 @@ NSString *CURRENCY_NAME;
     _ID = sqlite3_column_int(stmt, ++pos);    
     self.trafficType = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     self.tariffName = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.tariffOption = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.tariffNameNatural = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
+    self.tariffOptionNatural = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     
     self.provaderId = sqlite3_column_int(stmt, ++pos);	
     self.provaderName = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
@@ -116,7 +123,6 @@ NSString *CURRENCY_NAME;
 	self.speedForSort = [self convertSpeed:speedDouble withUnitId:speedUnitId];
     self.speed = [NSString stringWithFormat:@"%@ %@", speed, speedUnit];
 
-    self.tariffOption = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     self.connectionFee = [NSNumber numberWithDouble:sqlite3_column_double(stmt, ++pos)];
     self.initialPayment = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
     self.equipment = [dbManager getString:sqlite3_column_value(stmt, ++pos) default:@""];
@@ -135,6 +141,9 @@ NSString *CURRENCY_NAME;
                                                             "  id"
                                                             ", traf_type_name"
                                                             ", tariff"
+                                                            ", tariff_option"
+                                                            ", natural_tariff"
+                                                            ", natural_tariff_option"
                                                             ", provider_id"
                                                             ", TRIM(provider_name)"
                                                             ", price, price_unit_id"
@@ -142,8 +151,7 @@ NSString *CURRENCY_NAME;
                                                             ", data_limit"
                                                             ", speed"
                                                             ", speed_unit_id"
-                                                            ", speed_unit_name"                                                            
-                                                            ", tariff_option"
+                                                            ", speed_unit_name"
                                                             ", connection_fee"
                                                             ", initial_payment"
                                                             ", equipment"

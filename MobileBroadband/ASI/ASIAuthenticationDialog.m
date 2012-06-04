@@ -233,6 +233,9 @@ static const NSUInteger kDomainSection = 1;
 
 - (void)dismiss
 {
+    //Включаем игнор касаний - бликируем любые касания
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];    
+    
 	if (self == sharedDialog) {
 		[[self class] dismiss];
 	} else {
@@ -245,6 +248,9 @@ static const NSUInteger kDomainSection = 1;
 
 - (void)showTitle
 {
+    //Выключаем игнор касаний - разрешаем вводить логин/пароль
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];    
+    
 	UINavigationBar *navigationBar = [[[self view] subviews] objectAtIndex:0];
 	UINavigationItem *navItem = [[navigationBar items] objectAtIndex:0];
 	if (UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation])) {
