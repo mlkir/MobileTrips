@@ -14,8 +14,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA008DA0151CC69A001FD906"
-               BuildableName = "MobileBroadband.app"
-               BlueprintName = "MobileBroadband"
+               BuildableName = "MobileTrips.app"
+               BlueprintName = "MobileTrips"
                ReferencedContainer = "container:MobileBroadband.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,8 +42,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA008DA0151CC69A001FD906"
-            BuildableName = "MobileBroadband.app"
-            BlueprintName = "MobileBroadband"
+            BuildableName = "MobileTrips.app"
+            BlueprintName = "MobileTrips"
             ReferencedContainer = "container:MobileBroadband.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,8 +61,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA008DA0151CC69A001FD906"
-            BuildableName = "MobileBroadband.app"
-            BlueprintName = "MobileBroadband"
+            BuildableName = "MobileTrips.app"
+            BlueprintName = "MobileTrips"
             ReferencedContainer = "container:MobileBroadband.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA008DA0151CC69A001FD906"
-            BuildableName = "MobileBroadband.app"
-            BlueprintName = "MobileBroadband"
+            BuildableName = "MobileTrips.app"
+            BlueprintName = "MobileTrips"
             ReferencedContainer = "container:MobileBroadband.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

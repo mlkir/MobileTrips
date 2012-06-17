@@ -97,7 +97,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA008DA1151CC69A001FD906 /* MobileBroadband.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileBroadband.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA008DA1151CC69A001FD906 /* MobileTrips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileTrips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA008DA5151CC69A001FD906 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AA008DA7151CC69A001FD906 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AA008DA9151CC69A001FD906 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -265,7 +265,7 @@
 		AA008DA2151CC69A001FD906 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA008DA1151CC69A001FD906 /* MobileBroadband.app */,
+				AA008DA1151CC69A001FD906 /* MobileTrips.app */,
 				AA008DCE151CC69B001FD906 /* MobileBroadbandTests.octest */,
 			);
 			name = Products;
@@ -550,9 +550,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA008DA0151CC69A001FD906 /* MobileBroadband */ = {
+		AA008DA0151CC69A001FD906 /* MobileTrips */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA008DE0151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileBroadband" */;
+			buildConfigurationList = AA008DE0151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileTrips" */;
 			buildPhases = (
 				AA008D9D151CC69A001FD906 /* Sources */,
 				AA008D9E151CC69A001FD906 /* Frameworks */,
@@ -562,9 +562,9 @@
 			);
 			dependencies = (
 			);
-			name = MobileBroadband;
+			name = MobileTrips;
 			productName = MobileBroadband;
-			productReference = AA008DA1151CC69A001FD906 /* MobileBroadband.app */;
+			productReference = AA008DA1151CC69A001FD906 /* MobileTrips.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AA008DCD151CC69B001FD906 /* MobileBroadbandTests */ = {
@@ -607,7 +607,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA008DA0151CC69A001FD906 /* MobileBroadband */,
+				AA008DA0151CC69A001FD906 /* MobileTrips */,
 				AA008DCD151CC69B001FD906 /* MobileBroadbandTests */,
 			);
 		};
@@ -732,7 +732,7 @@
 /* Begin PBXTargetDependency section */
 		AA008DD4151CC69B001FD906 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA008DA0151CC69A001FD906 /* MobileBroadband */;
+			target = AA008DA0151CC69A001FD906 /* MobileTrips */;
 			targetProxy = AA008DD3151CC69B001FD906 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -819,14 +819,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Maxim Kiryushin (7W36E47YJD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Maxim Kiryushin (7W36E47YJD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Progress Solutions LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Progress Solutions LLC";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
 				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A24B0883-9EFA-4EA8-9446-C6AED040840E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A24B0883-9EFA-4EA8-9446-C6AED040840E";
+				PROVISIONING_PROFILE = "B9BA2670-DBBD-48AD-85AD-4DB80B4809F4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9BA2670-DBBD-48AD-85AD-4DB80B4809F4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -835,14 +835,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Maxim Kiryushin (7W36E47YJD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Maxim Kiryushin (7W36E47YJD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Progress Solutions LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Progress Solutions LLC";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileBroadband/MobileBroadband-Prefix.pch";
 				INFOPLIST_FILE = "MobileBroadband/MobileBroadband-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A24B0883-9EFA-4EA8-9446-C6AED040840E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A24B0883-9EFA-4EA8-9446-C6AED040840E";
+				PROVISIONING_PROFILE = "B9BA2670-DBBD-48AD-85AD-4DB80B4809F4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9BA2670-DBBD-48AD-85AD-4DB80B4809F4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -895,7 +895,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA008DE0151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileBroadband" */ = {
+		AA008DE0151CC69B001FD906 /* Build configuration list for PBXNativeTarget "MobileTrips" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA008DE1151CC69B001FD906 /* Debug */,
